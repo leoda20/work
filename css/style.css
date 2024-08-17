@@ -1789,6 +1789,11 @@ margin-right: 16px;
     padding: 180px 0 0 0;
   }
 }
+@media screen and (max-width: 768px) {
+  .mil-inner-banner .mil-banner-content {
+    padding: 80px 0 0 0;
+  }
+}
 
 .mil-banner-personal {
   height: 100vh;
@@ -3529,19 +3534,7 @@ portfolio
 
 
 
-.parent-div-sticky {
-  position: relative;
-  height: auto;
-  overflow: auto;
-}
 
-.div-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;  /* Adjust as needed */
-  height: auto;
-  /* Remove overflow: auto; here, it might interfere with the sticky behavior */
-}
 
 
 
@@ -3740,7 +3733,19 @@ portfolio
         -ms-flex-direction: column;
             flex-direction: column;
     height: auto;
-    padding: 30px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    
+    display: block;
+  }
+  .mil-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+    
+    display: block;
   }
 }
 
@@ -3790,6 +3795,9 @@ portfolio
   margin-right: 8px;
 }  
 
+.card-themes p {
+  bottom: 0;
+}  
 .card-themes svg {
   fill: #212121;
   margin-bottom: 8px;
