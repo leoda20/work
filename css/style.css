@@ -244,24 +244,24 @@ h2,
 
 h3,
 .mil-h3 {
-  font-size: 42px;
+  font-size: 48px;
 }
 @media screen and (max-width: 1200px) {
   h3,
 .mil-h3 {
-    font-size: 39px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 992px) {
   h3,
 .mil-h3 {
-    font-size: 36px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 768px) {
   h3,
 .mil-h3 {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 
@@ -365,6 +365,13 @@ blockquote {
 .mil-upper {
   text-transform: uppercase;
   font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.mil-upper-lg {
+  text-transform: uppercase;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 2px;
 }
@@ -4695,7 +4702,7 @@ images
 }
 
 .img-card{
-  max-width: 80%;
+  width: 100%;
   padding-bottom: 30px;
 }
 
