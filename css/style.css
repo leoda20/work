@@ -2746,10 +2746,10 @@ social icons
 ------------------------------------------- */
 
 .social-icon{
-  height: 48px;
-  width: 48px;
-  padding: 8px;
-  background-color: #212121;
+  height: 40px;
+  width: 40px;
+  padding: 4px;
+  background-color: transparent;
   
   border-radius: 8px;
 
@@ -2761,9 +2761,9 @@ social icons
 }
 
 .social-icon:hover{
-  height: 48px;
-  width: 48px;
-  padding: 8px;
+  height: 40px;
+  width: 40px;
+  padding: 4px;
   border: none;
   border-radius: 8px;
   background-color: #5bb86a;
@@ -2799,14 +2799,10 @@ social icons
   display: -ms-flexbox;
   display: flex;
 }
-.mil-social-icons.mil-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
+
 .mil-social-icons li {
   list-style-type: none;
-  margin-right: 15px;
+  margin-right: 8px;
 }
 .mil-social-icons li:last-child {
   margin-right: 0;
@@ -3342,7 +3338,7 @@ portfolio
 
 
 .contact-card{
-  padding: 80px;
+  padding: 48px;
   background-color: #212121;
   border-radius: 8px;
   display: flex;
@@ -3350,7 +3346,7 @@ portfolio
 }
 
 .contact-card:hover{
-  padding: 80px;
+  padding: 48px;
   background-color: #5bb86a;
   border-radius: 8px;
   display: flex;
@@ -3527,10 +3523,25 @@ portfolio
   max-width: 248px;
 }
 
+.swiper-slide-final{
+  max-width: 360px;
+}
 
 
 
+.parent-div-sticky {
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
 
+.div-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;  /* Adjust as needed */
+  height: auto;
+  /* Remove overflow: auto; here, it might interfere with the sticky behavior */
+}
 
 
 
@@ -3771,13 +3782,24 @@ portfolio
 
 .card-themes {
   padding: 24px;
-  border: solid #f9f9f9;
-  border-color: #f9f9f9;
+  border: solid 2px #f4f4f4;
+  border-color: #f4f4f4;
   border-radius: 8px;
   margin-bottom: 16px;
   margin-left: 8px;
   margin-right: 8px;
 }  
+
+.card-themes svg {
+  fill: #212121;
+  margin-bottom: 8px;
+} 
+
+.card-themes path {
+  fill: #5bb86a;
+}  
+
+
 
 
 .card-hero {
@@ -3788,6 +3810,16 @@ portfolio
   margin-left: 8px;
   margin-right: 8px;
 }  
+
+.card-final {
+  padding: 24px;
+  border: none;
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: #CECECE;
+}  
+
 
 .links-menu {
 
@@ -4517,12 +4549,13 @@ images
   overflow: hidden;
   display: flex;
     flex-wrap: wrap;
+    
+    justify-content: center;
 }
 .mil-image-frame > img {
-  position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+    
+    
     height: 100%;
     object-fit: contain; /* Change to 'cover' if you prefer images to fill the container */
     object-position: center;
@@ -4571,6 +4604,75 @@ images
   width: 17px;
 }
 .mil-image-frame:hover .mil-zoom-btn {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  z-index: 2;
+}
+
+
+.mil-image-frame-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    
+    justify-content: center;
+}
+.mil-image-frame-hero > img {
+  position: fixed;
+    
+    
+    height: 100%;
+    object-fit: contain; /* Change to 'cover' if you prefer images to fill the container */
+    object-position: center;
+
+}
+
+.mil-image-frame-hero.mil-horizontal {
+  padding-bottom: 65%;
+}
+.mil-image-frame-hero.mil-vertical {
+  padding-bottom: 140%;
+}
+.mil-image-frame-hero.mil-square {
+  padding-bottom: 100%;
+}
+.mil-image-frame-hero.mil-fw {
+  padding-bottom: 50%;
+}
+.mil-image-frame-hero .mil-zoom-btn {
+  opacity: 1;
+  -webkit-transform: translateY(15px);
+          transform: translateY(15px);
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+.mil-image-frame-hero .mil-zoom-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+.mil-image-frame-hero .mil-zoom-btn img {
+  height: 17px;
+  width: 17px;
+}
+.mil-image-frame-hero:hover .mil-zoom-btn {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
