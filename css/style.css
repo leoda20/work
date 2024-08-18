@@ -3824,7 +3824,16 @@ portfolio
   border-radius: 8px;
   margin-left: 8px;
   margin-right: 8px;
+  background-color: #000000;
 }  
+
+.hero-background {
+height: 420px;
+width: 100%;
+bottom: 0;
+position: absolute;
+
+}
 
 .card-final {
   padding: 24px;
