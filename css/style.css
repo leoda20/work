@@ -208,13 +208,13 @@ h1,
 @media screen and (max-width: 992px) {
   h1,
 .mil-h1 {
-    font-size: 64px;
+    font-size: 58px;
   }
 }
 @media screen and (max-width: 768px) {
   h1,
 .mil-h1 {
-    font-size: 64px;
+    font-size: 58px;
   }
 }
 
@@ -936,8 +936,14 @@ spaces
 }
 @media screen and (max-width: 992px) {
   .mil-p-120-120 {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mil-p-120-120 {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
@@ -3348,6 +3354,13 @@ portfolio
   }
 }
 
+.title-counter{
+  display: flex;
+  align-items: center;
+}
+
+
+
 
 .contact-card{
   padding: 48px;
@@ -3804,6 +3817,7 @@ portfolio
 
 .card-themes p {
   bottom: 0;
+  width: fit-content;
 }  
 .card-themes svg {
   fill: #212121;
@@ -3814,7 +3828,24 @@ portfolio
   fill: #5bb86a;
 }  
 
+.mil-counter {
+  
+  height: 32px;
+  width: 32px;
+  background-color:  #6d6d6d;
+  border-radius:  4px;
+  display: block;
+  justify-content: center;
+  margin-right: 8px;
+} 
 
+.mil-counter h5{
+  height: 24px;
+  width: 24px;
+  color: white;
+} 
+
+ 
 
 
 .card-hero {
@@ -4578,6 +4609,25 @@ images
     justify-content: center;
 }
 .mil-image-frame > img {
+  position: fixed;
+    
+    
+    height: 100%;
+    object-fit: contain; /* Change to 'cover' if you prefer images to fill the container */
+    object-position: center;
+
+}
+
+.mil-image-frame-vertical {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+  height: 100%;
+}
+.mil-image-frame-vertical > img {
   position: fixed;
     
     
