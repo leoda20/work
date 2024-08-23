@@ -352,6 +352,18 @@ blockquote {
   line-height: 170%;
 }
 
+.mil-badge {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 5px;
+  padding-top: 3px;
+  background-color: #5bb86a;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
 .mil-text-xl {
   font-size: 22px;
   line-height: 180%;
@@ -3887,8 +3899,14 @@ position: absolute;
   margin-left: 8px;
   margin-right: 8px;
   background-color: #CECECE;
-  width: 180px;
+
 }  
+
+@media screen and (max-width: 768px) {
+  .card-final {
+    max-width: 240px;
+  }
+}
 
 
 .links-menu {
@@ -4642,9 +4660,11 @@ images
     
     justify-content: center;
   height: 100%;
+  width: 100%;
+  height: 540px;
 }
 .mil-image-frame-vertical > img {
-  position: fixed;
+ 
     
     
     height: 100%;
@@ -4652,6 +4672,25 @@ images
     object-position: center;
 
 }
+
+@media screen and (max-width: 768px) {
+  .mil-image-frame-vertical {
+    width: 100%;
+    height: 340px;
+    position: relative;
+  overflow: hidden;
+  display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+  }
+  .mil-image-frame-vertical img{
+    width: 100%;
+    object-fit: contain;
+    
+  }
+}
+
 
 .mil-image-frame-horizontal {
   position: relative;
@@ -4664,13 +4703,18 @@ images
 
 @media screen and (max-width: 768px) {
   .mil-image-frame-horizontal {
-    width: fit-content;
+    width: 100%;
     position: relative;
   overflow: hidden;
   display: flex;
     flex-wrap: wrap;
     
     justify-content: center;
+  }
+  .mil-image-frame-horizontal img{
+    width: 100%;
+    object-fit: cover;
+    
   }
 }
 
