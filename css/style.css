@@ -3561,6 +3561,10 @@ portfolio
 }
 
 .swiper-slide-final{
+  max-width: 280px;
+}
+
+.swiper-slide-persona{
   max-width: 360px;
 }
 
