@@ -3569,7 +3569,7 @@ portfolio
 }
 
 .swiper-slide-phone{
-  max-width: 320px;
+  max-width: 280px;
   height: 540px;
 }
 
@@ -4651,11 +4651,31 @@ images
 .mil-image-frame > img {
   position: fixed;
     
-    
-    height: 100%;
+    width: 100%;
     object-fit: contain; /* Change to 'cover' if you prefer images to fill the container */
     object-position: center;
 
+}
+
+
+@media screen and (max-width: 768px) {
+  .slider-mobile {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+  }
+  .slider-mobile > img {
+    position: fixed;
+      
+      
+      height: 100%;
+      object-fit: cover; /* Change to 'cover' if you prefer images to fill the container */
+      object-position: center;
+  
+  }
 }
 
 
