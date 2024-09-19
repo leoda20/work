@@ -191,18 +191,18 @@ h6 br,
 
 h1,
 .mil-h1 {
-  font-size: 86px;
+  font-size: 64px;
 }
 @media screen and (max-width: 1400px) {
   h1,
 .mil-h1 {
-    font-size: 74px;
+    font-size: 64px;
   }
 }
 @media screen and (max-width: 1200px) {
   h1,
 .mil-h1 {
-    font-size: 72px;
+    font-size: 64px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -214,19 +214,19 @@ h1,
 @media screen and (max-width: 768px) {
   h1,
 .mil-h1 {
-    font-size: 58px;
+    font-size: 48px;
   }
 }
 
 h2,
 .mil-h2 {
-  font-size: 68px;
+  font-size: 48px;
   line-height: 120%;
 }
 @media screen and (max-width: 1200px) {
   h2,
 .mil-h2 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -244,35 +244,35 @@ h2,
 
 h3,
 .mil-h3 {
-  font-size: 48px;
+  font-size: 32px;
 }
 @media screen and (max-width: 1200px) {
   h3,
 .mil-h3 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 @media screen and (max-width: 992px) {
   h3,
 .mil-h3 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 @media screen and (max-width: 768px) {
   h3,
 .mil-h3 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 
 h4,
 .mil-h4 {
-  font-size: 28px;
+  font-size: 24px;
 }
 @media screen and (max-width: 1200px) {
   h4,
 .mil-h4 {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -290,7 +290,7 @@ h4,
 
 h5,
 .mil-h5 {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 150%;
 }
 @media screen and (max-width: 768px) {
@@ -302,13 +302,13 @@ h5,
 
 h6,
 .mil-h6 {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 150%;
 }
 @media screen and (max-width: 1200px) {
   h6,
 .mil-h6 {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -320,7 +320,7 @@ h6,
 @media screen and (max-width: 768px) {
   h6,
 .mil-h6 {
-    font-size: 21px;
+    font-size: 16px;
   }
 }
 
@@ -387,6 +387,7 @@ blockquote {
   font-weight: 500;
   letter-spacing: 2px;
 }
+
 
 .mil-bold {
   font-weight: 500;
@@ -865,6 +866,7 @@ backgrounds
 ------------------------------------------- */
 .mil-dark-bg {
   position: relative;
+  pointer-events: all;
 }
 .mil-dark-bg:before {
   content: "";
@@ -895,6 +897,16 @@ backgrounds
 spaces
 
 ------------------------------------------- */
+.mil-mr-16 {
+  padding-right: 16px;
+}
+
+@media screen and (max-width: 992px) {
+  .mil-mr-16 {
+    padding-right: 0px;
+  }
+}
+
 .mil-mr-30 {
   margin-right: 30px;
 }
@@ -1002,9 +1014,9 @@ spaces
   }
 }
 
-.mil-p-90-90 {
-  padding-top: 90px;
-  padding-bottom: 90px;
+.mil-p-80-80 {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 @media screen and (max-width: 992px) {
   .mil-p-90-90 {
@@ -1077,6 +1089,16 @@ spaces
   }
 }
 
+.mil-p-48 {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+@media screen and (max-width: 992px) {
+  .mil-p-48 {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
 
 
 
@@ -1755,9 +1777,17 @@ menu
 banner
 
 ------------------------------------------- */
-.mil-banner {
- 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+
+
+
+
+
 .mil-banner .container {
   
   /*
@@ -1770,6 +1800,20 @@ banner
       -ms-flex-align: end;
           align-items: flex-end;
           */
+}
+
+.mil-banner-end {
+  
+  
+  
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+          
 }
 
 .mil-banner .container h4 {
@@ -2809,7 +2853,7 @@ social icons
 }
 
 .social-icon path {
-  fill: white;
+  fill: #212121;
 }
 
 .social-icon:hover path {
@@ -3027,14 +3071,35 @@ blog
 ------------------------------------------- */
 .mil-blog-card {
   display: block;
+  
 }
 .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
-  padding-bottom: 65%;
-  margin-bottom: 30px;
+  padding-bottom: 420px;
+  margin-bottom: 24px;
   border-radius: 8px;
+  
 }
+
+.blog-card-title{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.mil-blog-card p{
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 .mil-blog-card .mil-cover-frame img {
   width: 100%;
   height: 100%;
@@ -3047,6 +3112,7 @@ blog
   left: 0;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  
 }
 .mil-blog-card .mil-post-descr {
   padding: 0 30px 48px 0;
@@ -3379,7 +3445,7 @@ portfolio
 
 .contact-card{
   padding: 48px;
-  background-color: #212121;
+  border: solid 1px #d0d0d0;
   border-radius: 8px;
   display: flex;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
@@ -3391,6 +3457,10 @@ portfolio
   border-radius: 8px;
   display: flex;
   
+}
+
+.contact-card h1{
+  color: #212121;
 }
 
 @media screen and (max-width: 768px) {
@@ -3464,40 +3534,118 @@ portfolio
 
 
 
+.mil-hero-menu ul li {
+  list-style-type: none !important;
+}
+.mil-hero-menu ul li a {
+
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  display: block;
+  font-size: 18px;
+  color: #000000;
+  
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: transparent;
+  text-transform: uppercase;
+  list-style-type: none;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+.mil-hero-menu ul li a:hover {
+  
+  color: #5bb86a;
+  text-decoration: underline;
+  
+  font-weight: 500;
+  
+  border-radius: 4px;
+}
+.mil-hero-menu ul li svg path {
+  
+  color: #5bb86a;
+  
+}
+@media screen and (max-width: 768px) {
+  .mil-hero-menu ul li a {
+    font-size: 22px;
+  }
+}
+.mil-hero-menu ul li.mil-active a {
+  color: #5bb86a;
+}
+.mil-hero-menu ul li.mil-active a:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.mil-hero-menu ul li.mil-active {
+  color: #5bb86a;
+  list-style-type: square !important;
+  margin-left: 16px;
+}
+@media screen and (max-width: 768px) {
+  .mil-hero-menu {
+    margin-bottom: 8px;
+  }
+}
+
+
+.header-container {
+  padding:  8px 16px 8px 16px  ;
+}
+
 
 
 
 
 
 .hero-card-btn{
-  background-color: transparent;
-  border-radius: 8px;
   display: flex;
+  
   align-items: center;
   text-align: center;
-  margin-left: 8px;
-  margin-right: 8px;
-  height: auto;
-  padding: 24px;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: fit-content;
+  border: solid 1px #212121;
+  border-radius: 99px;
+  width: fit-content;
 }
 
 .hero-card-btn:hover{
-  background-color: #5bb86a;
   border-radius: 8px;
   display: flex;
   align-items: center;
   text-align: center;
-  margin-left: 8px;
-  margin-right: 8px;
   height: auto;
-  padding: 24px;
+  color: #5bb86a;
+  text-decoration: underline;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: fit-content;
+  border: solid 1px #212121;
+  border-radius: 99px;
   
 }
 
 
-.hero-card-btn a{
-  color: #ffffff;
+.hero-card-btn h5{
+  font-size: 18px;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  
+}
+
+.hero-card-btn:hover h5{
+  color: #5bb86a;
   font-size: 18px;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   
@@ -3514,50 +3662,25 @@ portfolio
 .hero-card-btn:hover svg{
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  margin-left: 16px;
+  margin-left: 8px;
 }
 
 .hero-card-btn path{
-  fill: #ffffff;
+  
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 
 .hero-card-btn:hover path{
-  fill: #212121;
-}
-
-.hero-card-btn h4{
-  color: #212121;
-  font-style: underline;
-}
-
-
-.hero-card-btn:hover h1{
-  
-  color: #ffffff;
-  
-}
-
-.hero-card-btn:hover h1{
-  
-  color: #212121;
-  
-}
-
-.hero-card-btn h5{
-  
-  color: #ffffff;
-  text-align: center;
+  fill: #5bb86a;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 
-.hero-card-btn:hover h5{
-  
-  color: #212121;
-  text-align: center;
- 
-  
-}
+
+
+
+
+
+
 
 .swiper-slide-hero{
   max-width: 248px;
@@ -3887,13 +4010,12 @@ portfolio
 
 .card-hero {
   padding: 24px;
-  border: solid #212121;
-  border-color: #212121;
+  border: 1px solid #d0d0d0;
   border-radius: 8px;
-  margin-left: 8px;
-  margin-right: 8px;
-  background-color: #000000;
+  
 }  
+
+
 
 .hero-background {
 height: 420px;
@@ -4872,10 +4994,17 @@ images
 }
 
 .img-persona{
-  border-radius: 8px;
-  width: 80px;
-  height: 80px;
-  margin-bottom: 16px;
+  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+.img-hero{
+  border-radius: 99px;
+  width: 56px;
+  height: 56px;
+  margin-right: 16px;
 }
 
 .img-card{
