@@ -104,6 +104,11 @@ body {
   pointer-events: all;
 }
 
+.container-32 {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
 .mil-relative {
   position: relative;
 }
@@ -191,7 +196,7 @@ h6 br,
 
 h1,
 .mil-h1 {
-  font-size: 64px;
+  font-size: 80px;
 }
 @media screen and (max-width: 1400px) {
   h1,
@@ -3069,44 +3074,78 @@ revievs
 blog
 
 ------------------------------------------- */
+
+
+
+
 .mil-blog-card {
   display: block;
+  overflow: hidden;
+  margin-bottom: 30px;
+  
   
 }
 .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
-  padding-bottom: 420px;
-  margin-bottom: 30px;
+  height: 72vh;
+
   border-radius: 16px;
   
 }
 
+.mil-cover-frame:hover {
+  border: solid 1px #334155;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
+          transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
+  
+  
+}
+
+
+
 .blog-card-title{
   position: absolute;
-  top: 24px;
-  left: 24px;
-  right: 24px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  border-radius: 4px;
+  top: 0;
+  padding: 30px;
+  left: 0;
+  right: 0;
+  display: block;
+  transition: all 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  border-radius: 0px 0px 16px 16px;
 }
+
+
 
 
 .blog-card-title p{
   color: #535353;
   font-size: 16px;
   font-weight: 300;
-  margin-bottom: 32px;
+}
+
+.blog-card-title img{
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .blog-card-title img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+
+  }
 }
 
 .blog-card-title svg{
 
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
 }
+
 
 .experience-logo{
   
@@ -3120,8 +3159,8 @@ blog
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-          margin-bottom: 16px;
-          
+          padding-top: 4px;
+          margin-bottom: 8px;
 }
 
 
@@ -3568,7 +3607,7 @@ portfolio
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   display: block;
-  font-size: 18px;
+  font-size: 24px;
   color: #000000;
   
   padding-top: 4px;
@@ -3578,6 +3617,7 @@ portfolio
   list-style-type: none;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  margin-bottom: 24px;
 }
 .mil-hero-menu ul li a:hover {
   
@@ -4073,9 +4113,10 @@ portfolio
 
 
 .card-hero {
-  padding: 24px;
+  padding: 80px;
   border: 1px solid #d0d0d0;
-  border-radius: 8px;
+  border-radius: 16px;
+  height: 100%;
   
 }  
 
