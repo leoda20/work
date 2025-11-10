@@ -24,6 +24,8 @@
 
 <body>
 
+    
+
     <!-- wrapper -->
     <div class="mil-wrapper" id="top">
 
@@ -126,14 +128,74 @@
         <div class="mil-content">
             <div id="swupMain" class="mil-main-transition">
 
+
+                <div class="top-header" style="border-bottom: 1px solid #E2E8F0; position: fixed; width: 100%; top: 0; left: 0; z-index: 9999; background: #fff;">
+        <div class="justify-content-between container" style="height: 64px; align-items: center; display: flex;">
+            <ul class="mil-breadcrumbs">
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="#.">Cluber</a></li>
+                </ul>
+
+            <!-- Desktop nav -->
+            <div class="desktop-nav inline-flex justify-content-center align-items-center " style="gap:8px;">
+                <!--<a class="btn-ghost" aria-label="Português">
+                    <img src="https://flagcdn.com/w40/pt.png" alt="Português" style="width: 20px; margin-right: 8px;">
+                    <h5 class="">PT</h5>
+                </a>
+
+                <hr style="height: 24px; border: 1px solid #E2E8F0; margin: 0 8px;" id="anchor1">-->
+
+                <a href="project-cadastrapet.html" class="btn-secondary" style="margin-right: 8px;">
+                    Previous project
+                </a>
+                
+                <a href="project-dronelivery.html" class="btn-secondary">
+                    Next project
+                </a>
+
+                
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button id="navToggle" aria-label="Abrir menu" aria-expanded="false" style="display:none; background:transparent; border:0; padding:8px; cursor:pointer;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu (hidden on desktop) -->
+        <div id="mobileMenu" aria-hidden="true" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-top:1px solid #E2E8F0;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <a href="index.html" style="display:inline-flex; align-items:center;">
+                        <img class="logo-24" src="img/photo/in-line-logo.svg" alt="logo" style="height:28px;">
+                    </a>
+                </div>
+                <button id="mobileClose" aria-label="Fechar menu" style="background:transparent; border:0; padding:8px; cursor:pointer;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.41 4.29 19.71 2.88 18.29 9.18 12 2.88 5.71 4.29 4.29 10.59 10.59 16.89 4.29z"/></svg>
+                </button>
+            </div>
+
+            <nav style="padding:12px 16px; display:flex; flex-direction:column; gap:12px;">
+                <a class="mobile-link" href="eventos.html" style="padding:12px; border-radius:6px; text-decoration:none; color:#111;">Eventos</a>
+                <a class="mobile-link" href="torna-te-um-moderador.html" style="padding:12px; border-radius:6px; text-decoration:none; color:#fff; background:#0b63ce; display:inline-block; text-align:center;">Criar Evento</a>
+                <div style="border-top:1px solid #E2E8F0; margin-top:8px; padding-top:8px;">
+                    <a class="mobile-link" href="#" style="display:inline-flex; gap:8px; align-items:center; text-decoration:none; color:#111;">
+                        <img src="https://flagcdn.com/w40/pt.png" alt="Português" style="width:20px;">
+                        <span>PT</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Spacer to offset the fixed header so page content isn't hidden -->
+    <div style="height: 64px;"></div>
+
                 <!-- banner -->
                 <div class="mil-inner-banner">
                     <div class="mil-banner-content mil-up">
                         <div class="container">
-                            <ul class="mil-breadcrumbs mil-mb-60">
-                                <li><a href="index.html">Homepage</a></li>
-                                <li><a href="#.">Cluber</a></li>
-                            </ul>
+                            
                             <h1 class="mil-mb-30">Cluber</h1>
 
                         </div>
@@ -375,7 +437,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-12 mil-p-120-120">
+                        <div class="col-lg-12">
 
                             <div class="col-lg-8">
                                 <h3 class="mil-up mil-mb-30">Cluber landing page</h3>
@@ -414,7 +476,7 @@
                             
                         </div>
 
-                        <div class="row justify-content-between mil-p-120-120">
+                        <div class="row justify-content-between">
 
                             <div class="col-lg-4">
     
@@ -458,7 +520,7 @@
                             </div>
                         </div>
 
-                        <div class="mil-p-120-120">
+                        <div class="">
 
                             <div class="col-lg-8">
                                 <h3 class="mil-up mil-mb-30">Branding and visual identity</h3>
@@ -473,7 +535,7 @@
                                 <p>Drag to view all</p>
                             </div>
 
-                            <div class="swiper-container mil-2-slider mil-up">
+                            <div class="swiper-container mil-2-slider mil-up" style="max-height: 480px;">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide mil-drag mil-horizontal" style="max-width: 280px;">
 
@@ -519,15 +581,7 @@
                         </div>
 
 
-                        <div class="mil-works-nav mil-up">
-                            <a href="project-dronelivery.html" class="mil-link mil-dark mil-arrow-place mil-icon-left">
-                                <span>Prev project</span>
-                            </a>
-
-                            <a href="project-cadastrapet.html" class="mil-link mil-dark mil-arrow-place">
-                                <span>Next project</span>
-                            </a>
-                        </div>
+                        
 
                     </div>
 
@@ -658,92 +712,7 @@
 
                 <!-- hidden elements -->
                 <div class="mil-hidden-elements">
-                    <div class="mil-dodecahedron">
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="mil-pentagon">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
+                    
 
                     <svg xmlns="http://www.w3.org/2000/svg" height="16px" widht="16px" viewBox="0 0 16 16" class="mil-arrow">
                         <path d="M11.8031 3.0205L3.86333 2.84925L3.90322 1L15 1.23934L14.7607 12.3361L12.9114 12.2962L13.0827 4.35652L2.2796 14.7034L1 13.3674L11.8031 3.0205Z" fill="black"/>

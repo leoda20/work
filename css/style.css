@@ -727,6 +727,18 @@ button
   }
 }
 
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: #1c1c1c;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 400;
+}
+.btn-secondary:hover {
+  background-color: #5bb86a;
+  color: #1c1c1c;
+}
 /* -------------------------------------------
 
 form
@@ -806,7 +818,6 @@ breadcrumbs
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
 }
 .mil-breadcrumbs:before {
   content: "";
@@ -4907,7 +4918,6 @@ images
   width: 100%;
   min-height: 320px;
   height: 100%;
-  max-height: 640px;
 }
     
 
