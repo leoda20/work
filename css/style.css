@@ -3099,7 +3099,7 @@ blog
 .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
-  height: 72vh;
+  height: 48vh;
 
   border-radius: 16px;
   
@@ -3116,14 +3116,15 @@ blog
 
 
 .blog-card-title{
-  position: absolute;
-  top: 0;
-  padding: 30px;
-  left: 0;
-  right: 0;
+  
   display: inline-flex;
+  position: relative;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 16px;
   transition: all 0.4s cubic-bezier(0, 0, 0.3642, 1);
   border-radius: 0px 0px 16px 16px;
+  margin-bottom: 32px;
 }
 
 
@@ -3164,7 +3165,7 @@ blog
   .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
-  height: 48vh;
+  height: 10vh;
 
   border-radius: 16px;
 
