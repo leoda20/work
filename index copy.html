@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css">
+    <!-- ashley scss -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- page name -->
+    <title>Portfolio | Leo Denega
+    </title>
+
+
+    <style>
+  
+
+  /* This wrapper stands in for the React component's props */
+  #host {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    background: #000000; /* "background" prop */
+  }
+
+  #host canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+</style>
+
+</head>
+
+<body>
+
+    <div id="host"></div>
+
+<script>
+(function () {
+  // ---- "props" -------------------------------------------------
+  const config = {
+    image: "https://imagedelivery.net/IEUjvl3YUlxY-MrTpOAWDQ/6eaa9f69-8a66-4e0a-91ec-200d13a56500/w=800",
+    dots: 12,       // number of columns
+    gap: 12,        // px gap between dots
+    intensity: 10,  // 1-10, shapes the falloff curve
+    radius: 150,    // px, mouse influence radius
+    dotColor: "#FFFFFF"
+  };
+  // -----------------------------------------------------------------
+
+  const host = document.getElementById("host");
+  const canvas = document.createElement("canvas");
+  host.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+
+  const mouse = { x: -99999, y: -99999, active: false };
+
+  // ---- Cell class (equivalent to the TS class) --------------------
+  class Cell {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.reveal = 0;
+      this.treveal = 0;
+      this.lastHit = 0;
+    }
+
+    update(mx, my, hit, radius, falloff, now) {
+      if (hit) {
+        this.lastHit = now;
+        const dist = Math.hypot(mx - this.x, my - this.y);
+        const n = Math.max(0, Math.min(1, 1 - dist / radius));
+        const shaped = Math.pow(n, falloff);
+        this.treveal = shaped * shaped * (3 - 2 * shaped); // smoothstep
+      } else if (now - this.lastHit > 50) {
+        this.treveal = 0;
+      }
+    }
+
+    draw(ctx, img, dotSize, fullSize, f, color) {
+      this.reveal += (this.treveal - this.reveal) * 0.15;
+
+      const d = dotSize + (fullSize - dotSize) * this.reveal;
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.beginPath();
+      ctx.arc(0, 0, d / 2, 0, 2 * Math.PI);
+
+      if (img && img.complete && img.naturalWidth > 0 && f) {
+        ctx.clip();
+        const sw = d / f.fit;
+        const sx = (this.x - d / 2 - f.dx) / f.fit;
+        const sy = (this.y - d / 2 - f.dy) / f.fit;
+        ctx.drawImage(img, sx, sy, sw, sw, -d / 2, -d / 2, d, d);
+      } else {
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+  // -------------------------------------------------------------------
+
+  const cols = Math.max(1, Math.floor(config.dots));
+  const R = Math.max(1, config.radius);
+  const I = Math.max(1, Math.min(10, config.intensity));
+  const falloff = Math.pow(2, (0.5 - ((I - 1) * 5) / 9) / 1.5);
+
+  let img = null;
+  if (config.image) {
+    img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = config.image;
+  }
+
+  let W = 1, H = 1;
+  let pitch = 20, dotSize = 20, fullSize = 20;
+  let fitInfo = null;
+  let bleed = 0;
+  let cells = [];
+
+  function computeFit() {
+    if (!img || !img.complete || !img.naturalWidth) {
+      fitInfo = null;
+      return;
+    }
+    const nW = img.naturalWidth;
+    const nH = img.naturalHeight;
+    const fit = Math.max(W / nW, H / nH);
+    fitInfo = {
+      fit,
+      dx: (W - nW * fit) / 2,
+      dy: (H - nH * fit) / 2
+    };
+  }
+
+  function build(mw, mh) {
+    const r = host.getBoundingClientRect();
+    W = Math.max(1, Math.floor(mw ?? r.width));
+    H = Math.max(1, Math.floor(mh ?? r.height));
+
+    pitch = W / cols;
+    dotSize = Math.max(1, pitch - Math.max(0, config.gap));
+    fullSize = pitch * Math.SQRT2;
+    const rowN = Math.max(1, Math.ceil(H / pitch));
+
+    bleed = Math.ceil(fullSize / 2 + 4);
+
+    const dpr = window.devicePixelRatio || 1;
+    const cw = W + bleed * 2;
+    const ch = H + bleed * 2;
+    canvas.width = Math.floor(cw * dpr);
+    canvas.height = Math.floor(ch * dpr);
+    canvas.style.width = cw + "px";
+    canvas.style.height = ch + "px";
+    canvas.style.left = -bleed + "px";
+    canvas.style.top = -bleed + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, bleed * dpr, bleed * dpr);
+
+    const gridH = rowN * pitch;
+    const oy = (H - gridH) / 2 + pitch / 2;
+
+    cells = [];
+    for (let c = 0; c < cols; c++) {
+      for (let rIdx = 0; rIdx < rowN; rIdx++) {
+        cells.push(new Cell(c * pitch + pitch / 2, oy + rIdx * pitch));
+      }
+    }
+    computeFit();
+  }
+
+  function drawFrame(now) {
+    ctx.clearRect(-bleed, -bleed, W + bleed * 2, H + bleed * 2);
+    for (const cell of cells) {
+      cell.update(mouse.x, mouse.y, mouse.active, R, falloff, now);
+      cell.draw(ctx, img, dotSize, fullSize, fitInfo, config.dotColor);
+    }
+  }
+
+  build();
+
+  const ro = new ResizeObserver((entries) => {
+    const cr = entries[0]?.contentRect;
+    build(cr?.width, cr?.height);
+  });
+  ro.observe(host);
+
+  if (img && !img.complete) {
+    img.onload = () => computeFit();
+  }
+
+  function setMouse(clientX, clientY) {
+    const r = host.getBoundingClientRect();
+    mouse.x = clientX - r.left;
+    mouse.y = clientY - r.top;
+    mouse.active = true;
+  }
+  function onMove(e) { setMouse(e.clientX, e.clientY); }
+  function onLeave() {
+    mouse.active = false;
+    mouse.x = -99999;
+    mouse.y = -99999;
+  }
+  function onTouch(e) {
+    const t = e.touches[0];
+    if (t) setMouse(t.clientX, t.clientY);
+  }
+
+  host.addEventListener("mousemove", onMove);
+  host.addEventListener("mouseleave", onLeave);
+  host.addEventListener("touchmove", onTouch, { passive: true });
+  host.addEventListener("touchend", onLeave);
+
+  function loop(now) {
+    drawFrame(now);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+
+</body>
+
+</html>
+
