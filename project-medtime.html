@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body class="no-scroll-animation">
 
     
 
@@ -79,23 +79,25 @@
         <div class="flex-div mil-p-24-24  gap-80 justify-content-between">
 
 
-            <div class="col-lg-5 mil-mb-15">
-                <h4 class="mil-mb-8">Project</h4>
+            <div class="col-lg-5 col-md-5 title-group">
+                <h4>Project</h4>
                 
-                <p >In the Medtime project, I set out to create a mobile app that simplifies medication management. The goal was to make setting personalized alarms easy and offer convenient medication purchase suggestions. Focused on user-centric design, I aimed to help users like Paolo and Ana manage their medication routines effortlessly from their first use.</p>
+                <p >Designing a medication management app that helps users build consistent medication routines with minimal effort.</p>
+
+                <p>Medtime is a UX case study exploring how reminders, recurring schedules, and pharmacy recommendations can simplify daily medication management for users with different lifestyles.</p>
 
             </div>
 
-            <div class="col-lg-5 mil-mb-15">
-                <h4 class="mil-mb-8">Goals</h4>
+            <div class="col-lg-5 col-md-5 title-group">
+                <h4>Goals</h4>
                 
                 <ul>
 
-                    <li >Simplify medication management with personalized alarms</li>
+                    <li >Reduce the effort required to create medication reminders</li>
 
-                    <li>Enhance organization with sections for recurring medications and customizable categories</li>
+                    <li>Support recurring and changing treatment schedules</li>
 
-                    <li>Provide smart scheduling and pharmacy suggestions for easier prescription management</li>
+                    <li>Help users purchase prescribed medication more easily</li>
 
                 </ul>
 
@@ -103,18 +105,52 @@
             
         </div>
 
+        <div class="mil-p-120-120">
+            <div class="col-lg-8 title-group">
+                <h2>Challenge</h2>
+                <p>Medication reminder apps often become overwhelming as treatments grow more complex. Users need to manage recurring medications, multiple daily doses, and changing schedules without spending unnecessary time configuring reminders. The challenge was to create an experience that remained simple for first-time users while providing enough flexibility for more demanding routines.</p>
+            </div>
+
+            
+            
+        </div>
+
 
         <div class="mil-p-120-120">
 
 
-            <div class="col-lg-8">
-                <h2 class="  mil-mb-30">Empathizing with the user</h2>
-                <p class="  mil-mb-30">Our personas, Paolo and Ana, represented diverse user needs and expectations. As we embarked on designing the ideal mobile app, their insights and preferences guided us towards creating a truly user-centric experience that catered to the unique requirements of both tech-savvy professionals and caring caregivers alike.</p>
+            <div class="col-lg-8 title-group">
+                <h2>User Research</h2>
+                <p >Research revealed two primary user groups with different scheduling needs.</p>
 
             </div>
 
+            <div class="research-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>User Group</th>
+                    <th>Primary Need</th>
+                    <th>Pain Point</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>👨‍🎓 Young Patients</td>
+                    <td>Simple medication reminders</td>
+                    <td>Reminder setup is too complex</td>
+                </tr>
+                <tr>
+                    <td>🏋️ Busy Professionals</td>
+                    <td>Flexible recurring schedules</td>
+                    <td>Need to recreate schedules every week</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
 
-            <div class="card-themes flex-div gap-80 justify-content-between">
+
+            <!--<div class="card-themes flex-div gap-80 justify-content-between">
                 <div class="col-lg-3">
                     <img class="img-persona" src="img/work/medtime-primary-persona.webp" alt="primary-persona">
 
@@ -230,7 +266,7 @@
 
 
                 
-            </div>
+            </div>-->
 
         </div>
 
@@ -238,9 +274,9 @@
         <div class="mil-p-120-120">
 
 
-            <div class="col-lg-8">
-                <h2 class="  mil-mb-30">First round of User Testing</h2>
-                <p class="  mil-mb-30">User tests were conducted with Lo-Fi prototypes, gathering feedback from personas Alex and Sarah. Observing their interactions helped us identify usability issues and refine the design. With these insights, we'll now develop Hi-Fi prototypes to enhance the user experience.</p>
+            <div class="col-lg-8 title-group">
+                <h2>First User Testing</h2>
+                <p>Early usability testing with low-fidelity prototypes revealed friction around recurring medications, multiple daily doses, and schedule customization.</p>
 
             </div>
 
@@ -281,79 +317,26 @@
         <div class="mil-p-120-120">
 
 
-            <div class="col-lg-8">
-                <h2 class="  mil-mb-30">Refining User Experience</h2>
-                <p class="  mil-mb-30">After the first tests, I carefully analyzed key improvements needed for the screens, identifying areas for refinement to enhance the user experience. Addressing these insights ensured that the next design iterations would result in a more intuitive and user-friendly interface, meeting and exceeding user expectations.</p>
+            <div class="col-lg-8 title-group">
+                <h2 >Refining UX</h2>
+                <p>After the first tests, I carefully analyzed key improvements needed for the screens, identifying areas for refinement to enhance the user experience. Addressing these insights ensured that the next design iterations would result in a more intuitive and user-friendly interface, meeting and exceeding user expectations.</p>
+
+                <h4>Goals</h4>
+                
+                <ul>
+
+                    <li >Users wanted a dedicated area for recurring medication.</li>
+
+                    <li>Creating multiple reminders was too time-consuming.</li>
+
+                    <li>Users expected pharmacy recommendations after creating a prescription.</li>
+
+                    <li>Different users preferred different calendar layouts.</li>
+
+                </ul>
 
             </div>
 
-            <div class="gap-16 flex-div">
-
-                <div class="card-themes col-lg-5" >
-                    
-
-                    <p class="mil-accent">Some insights</p>
-
-                    <h3 class="mil-mb-15">Recurrent medicine</h3>
-
-                    
-                    <p>Create a new section for recurrent/regular medicines, and create the possibility to add categories and personalized sections for medicines.</p>
-
-                        
-                </div>
-
-
-                <div class="card-themes col-lg-5" >
-                    
-
-                    <p class="mil-accent">Some insights</p>
-
-                    <h3 class="mil-mb-15">Multiple medicine a day</h3>
-
-                    
-                    <p>Add a “Add More” under the time picker, and suggest patterns of usage, like  “3 times per day”.</p>
-
-                        
-                </div>
-
-            </div>
-
-
-            <div class="gap-16 flex-div">
-
-                <div class="card-themes col-lg-5" >
-                    
-
-                    <p class="mil-accent">Some insights</p>
-
-                    <h3 class="mil-mb-15">Buying suggestions</h3>
-
-                    
-                    <p>Show at the end of the flow where the medicine is available</p>
-
-                        
-                </div>
-
-
-                <div class="card-themes col-lg-5" >
-                    
-
-                    <p class="mil-accent">Some insights</p>
-
-                    <h3 class="mil-mb-15">Weekly date picker</h3>
-
-                    
-                    <p>Provide a way to switch between date picker layouts.</p>
-
-                        
-                </div>
-
-            </div>
-
-           
-        
-
-        
 
         </div>
 
@@ -361,9 +344,9 @@
         <div class="mil-p-120-120">
 
 
-            <div class="col-lg-8">
-                <h2 class="  mil-mb-30">Hi-Fi Prototypes</h2>
-                <p class="  mil-mb-30">uilding on insights from user testing with Lo-Fi prototypes, we transformed the Medtime app by creating Hi-Fi prototypes. By addressing key pain points and streamlining the interface, the updated design offered a visually appealing and intuitive experience. The Hi-Fi prototypes featured improved navigation, personalized medication alarms, and enhanced pharmacy suggestions, ensuring seamless medication management for users like Paolo and Ana. These updates not only refined the app’s functionality but also elevated its visual appeal, delivering a truly user-centric experience.</p>
+            <div class="col-lg-8 title-group">
+                <h2>Hi-Fi Prototype</h2>
+                <p>Based on testing, I redesigned the experience to reduce repetitive actions and make medication scheduling feel more natural.</p>
 
             </div>
 
@@ -407,10 +390,10 @@
 
         <div class="flex-div justify-content-between gap-80 mil-mb-60">
 
-            <div class="col-lg-6">
-                <h3 class="  mil-mb-30">Enhanced Organization</h3>
+            <div class="col-lg-6 title-group">
+                <h2 >Enhanced Organization</h2>
 
-                <p>To optimize the Medtime app, I introduced two key improvements: a dedicated section for recurrent medications and customizable categories for better organization. These changes help users easily manage frequent doses and organize medicines according to their preferences.</p>
+                <p>A dedicated section for recurring medications and customizable categories helps users organize treatments according to their daily routines.</p>
 
             </div>
 
@@ -422,10 +405,10 @@
 
         <div class="flex-div justify-content-between gap-80 mil-mb-60">
 
-            <div class="col-lg-6">
-                <h3 class="  mil-mb-30">Enhanced Scheduling</h3>
+            <div class="col-lg-6 title-group">
+                <h2 >Enhanced Scheduling</h2>
 
-                <p>I added an "Add More" option under the time picker, making it easy for users to set multiple reminders for their medications. I also introduced a smart feature that suggests common usage patterns like "3 times per day," simplifying the process with pre-defined options that match prescribed dosages.</p>
+                <p>Users can add multiple reminders from a single screen or choose common dosage patterns such as "3 times per day," reducing repetitive setup.</p>
 
             </div>
 
@@ -436,10 +419,10 @@
 
         <div class="flex-div justify-content-between gap-80 mil-mb-60">
 
-            <div class="col-lg-6">
-                <h3 class="  mil-mb-30">Smart Recommendations</h3>
+            <div class="col-lg-6 title-group">
+                <h2 >Smart Recommendations</h2>
 
-                <p>This new feature offers users smart recommendations for nearby pharmacies to purchase their prescribed medications, addressing the challenge of finding the right pharmacy at the best prices. By integrating this, Medtime becomes not just a medication management tool but also a valuable resource for informed healthcare decisions, ensuring a seamless and hassle-free experience.</p>
+                <p>After creating a treatment, the app recommends nearby pharmacies where the medication is available, helping users complete the process without leaving the app.</p>
 
             </div>
 
@@ -450,62 +433,23 @@
 
 
         <div class="mil-p-120-120">
-            <div class="col-lg-8">
-                <h2 class="  mil-mb-30">Final Considerations</h2>
+            <div class="col-lg-8 title-group">
+                <h2>Outcome</h2>
 
                 
-                <p class="mil-mb-30">In conclusion, this redesign project showcases the fusion of technological innovation and user-centric design. By enhancing AI capabilities and simplifying the interface, we improved user engagement and accessibility. The streamlined design and simplified interactions create a compelling user experience, laying the foundation for continuous improvement and adaptability to evolving user needs.</p>
+                <p>This project demonstrated how small interaction improvements can simplify an otherwise repetitive task. Rather than adding more features, the focus was on reducing friction throughout the medication management flow—from creating reminders to purchasing medication.</p>
+            </div>
+
+            <div class="col-lg-8 title-group">
+                <h2>Learnings</h2>
+
+                
+                <p class="mil-mb-15">Designing for healthcare reinforced the importance of clarity and flexibility. Different users follow different medication routines, making adaptable scheduling just as important as a simple interface.</p>
             </div>
 
             
-            <div class="gap-16 flex-div justify-content-between">
-                <div class="card-themes ">
-                    <h4>Continued Iteration</h4>
-                    <p >Recognizing design as an evolving process, this project serves as a foundation. Continuous iteration and user feedback will drive further refinements to ensure sustained user satisfaction.</p>
-                    
-                </div>
             
-
-                <div class="card-themes ">
-                    <h4>User Feedback Integration</h4>
-                    <p >Throughout the development process, the primary focus has been on creating a user-friendly and intuitive experience for individuals like Alex and Sarah. By actively incorporating user feedback and insights, Medtime ensures that it caters to the unique needs and preferences of its users.</p>
-                    
-                </div>
-
-            </div>
-
-            
-            <div class="gap-16 flex-div justify-content-between">
-
-            
-            
-            
-                <div class="card-themes ">
-                    <h4>Streamlined Medication Management</h4>
-                    <p >The core objective of Medtime is to simplify the complex process of medication management. With personalized alarms, dedicated sections, and customizable categories, the app streamlines medication routines, reducing the likelihood of missed doses and promoting better adherence to prescribed regimens.</p>
-                    
-                </div>
-            
-            
-                <div class="card-themes ">
-                    <h4>Smart Recommendations</h4>
-                    <p >The inclusion of smart recommendations, such as suggested usage patterns and nearby pharmacy suggestions, further enhances the user experience, making it easier for users to manage their medications efficiently and conveniently.</p>
-                    
-                </div>
-
-            
-            
-            
-                <div class="card-themes ">
-                    <h4>Empowering User Health</h4>
-                    <p >Ultimately, Medtime aims to empower users in taking charge of their health and well-being. By offering an all-in-one solution for medication management, the app seeks to alleviate the burden of scheduling and organizing medications, allowing users to focus on what matters most - their health and quality of life.</p>
-                    
-                </div>  
-            </div>
         </div>
-
-            
- 
        
 
     </section>

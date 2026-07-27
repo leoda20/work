@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body class="no-scroll-animation">
 
 
 
@@ -40,7 +40,7 @@
             <div class="header-buttons gap-8">
                 
 
-                <a href="project-cadastrapet.html" class="btn-blur-icon" >
+                <a href="project-cadastrapet.html" class="btn-blur-icon text-inverse" >
                 <
                 </a>
                 
@@ -72,6 +72,7 @@
 
                 <div class="mil-info">
                     <p class="blur-tag">Strategy</p>
+                    <p class="blur-tag">Design System</p>
                     <p class="blur-tag">Accessibility</p>
                 
                 </div>
@@ -84,23 +85,24 @@
             <div class="flex-div mil-p-24-24  gap-80 justify-content-between">
 
 
-                <div class="col-lg-5 mil-mb-15">
-                    <h4 class="mil-mb-8">Project</h4>
-                    
-                    <p >As part of a broader design system evolution, I led the overhaul of our color and token structure, which had grown unmanageable and inconsistent over time. The system had non-semantic names, duplicated tokens, and hardcoded values scattered throughout the interface, making it difficult to scale or support theming—especially for accessibility and dark mode.</p>
+                <div class="col-lg-5 col-md-5 title-group">
+                    <h4>Project</h4>
+                    <p >Over time, AEG’s color system had evolved without a clear structure. Colors were duplicated, tokens lacked meaning, and hardcoded values made updates risky and time-consuming.</p>
 
                 </div>
 
-                <div class="col-lg-5 mil-mb-15">
-                    <h4 class="mil-mb-8">Goals</h4>
+                <div class="col-lg-5 col-md-5 title-group">
+                    <h4>Goals</h4>
                     
                     <ul>
 
-                        <li >Normalize and consolidate the color and token system</li>
+                        <li >Create a semantic token system that scales across products and themes</li>
 
-                        <li>Ensure accessibility compliance (contrast ratios, legibility)</li>
+                        <li>Reduce complexity by removing duplicate and unused values</li>
 
-                        <li>Improve scalability and maintainability for theming (light, dark, custom themes)</li>
+                        <li>Achieve WCAG AA accessibility compliance</li>
+
+                        <li>Establish a foundation for future themes, including dark mode</li>
 
                     </ul>
 
@@ -109,41 +111,36 @@
             </div>
 
             
+
+
+            
             <div class=" mil-p-120-120 " id="project">
 
-                <div class=" flex-div justify-content-between mil-mb-30">
+                <div class=" flex-div justify-content-between">
 
                     
                         
-                    <div class="col-lg-5">
-
-                        <p class="mil-accent">Current state</p>
+                    <div class="col-lg-8 title-group">
                         
             
-                        <h2 class=" mil-mb-30">The existing Token list</h2>
+                        <h2>Understanding the Current State</h2>
                         
-                        <p class=" mil-mb-15">
+                        <p>The first step was understanding how colors were actually being used across the product. The audit revealed:</p>
 
-                        The project began with an audit of the existing color token set. The list revealed significant issues: duplicate values under different names, vague or non-semantic labels, and many hardcoded hex values throughout the interface.</p>
+                        <ul>
+                            <li>80+ color tokens with overlapping values</li>
+
+                            <li>Non-semantic naming (themeDarkColor, themeColorOneHalf)</li>
+
+                            <li>Hardcoded colors bypassing the token system</li>
+
+                            <li>No reliable structure for creating new themes</li>
+                        </ul>
 
                     </div>
 
-                    <div class="col-lg-6">
 
-<pre class="line-numbers "><code class="language-html">&lt;$themes&gt;
-&lt;default theme&gt;
-themeDarkColor=#1a143a,
-themeDarkModalShadow=#1a143a,
-themeWindowTabsBack=#1a143a,
-themeDarkColorOneHalf=#1a143a,
-themeBaseColor=#1e13a6,
-themeBaseColorDarkVersion=#06508a,
-themeBaseColorLightVersion=#bedaf0,
-themeSubMenuBackground=#13007d,
-...</code></pre>
-</div>
-
-</div>
+                </div>  
 
                 
                 
@@ -151,13 +148,16 @@ themeSubMenuBackground=#13007d,
 
                 <div class="flex-div gap-80 justify-content-between card-neutral ">
 
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 title-group">
 
                                 
-                        <h3 class=" mil-mb-15">Rebuilding Prototypes</h3>
+                        <h3>Rebuilding the Product Foundation</h3>
 
-                        <p class="mil-mb-15">Since no usable design files existed, the main parts of the UI were recreated in Figma. These reconstructions allowed for prototyping, comparison across themes, and clearer testing of color applications.</p>
+                        <p>Because the existing product had no updated design source files, the interface was reconstructed in Figma to create a reliable testing environment.</p>
 
+
+
+                    
                     </div>
 
                     <img class="img-card" src="img/work/AEG/screenshot-to-prototype.png" alt="image">
@@ -167,13 +167,13 @@ themeSubMenuBackground=#13007d,
 
                 <div class="flex-div gap-80 justify-content-between card-neutral">
 
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 title-group">
 
                     
 
-                        <h3 class=" mil-mb-15">Mapping Tokens in Screenshots</h3>
+                        <h3>Understanding Token Usage at Scale</h3>
 
-                        <p class="mil-mb-15">To understand real usage, tokens were mapped over annotated screenshots of the product. This helped identify inconsistencies across screens and themes, and offered a clearer view of how tokens were applied in practice.</p>´
+                        <p>Before introducing a new system, I mapped existing tokens across real product screens.</p>
 
                     </div>
                         
@@ -185,12 +185,12 @@ themeSubMenuBackground=#13007d,
                 
 
 
-                <div class="flex-div gap-80 justify-content-between card-neutral">
+                <!--<div class="flex-div gap-80 justify-content-between card-neutral">
 
                     <div class="col-lg-5">
 
                         
-                        <h3 class="mil-mb-15">Tailwind Color Mapping</h3>
+                        <h3 class="mil-mb-15">Understanding Token Usage at Scale</h3>
 
                         <p class=" mil-mb-15">Tailwind-compatible alternatives were defined for legacy tokens to align with the development workflow. These new values were applied to the old token structure, bridging the gap between existing code and a more maintainable system.</p>
                         
@@ -199,11 +199,101 @@ themeSubMenuBackground=#13007d,
 
                     <img class="img-card" src="img/work/AEG/remapping-to-tailwind.png" alt="image">
 
-                </div>
+                </div>-->
 
             </div>
 
             <div class="mil-p-120-120">
+
+
+                <div class=" col-lg-8 title-group">
+
+                    <h2 >From Literal Colors to Semantic Tokens</h2>
+                    <p>The previous system described colors by appearance rather than purpose.</p>
+                </div>
+
+                <div class="flex-div gap-16">
+                        
+
+
+
+                    <div class=" card-themes  ">
+
+                        <img class="img-card" src="img/work/AEG/token-change.png" alt="primary-persona">
+
+                        <h4 >Theme tokens</h4>
+
+                        <p class="mil-mb-15">Colors that change depending on brand/theme.</p>
+
+                        <h4>Common tokens</h4>
+
+                        <p>Universal states such as: Success, Warning, Critical, Information</p>
+
+
+                    </div>
+
+
+
+                    <div class=" card-themes  ">
+
+                        <img class="img-card" src="img/work/AEG/list-update.png" >
+
+                        <h4>Reducing the Token List</h4>
+
+                        <p >Through consolidation and removal of redundancies, the token list was significantly reduced. The system became easier to understand, maintain, and extend.</p>
+
+                    </div>
+                </div>
+
+
+
+        
+            </div>
+
+            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
+
+
+                <div class="col-lg-8 title-group">
+
+                    <h2 >Designing for Accessibility</h2>
+
+                    <p>Accessibility was not treated as a final check—it became part of the token creation process.
+                    Each theme was reviewed against WCAG contrast requirements.</p>
+
+                    <h4>Initial audit:</h4>
+
+                    <p>Only 3 of 12 themes passed contrast checks</p>
+
+                    <h4>After refinement:</h4>
+
+                    <p>All themes achieved accessible contrast levels</p>
+
+
+                </div>
+                    
+                <img class="mil-image-frame " src="img/work/AEG/all-themes-wcag.jpeg" alt="image">
+
+            </div>
+
+            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
+
+                <div class="col-lg-6 title-group">
+
+                    <h2>Building a More Flexible Theming System</h2>
+
+                    <p>The previous token structure made dark mode difficult to maintain because colors were tied to specific values instead of usage.
+
+                    The new semantic approach allowed dark mode variations to be created by adjusting theme values instead of rebuilding components.</p>
+
+                </div>
+
+
+                <img class="mil-image-frame" src="img/work/AEG/dark-theme-vector.png" alt="image">
+                    
+                
+            </div>
+
+            <!--<div class="mil-p-120-120">
 
 
 
@@ -283,63 +373,10 @@ themeSubMenuBackground=#13007d,
                 <img class="mil-image-frame " src="img/work/AEG/hard-coded.png" alt="image">
             </div>
 
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
+            
 
 
-                <div class="col-lg-6">
-
-                    <h2 class="mil-mb-30">Quality Assurance</h2>
-
-                    <p class="mil-mb-30">Twelve existing themes were evaluated, but only three initially passed basic WCAG contrast tests. Adjustments were made to each to ensure accessibility while maintaining brand integrity.</p>
-
-                </div>
-                    
-                <img class="mil-image-frame " src="img/work/AEG/all-themes-wcag.jpeg" alt="image">
-
-            </div>
-
-
-            <div class="mil-p-120-120">
-
-
-                <div class=" col-lg-6">
-                    <h4 class="mil-accent">Tokens</h4>
-
-                    <h2 class="mil-mb-30">Working with tokens</h2>
-                </div>
-
-                <div class="flex-div gap-16">
-                        
-
-
-
-                    <div class=" card-themes  ">
-
-                        <img class="img-card mil-mb-30" src="img/work/AEG/token-change.png" alt="primary-persona">
-
-                        <h4 class="mil-mb-15">Defining Semantic Naming</h4>
-
-                        <p >A completely new set of tokens was introduced, based on semantic naming principles. These were grouped into two main categories: Theme colors and Common colors, allowing better scalability and logic.</p>
-
-                    </div>
-
-
-
-                    <div class=" card-themes  ">
-
-                        <img class="img-card mil-mb-30" src="img/work/AEG/list-update.png" alt="primary-persona">
-
-                        <h4 class="mil-mb-15">Reducing the Token List</h4>
-
-                        <p >Through consolidation and removal of redundancies, the token list was significantly reduced. The system became easier to understand, maintain, and extend.</p>
-
-                    </div>
-                </div>
-
-
-
-        
-            </div>
+            
 
 
             
@@ -377,21 +414,7 @@ themeSubMenuBackground=#13007d,
             </div>
 
 
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
-
-                <div class="col-lg-6">
-
-                    <h2 class="mil-mb-30">Reworking Dark Mode</h2>
-
-                    <p class="mil-mb-30">Dark mode was previously poorly configured, with mismatched or missing token values. The new grouping structure—separating Theme and Common colors—made defining and applying dark mode more intuitive and reliable.</p>
-
-                </div>
-
-
-                <img class="mil-image-frame" src="img/work/AEG/dark-theme-vector.png" alt="image">
-                    
-                
-            </div>
+            
 
 
                 
@@ -411,47 +434,47 @@ themeSubMenuBackground=#13007d,
 
                 <img class="mil-image-frame " src="img/work/AEG/review.png" alt="image">
 
-            </div>
+            </div>-->
 
 
             <div class="mil-p-120-120">     
 
-                <h2 class=" mil-mb-30">Results</h2>
+                <h2 class=" mil-mb-30">Impact</h2>
 
                 
                 <div class="col-lg-12 flex-div gap-16 ">
                     
                         
-                    <div class="card-themes  ">
+                    <div class="card-themes-results  ">
 
                         <img class="img-card" src="img/work/AEG/results-reduce.png" alt="">
                             
-                        <h4>Significant Reductions</h4>
+                        <h4>59% reduction in token complexity</h4>
 
-                        <p >Token count reduced from 80 ro 33 tokens through consolidation and semantic naming</p>
+                        <p >Reduced the color system from 80 → 33 tokens, removing duplication and making usage clearer.</p>
                             
                             
                     </div>
 
-                    <div class="card-themes">
+                    <div class="card-themes-results">
 
                         <img class="img-card" src="img/work/AEG/results-structure.png" alt="">
                             
-                        <h4>Better <br> processes</h4>
+                        <h4>Faster theme creation</h4>
 
-                        <p>Token structure aligned with Tailwind, improving handoff and development speed</p>
+                        <p>Previously, creating or adjusting themes required days of manual updates.With the new token architecture, themes could be configured in minutes.</p>
                             
                             
                     </div>
 
 
-                    <div class="card-themes gap-8">
+                    <div class="card-themes-results">
 
                         <img class="img-card" src="img/work/AEG/results-config.png" alt="">
                             
-                        <h4>Easier <br> adjustments</h4>
+                        <h4>Improved developer handoff</h4>
 
-                        <p>Theming now takes minutes instead of days</p>
+                        <p>Tokens aligned with Tailwind conventions, reducing translation effort between design and development.</p>
                             
                             
                     </div>
@@ -460,13 +483,13 @@ themeSubMenuBackground=#13007d,
                     
 
 
-                    <div class=" card-themes">
+                    <div class=" card-themes-results">
 
                         <img class="img-card" src="img/work/AEG/results-accessibility.png" alt="">
                             
-                        <h4>Accessibility prioritized</h4>
+                        <h4>Accessibility built-in</h4>
 
-                        <p>All 12 themes rebuilt aligned to accessibility standards</p>
+                        <p>All 12 themes were reviewed and updated to meet accessibility standards.</p>
                             
                             
                     </div>
@@ -527,6 +550,8 @@ themeSubMenuBackground=#13007d,
      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 
     <script src="js/main.js"></script>
+
+  
         
 
 </body>
