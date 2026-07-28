@@ -430,7 +430,7 @@ a {
 .text-inverse {
 
   mix-blend-mode: difference;
-  color: #fff;
+  color: #c3c4c4;
 }
 .mil-gradient {
   background: var(--bg-gradient), var(--bg-overlay-color);
@@ -1327,31 +1327,37 @@ body.scrolled {
 .hero {
   
   display:flex; 
-  flex-direction: column; 
-  padding-top: 80px;
+  flex-direction: column;
     align-items: center;
   justify-content: center;
-  justify-items: center;
   
 }
 
 .hero-content {
-  top:333px;
-  position:absolute;
-  justify-content: start;
+  width: 100%; 
+  z-index: 100;
+  height: 640px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  position: absolute;
   
 }
 
 .hero-title{
-  color: white;
-  mix-blend-mode: difference;
+  color: #fff;
+  font-size: 48dvb;
+  z-index: +100;
+  letter-spacing: 10%;
+  text-align: center;
   width: max-content;
-  text-align: start;
-  width: 480px; 
-  
+  overflow: hidden;
 }
+
 .hero-paragraph{
-  width: 480px; 
+  width: 640px; 
   margin-top: 16px;
   
 }
@@ -1359,48 +1365,27 @@ body.scrolled {
 @media screen and (max-width: 768px) {
   .hero-content {
     padding-top: 24px;
-  position:unset;
 
   
 }
 .hero-title{
-  color: #1c1c1c;
-  mix-blend-mode: color;
-  width: 320px;
-  text-align: left;
+  font-size: 32dvb;
 }
 .hero-paragraph{
-  width: 320px; 
-  margin-top: 0px;
+  width: 480px; 
+  margin-top: 16px;
 }
 }
 
 @media screen and (max-width: 375px) {
-  .hero {
-  
-  display:flex; 
-  flex-direction: column; 
-  padding-top: 32px;
-    align-items: center;
+  .hero-content {
   justify-content: center;
   justify-items: center;
   
 }
-  
-  
-  
-  .hero-content {
-    padding-top: 24px;
-  position:unset;
-
-  
-}
+ 
 .hero-title{
-  color: #1c1c1c;
-  mix-blend-mode: color;
-  width: 240px;
-  text-align: left;
-  font-size: xx-large;
+  font-size: 12dvb;
 }
 .hero-paragraph{
   width: 240px; 
@@ -1603,8 +1588,9 @@ blog
 
 .blog-list{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-columns: 1fr; /* Two equal columns */
   gap: 16px;
+  
 }
 
 .mil-blog-card {
@@ -1612,15 +1598,24 @@ blog
   overflow: hidden;
 
   min-width: 240px;
-  height: 480px;
+  height: 50dvh;
+  margin-bottom: 16px;
   
-
   
 }
+
+.mil-blog-card:hover {
+  
+  box-shadow:  #1c1c1c 1 1;
+  
+  
+}
+
+
 .mil-blog-card .mil-cover-frame {
   position: relative;
   overflow: hidden;
-  height: 480px;
+  height: 100%;
   min-width: 240px;
   border-radius: 16px;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
@@ -1636,9 +1631,8 @@ blog
   transform: scale(0.95);
   transform-style: preserve-3d;
 
-  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: #1c1c1c 1 1;
+
 
   
 }
@@ -1650,8 +1644,21 @@ blog
   left: 0;
   box-sizing: border-box;
   gap: 8px;
-  margin: 16px;
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  color: #1c1c1c;
+
+  p{
+    margin-bottom: 16px;
+    color: #212121;
+  }
+  
+  
+  
 }
+
+
 
 .blur-tag {
   font-size: 14px;
@@ -1699,6 +1706,9 @@ blog
     display: grid;
     grid-template-columns: 1fr; /* Two equal columns */
     gap: 16px;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    
   }
 
 
@@ -1934,7 +1944,9 @@ footer
 
 .footer-content{
   display: flex;
-  height: 80px;
+  height: fit-content;
+  padding-top: 32px;
+  padding-bottom: 32px;
   justify-content: space-between;
   align-items: center;
   gap:16px;
@@ -2135,6 +2147,8 @@ portfolio
   align-items: center; 
   display: flex;
   justify-content: space-between;
+
+  
 }
 
 .header-buttons {
@@ -3341,6 +3355,102 @@ images
 }
 
 
+
+.gallery{
+  width: 20vw;
+  height: 300px;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  anchor-name: --gallery;
+  scroll-marker-group: after;
+
+  li {
+    list-style-type: none;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    scroll-snap-align: center;
+    flex: 0 0 100%;
+  }
+
+  li:nth-child(even) {
+    background-color: cyan;
+  }
+}
+
+.gallery::scroll-marker-group{
+  position: fixed;
+  position-anchor: --gallery;
+  transform: translateX(50%);
+  display: flex;
+  gap: 8px;
+  top: calc(anchor(bottom) + 14px);
+  left: anchor(center);
+  position-anchor: --gallery;
+}
+
+ul::scroll-button(*) {
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: black;
+  opacity: 0.7;
+  cursor: pointer;
+  position: absolute;
+  position-anchor: --gallery;
+}
+
+ul::scroll-button(*):hover,
+ul::scroll-button(*):focus {
+  opacity: 1;
+}
+
+ul::scroll-button(*):active {
+  translate: 1px 1px;
+}
+
+ul::scroll-button(*):disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+
+ul::scroll-button(left) {
+  content: "◄" / "Previous";
+  right: calc(anchor(left) - 70px);
+  bottom: calc(anchor(top) + 13px);
+
+}
+
+ul::scroll-button(right) {
+  content: "►" / "Next";
+  left: calc(anchor(right) - 70px);
+  bottom: calc(anchor(top) + 13px);
+}
+
+.slide::scroll-marker {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: #000000;
+  background-color: #000000;
+}
+.slide::scroll-marker:target-current{
+  background: #538b5d;
+}
+
+.slide{
+  flex: 0 0 100%;
+  scroll-snap-type: center;
+  display: flex;
+}
+
+
+
+
 /***************************
 
 table
@@ -3466,6 +3576,8 @@ min-height: 280px;
 .tablinks {
   text-decoration: none;
   font-family: "datatype", sans-serif;
+  align-items: center;
+
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -3479,12 +3591,13 @@ min-height: 280px;
   transition: 0.3s;
   font-size: 18px;
 
+
   pointer-events: auto;
 
   bottom: 24px;
   right: 24px;
   border: none;
-  align-items: center;
+  align-content: center;
   justify-content: center;
   cursor: pointer;
   animation: 4s linear infinite pulse;
@@ -3515,17 +3628,18 @@ min-height: 280px;
 /* Change background color of buttons on hover */
 .tab a:hover {
   background-color: #ddd;
+  
 }
 
 /* Create an active/current tablink class */
 .tab a.active {
   background-color: #ccc;
   box-shadow: inset 0px 4px 4px -2px rgba(0,0,0,0.5);
+  align-items: center;
 }
 
 /* Style the tab content */
 .tabcontent {
-  padding: 6px 12px;
   border-top: none;
   opacity: 0.5;
     transition: opacity 0.4s ease;
@@ -3544,22 +3658,27 @@ min-height: 280px;
 
 .profile-pic{
   position: absolute;
-  mix-blend-mode:exclusion;
-  width: 480px;
+  
 }
 
 .photo{
   animation: blur 3s infinite alternate;
-  width: 480px;
-  height: 480px;
+  width: 620px;
+  height: 620px;
 
 }
 
 @media screen and (max-width: 768px) {
   .photo{
-    
-    width: 240px;
-    height: 240px;
+  width: 480px;
+  height: 480px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .photo{
+  width: 220px;
+  height: 220px;
   }
 }
 
