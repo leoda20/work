@@ -1330,6 +1330,9 @@ body.scrolled {
   flex-direction: column;
     align-items: center;
   justify-content: center;
+  margin-bottom: 48px;
+  max-height: 72dvb;
+  max-width: 100%;
   
 }
 
@@ -1385,7 +1388,8 @@ body.scrolled {
 }
  
 .hero-title{
-  font-size: 12dvb;
+  font-size: 16dvb;
+  word-break: auto;
 }
 .hero-paragraph{
   width: 240px; 
@@ -1732,6 +1736,7 @@ blog
      object-fit: cover;
      object-position: center;
   position: relative;
+  mask-image: sa;
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
@@ -1772,6 +1777,8 @@ blog
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+
+  backdrop-filter: saturate(1.35);
   
 }
 .mil-blog-card .mil-post-descr {
@@ -3552,6 +3559,7 @@ min-height: 280px;
   background-color: white;
   position: sticky;
   top: 16px;
+  right: 0px;
   z-index: 100;
   margin-bottom: 24px;
 
@@ -3572,7 +3580,14 @@ min-height: 280px;
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
 }
 
+.tab::after {
+  overflow: hidden;
+  
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 
+}
 .tablinks {
   text-decoration: none;
   font-family: "datatype", sans-serif;
@@ -3589,7 +3604,7 @@ min-height: 280px;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 18px;
+  font-size: 20px;
 
 
   pointer-events: auto;
@@ -3658,8 +3673,17 @@ min-height: 280px;
 
 .profile-pic{
   position: absolute;
+  overflow: hidden;
+  
   
 }
+
+
+.profile-pic img{
+    width: 720px;
+    height: 720px;
+    padding-top: 64px;
+  }
 
 .photo{
   animation: blur 3s infinite alternate;
@@ -3673,12 +3697,22 @@ min-height: 280px;
   width: 480px;
   height: 480px;
   }
+  .profile-pic img{
+    width: 400px;
+    height: 400px;
+    margin-top: 64px;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .photo{
   width: 220px;
   height: 220px;
+  }
+  .profile-pic img{
+    width: 360px;
+    height: 360px;
+    margin-top: 64px;
   }
 }
 
