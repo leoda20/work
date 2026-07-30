@@ -1328,7 +1328,7 @@ body.scrolled {
   
   display:flex; 
   flex-direction: column;
-    align-items: center;
+  align-items: center;
   justify-content: center;
   margin-bottom: 48px;
   max-height: 72dvb;
@@ -1351,12 +1351,12 @@ body.scrolled {
 
 .hero-title{
   color: #fff;
-  font-size: 48dvb;
+  font-size: clamp(80px, 24vw, 500px);
   z-index: +100;
   letter-spacing: 10%;
-  text-align: center;
-  width: max-content;
-  overflow: hidden;
+  text-align:  center;
+  line-height: 80%;
+
 }
 
 .hero-paragraph{
@@ -1366,18 +1366,19 @@ body.scrolled {
 }
 
 @media screen and (max-width: 768px) {
+  .hero{
+    
+  max-height: 40dvb;
+  }
   .hero-content {
     padding-top: 24px;
 
   
-}
-.hero-title{
-  font-size: 32dvb;
-}
-.hero-paragraph{
-  width: 480px; 
-  margin-top: 16px;
-}
+  }
+  .hero-paragraph{
+    width: 480px; 
+    margin-top: 16px;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1387,10 +1388,6 @@ body.scrolled {
   
 }
  
-.hero-title{
-  font-size: 16dvb;
-  word-break: auto;
-}
 .hero-paragraph{
   width: 240px; 
   margin-top: 16px;
@@ -3551,18 +3548,16 @@ min-height: 280px;
   align-items: center;
   justify-content: center;
   justify-items: center;
-
-  gap: 8px;
   width: fit-content;
   border-radius: 99px;
   padding: 8px;
   background-color: white;
   position: sticky;
   top: 16px;
-  right: 0px;
   z-index: 100;
   margin-bottom: 24px;
-
+display: flex;
+justify-content: center;
   margin-top: 24px;
 
 
@@ -3576,9 +3571,14 @@ min-height: 280px;
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
   background: var(--card-glass-bg);
+  box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
+  text-shadow: 0 1px 8px var(--card-glass-text-shadow);
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+
 }
+
+
 
 .tab::after {
   overflow: hidden;
@@ -3610,7 +3610,6 @@ min-height: 280px;
   pointer-events: auto;
 
   bottom: 24px;
-  right: 24px;
   border: none;
   align-content: center;
   justify-content: center;
@@ -3638,6 +3637,25 @@ min-height: 280px;
 
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+}
+
+@media screen and (max-width: 768px) {
+  .tab {
+    gap: 8px;
+    right: 16px;
+    left: 16px;
+  }
+  
+  .tab a {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .tab {
+    position: fixed;
+  top: unset;
+  bottom: 16px;
+  }
 }
 
 /* Change background color of buttons on hover */
@@ -3682,7 +3700,7 @@ min-height: 280px;
 .profile-pic img{
     width: 720px;
     height: 720px;
-    padding-top: 64px;
+    margin-top: 64px;
   }
 
 .photo{
