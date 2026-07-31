@@ -1,571 +1,110 @@
-
-Skip to:
-
-    Main Content
-    Top Bar
-    Sidebar
-    Space navigation
-    Banner
-
-For new access requests, please submit the Access Request Form. For any other inquiries, send an email to help@icf.com. Refer to the Atlassian Intranet Page for additional resources.
-2
-
-    Spaces
-    Vision 5.0
-
-V50 board
-
-    Summary
-    Calendar
-    Timeline
-    List
-    Backlog
-    Active sprints
-    Reports
-    Releases
-    JQL Search Extensions
-
-As you type to search or apply filters, the board updates with work items to match.
-Filter by assignee
-
-    V50-9903
-    V50-9897
-
-SLT: [DESIGN] Utility User Groups > Bulk Action Slide Out
-Key details
-Description
-Utility > [DEMO] > User Groups
-
-The goal of this task is to revisit the bulk action handling of user groups.
-
-User groups control different areas of the system including security/access, communications, application assignments, and more. It is important to note how impactful inclusion or exclusion of people and programs can be for user groups. This should be considered a high risk activity.
-
-At this time, we do not want to alter the grid itself.
-
-Our focus for this task is solely is on the bulk actions slide out.
-
- 
-Screenshot 2026-07-09 135146.png
-Screenshot 2026-07-09 134942.png
-
- 
-CURRENT STATE
-
-Bulk actions can be handled using the checkboxes on the left side of the screen. Overall, it does not feel like the actions and feedback have clarity.
-
-Edit selected user groups slide out panel:
-
-Override Values for [X] Selected User Groups
-
-pain point: User must expand the list to expose the selected groups that they picked to open the panel. There could be dozens of them, so this does have the potential of being a huge list.
-Group Name
-
-unclear what this does
-
-grayed out on multi selected action
-Group Type
-
-The intent of this field is to change the group type for the groups which you bulk selected. 
-
-Pain Point: the terminology (select group type to override)  doesn't seem absolutely clear for what it does. 
-Status
-
-The intent of this field is to change the status for the groups which you bulk selected. 
-
-Pain Point: the terminology (select status to override) doesn't seem absolutely clear for what it does. 
-Parent Group
-
-The intent of this field is to add a parent group for the groups which you bulk selected. 
-
-Pain Point: the terminology (select parent group to override) doesn't seem absolutely clear for what it does. 
-Validation Plan
-
-Design Completed
-CAB Review Notes
-Add text
-Attachments
-4
-
-    group_bulk_change_prototype.html
-    28 Jul 2026, 08:37 pm
-    Screenshot 2026-07-27 092547.png
-    Screenshot 2026-07-27 092547.png
-    27 Jul 2026, 02:29 pm
-    Screenshot 2026-07-09 135146.png
-    Screenshot 2026-07-09 135146.png
-    09 Jul 2026, 06:53 pm
-    Screenshot 2026-07-09 134942.png
-    Screenshot 2026-07-09 134942.png
-    09 Jul 2026, 06:53 pm
-
-Subtasks
-Linked work items
-relates to
-
-    Work type: Story
-    V50-9828
-    Priority: Normal
-    Work type: Story
-    V50-9898
-    Priority: Normal
-
-Activity
-Pro tip: press M to comment
-
-    Rachael Kim
-    12 hours ago
-
-    group_bulk_change_prototype.html 
-
-    Hi @Leonardo Denega 
-
-    I created a working prototype in Claude to better convey what i think feels right to me. Can you review the attached and let me know if you see any best practice or usability issues with going this route? 
-
-    Rachael Kim
-    2 days ago
-
-    Hi @Leonardo Denega 
-
-    Definitely want to use the bulk action bar. I feel like it makes what the user can do explicitly clear. 
-
-    For the modal window on selection, the user is unable to see what groups were selected but i think this may be because of the way the prototype is behaving. It shifts to mobile/small screen view. But, just wanted to raise the concern anyway. If there were, lets say 43 groups selected, how would the user know or verify what the bulk selection is being applied to. The user cant see everything in the long scroll when the modal is active.
-
-    ex: 
-    Screenshot 2026-07-27 092547.png
-        Leonardo Denega
-        17 hours ago
-
-        @Rachael Kim – I get your point, thanks for sharing that feedback. To better align with that and offer the user a visual of all the selections while also improving the current view, I’ve updated the latest design. 
-
-            Prototype
-
-         
-
-        In summary, we now have a side panel, and the selection is divided into groups related to the selected action. On top of that, each group is an accordion, so the user may collapse and expand.
-
-        Some additional details:
-
-            The search bar is defined to be sticky at the top, and the search should be linked to the user group name.
-
-            The collapse all button should collapse all items. When that happens, this button is replaced by an “Expand All” button.
-    Leonardo Denega
-    last week
-
-    Hello @Rachael Kim.
-
-    As we’ve discussed in the meeting today, here is the final prototype for the version we agreed to proceed with:
-
-        Bulk action bar
-
-    Additionally, since we talked about that second security layer, I’ve put up another prototype with some additional input that it’s commonly used for destructive actions modals: 
-
-        Bulk edit - Additional input
-
-     
-
-    About the other pages we have bulk actions, these are the pages I have mapped until now:
-
-    Section
-    	
-
-    Screen
-    	
-
-    Path
-    	
-
-    Bulk Action Control
-    	
-
-    Action Type
-
-    Application Processing
-    	
-
-    Document Queue
-    	
-
-    Application Processing/Document Queue.png
-    	
-
-    Checkbox-select batches
-    	
-
-    Send to Printer / Revert to Queue / Print Again
-
-    Application Window
-    	
-
-    Equipment
-    	
-
-    Application Processing/Application Window/Equipment.png
-    	
-
-    "Select Equipment"
-    	
-
-    Compare Equipment / Delete Equipment
-
-    Application Window
-    	
-
-    Events
-    	
-
-    Application Processing/Application Window/Events.png
-    	
-
-    "Select Events"
-    	
-
-    Delete Events
-
-    Application Window
-    	
-
-    Quality Control
-    	
-
-    Application Processing/Application Window/Quality Control.png
-    	
-
-    "Select QC"
-    	
-
-    Delete Requests
-
-    System
-    	
-
-    User Groups
-    	
-
-    System/User Groups.png
-    	
-
-    "Edit Selected User Groups"
-    	
-
-    Bulk edit
-
-    System
-    	
-
-    Users
-    	
-
-    System/Users.png
-    	
-
-    "Select Users"
-    	
-
-    Bulk Assignment
-
-    Utility Window
-    	
-
-    Calculation Engine
-    	
-
-    Utility and Program management/Utility Window/Calculation Engine.png
-    	
-
-    "Select Calculations"
-    	
-
-    Bulk Assignment
-
-    Utility Window
-    	
-
-    User Groups
-    	
-
-    Utility and Program management/Utility Window/User Groups.png
-    	
-
-    "Edit Selected User Groups"
-    	
-
-    Bulk edit
-
-    Utility Window
-    	
-
-    Role Management (Config)
-    	
-
-    Utility and Program management/Utility Window/Config _ Role Management.png
-    	
-
-    Dedicated "Bulk Actions" tab
-    	
-
-    Role/user bulk assignment
-
-    Program Window
-    	
-
-    Calculation Engine
-    	
-
-    Utility and Program management/Program Window/Calculation Engine.png
-    	
-
-    "Select Calculations"
-    	
-
-    Bulk Assignment
-
-     
-
-    Please let me know what you think about the prototypes I shared. 
-
-Details
-Assignee
-Leonardo Denega
-Reporter
-Rachael Kim
-Labels
-None
-Change Reason
-Improved Usability
-Change Owner
-Rachael Kim
-Change Type
-Inherited from Parent
-Pre-Dev Review
-Add options
-CAB Review Status
-Add option
-CAB Review Date
-None
-Release Title
-Add text
-Effort
-Medium
-Charge Code (migrated)
-SLT - 5.4 CAPEX Gen Impr | SISPCL.S.265.24.01
-Story Points
-3
-Time tracking
-12h logged
-Sprint
-V50 Sprint 204
-Priority
-Normal
-Parent
-Epic icon
-V50-9903 SLT: User Group UI Improvements
-Development
-More fields
-Original estimate
-0h
-Components
-Add components
-Fix versions
-None
-Automation
-Rule executions
-Checklist
-Open Checklist
-Approval Path
-Approval Path
-Created 9 July 2026 at 11:53
-Updated 12 hours ago
-group_bulk_change_prototype.html
-html · 100 KB
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-    "Cloud Migration Services",
-    "Data & Analytics COE",
-    "AI Solutions Group",
-    "State Medicaid Systems",
-    "Emergency Management Programs",
-    "Workforce Development",
-    "Climate Resilience Practice",
-    "International Development – Africa",
-    "International Development – Asia",
-    "Digital Experience Design",
-    "Public Health Informatics",
-    "Justice & Public Safety",
-    "Transportation Infrastructure",
-    "Environmental Compliance",
-    "Human Capital Consulting",
-    "Financial Management Services",
-    "Program Evaluation & Research",
-    "Communications & Engagement",
-    "DevSecOps Engineering",
-    "Enterprise Applications",
-    "Network & Infrastructure",
-    "Identity & Access Management",
-    "Quality Assurance Practice",
-    "Training & Change Management",
-    "Grants Management Systems",
-    "Veterans Affairs Programs",
-    "Energy & Environment",
-    "Disaster Recovery Services",
-    "Behavioral Health Solutions",
-    "Child Welfare Systems",
-    "Housing & Urban Development",
-    "Election Security Services",
-    "Supply Chain Analytics",
-    "Contact Center Modernization",
-    "Records Management",
-    "Geospatial Analytics",
-    "Mobile App Development",
-    "UX Research Team",
-    "Agile Delivery Team East",
-    "Agile Delivery Team West",
-    "Federal Acquisition Support",
-    "Policy & Regulatory Affairs",
-    "Talent Acquisition",
-    "Corporate IT Services",
-    "Facilities & Security",
-    "Legal & Compliance",
-    "Marketing & Business Development",
-    "Executive Leadership Office",
-  ];
-
-  // Sample pools for the two related-object fields managed from the edit panel: Assigned
-  // Programs and Assigned Users. Each row gets a handful of items deterministically picked
-  // from these pools.
-  var PROGRAM_POOL = [
-    "Medicaid Enterprise Systems",
-    "SNAP Modernization",
-    "Unemployment Insurance IT",
-    "Veterans Benefits Portal",
-    "Emergency Rental Assistance",
-    "Public Health Data Modernization",
-    "Broadband Equity Access",
-    "Child Support Enforcement Systems",
-    "Highway Safety Program",
-    "Disaster Recovery Grants",
-    "Election Infrastructure Security",
-    "Workforce Innovation Program",
-    "Climate Adaptation Fund",
-    "Immigration Case Management",
-    "Federal Student Aid Modernization",
-    "Rural Broadband Expansion",
-    "Clean Energy Tax Credits",
-    "Water Infrastructure Improvement",
-    "Opioid Response Grants",
-    "Census Data Modernization",
-    "Small Business Relief Program",
-    "School Meals Program",
-    "Housing Choice Voucher Program",
-    "Air Traffic Modernization",
-    "Cybersecurity Grants Program",
-    "National Flood Insurance Program",
-    "Rural Health Clinics Initiative",
-    "Federal Procurement Modernization",
-    "Tribal Nations Support Program",
-    "Wildfire Prevention Initiative",
-  ];
-
-  var USER_POOL = [
-    "Alex Rivera",
-    "Jordan Chen",
-    "Morgan Patel",
-    "Taylor Brooks",
-    "Sam Okafor",
-    "Casey Nguyen",
-    "Riley Thompson",
-    "Jamie Sullivan",
-    "Drew Anderson",
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gravity Image</title>
+
+</head>
+<body>
+
+<div class="gravity-section" id="gravitySection">
+  <img src="YOUR_IMAGE_URL_HERE.jpg" class="gravity-img" id="gravityImg" alt="falling pic" draggable="false">
+</div>
+
+<script>
+const section = document.getElementById('gravitySection');
+const img = document.getElementById('gravityImg');
+
+let x = 20, y = 20;
+let vx = 0, vy = 0;
+const gravity = 0.5;
+const bounce = 0.6;
+const friction = 0.98;
+
+let dragging = false;
+let dragOffsetX = 0, dragOffsetY = 0;
+
+function bounds() {
+  return {
+    w: section.clientWidth,
+    h: section.clientHeight,
+    imgW: img.offsetWidth,
+    imgH: img.offsetHeight
+  };
+}
+
+function loop() {
+  if (!dragging) {
+    const b = bounds();
+    vy += gravity;
+    x += vx;
+    y += vy;
+
+    if (y + b.imgH > b.h) {
+      y = b.h - b.imgH;
+      vy *= -bounce;
+      vx *= friction;
+      if (Math.abs(vy) < 0.5) vy = 0;
+    }
+    if (x < 0) { x = 0; vx *= -bounce; }
+    if (x + b.imgW > b.w) { x = b.w - b.imgW; vx *= -bounce; }
+
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+  }
+  requestAnimationFrame(loop);
+}
+
+function pointerDown(e) {
+  e.preventDefault();
+  dragging = true;
+  img.classList.add('dragging');
+  const rect = img.getBoundingClientRect();
+  const secRect = section.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  dragOffsetX = clientX - rect.left;
+  dragOffsetY = clientY - rect.top;
+  vx = 0; vy = 0;
+}
+
+function pointerMove(e) {
+  if (!dragging) return;
+  e.preventDefault();
+  const secRect = section.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  const newX = clientX - secRect.left - dragOffsetX;
+  const newY = clientY - secRect.top - dragOffsetY;
+  vx = newX - x;
+  vy = newY - y;
+  x = newX;
+  y = newY;
+  img.style.left = x + 'px';
+  img.style.top = y + 'px';
+}
+
+const throwScale = 0.4;
+const maxThrowSpeed = 15;
+
+function pointerUp() {
+  dragging = false;
+  img.classList.remove('dragging');
+  vx *= throwScale;
+  vy *= throwScale;
+  vx = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vx));
+  vy = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vy));
+}
+
+img.addEventListener('mousedown', pointerDown);
+img.addEventListener('touchstart', pointerDown);
+window.addEventListener('mousemove', pointerMove);
+window.addEventListener('touchmove', pointerMove);
+window.addEventListener('mouseup', pointerUp);
+window.addEventListener('touchend', pointerUp);
+
+loop();
+</script>
+
+</body>
+</html>

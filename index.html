@@ -20,7 +20,31 @@
     <title>Portfolio | Leo Denega
     </title>
 
+    <style>
+         .gravity-section {
+    position: relative;
+    width: 100%;
+    height: 160vh;
+    overflow: unset;
+    z-index: 100;
+  }
+  .gravity-img {
+    position: absolute;
+    top: 10px;
+    width: 240px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    
+  }
+  .gravity-img.dragging {
+    cursor: grabbing;
+  }
+    </style>
+
 </head>
+
+
 
 <body>
 
@@ -53,12 +77,16 @@
         
 
         
-    <div class=" hero " id="#hero" >
+    <div class=" hero container" id="#hero" >
+        
 
         <h3 class="hero-paragraph text-inverse  mil-mb-15">
         👋 Hi, I'm</h3>
+        <div class="gravity-section" id="gravitySection">
+            <img src="/img/ezgif.com-gif-maker.gif" class="gravity-img" id="gravityImg" alt="falling pic" draggable="false">
+        </div>
 
-        <div class="hero">
+        <div class="hero container" style="position: absolute;">
 
             <div class=" hero-content text-inverse">
                 <h1 class="hero-title">Leo Denega</h1>  
@@ -67,25 +95,28 @@
         
         
         
-            <div class="profile-pic">
-                <!--<div class="photo">
+            <!--<div class="profile-pic">
+                <div class="photo">
                 <div class="normal"></div>
                 <div class="invert"></div>  
-                </div>-->
+                </div>
                 <img src="img/ezgif.com-gif-maker.gif">
-            </div>
+            </div>-->
 
 
         </div>
 
-        
+        <div class="container justify-content-center flex-div align-items-center">
+                <h3  class="hero-paragraph text-inverse"  style="text-align: center;">I transform ideas and challenges into intuitive experiences people love to use.</h3>  
+            </div>  
 
-        
         
 
         
 
     </div>
+
+    
 
     <div class="tab  container flex-div justify-content-center gap-8">
         <a  class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
@@ -545,6 +576,103 @@
                 div.classList.remove("visible");
             }
             });
+    </script>
+
+    
+
+<script>
+    const section = document.getElementById('gravitySection');
+    const img = document.getElementById('gravityImg');
+
+    let x = 20, y = 20;
+    let vx = 0, vy = 0;
+    const gravity = 0.5;
+    const bounce = 0.6;
+    const friction = 0.98;
+
+    let dragging = false;
+    let dragOffsetX = 0, dragOffsetY = 0;
+
+    function bounds() {
+    return {
+        w: section.clientWidth,
+        h: section.clientHeight,
+        imgW: img.offsetWidth,
+        imgH: img.offsetHeight
+    };
+    }
+
+    function loop() {
+    if (!dragging) {
+        const b = bounds();
+        vy += gravity;
+        x += vx;
+        y += vy;
+
+        if (y + b.imgH > b.h) {
+        y = b.h - b.imgH;
+        vy *= -bounce;
+        vx *= friction;
+        if (Math.abs(vy) < 0.5) vy = 0;
+        }
+        if (x < 0) { x = 0; vx *= -bounce; }
+        if (x + b.imgW > b.w) { x = b.w - b.imgW; vx *= -bounce; }
+
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+    }
+    requestAnimationFrame(loop);
+    }
+
+    function pointerDown(e) {
+    e.preventDefault();
+    dragging = true;
+    img.classList.add('dragging');
+    const rect = img.getBoundingClientRect();
+    const secRect = section.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    dragOffsetX = clientX - rect.left;
+    dragOffsetY = clientY - rect.top;
+    vx = 0; vy = 0;
+    }
+
+    function pointerMove(e) {
+    if (!dragging) return;
+    e.preventDefault();
+    const secRect = section.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    const newX = clientX - secRect.left - dragOffsetX;
+    const newY = clientY - secRect.top - dragOffsetY;
+    vx = newX - x;
+    vy = newY - y;
+    x = newX;
+    y = newY;
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    }
+
+    const throwScale = 0.4;
+    const maxThrowSpeed = 15;
+
+    function pointerUp() {
+    dragging = false;
+    img.classList.remove('dragging');
+    vx *= throwScale;
+    vy *= throwScale;
+    vx = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vx));
+    vy = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vy));
+    }
+
+    img.addEventListener('mousedown', pointerDown);
+    img.addEventListener('touchstart', pointerDown);
+    window.addEventListener('mousemove', pointerMove);
+    window.addEventListener('touchmove', pointerMove);
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('touchend', pointerUp);
+
+    loop();
     </script>
 
 </body>
