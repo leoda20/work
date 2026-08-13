@@ -430,7 +430,7 @@ a {
 .text-inverse {
 
   mix-blend-mode: difference;
-  color: #c3c4c4;
+  color: #fff;
 }
 .mil-gradient {
   background: var(--bg-gradient), var(--bg-overlay-color);
@@ -1337,8 +1337,6 @@ body.scrolled {
 }
 
 .hero-content {
-  width: 100%; 
-  z-index: 100;
   align-content: center;
   justify-content: center;
   display: flex;
@@ -1351,14 +1349,13 @@ body.scrolled {
 .hero-title{
   color: #fff;
   font-size: clamp(80px, 24vw, 500px);
-  z-index: +100;
+  z-index: -100;
   letter-spacing: 10%;
   text-align:  center;
   line-height: 80%;
   cursor:unset;
     pointer-events: none;
   user-select: none;
-  z-index: -100;
 
 
 }
@@ -1366,6 +1363,7 @@ body.scrolled {
 .hero-paragraph{
   width: 640px; 
   margin-top: 16px;
+  font-weight: 200;
   
 }
 
@@ -2728,6 +2726,7 @@ portfolio
   border: 1px solid #d0d0d0;
   border-radius: 16px;
   height: 100%;
+  width: 100%;
   
 }  
 
@@ -3555,7 +3554,7 @@ min-height: 280px;
   width: fit-content;
   border-radius: 99px;
   padding: 8px;
-  background-color: white;
+  background-color: #1c1c1c;
   position: sticky;
   top: 16px;
   z-index: 100;
@@ -3567,7 +3566,7 @@ justify-content: center;
 
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
-  --card-glass-color: rgba(255, 255, 255, 0.92);
+  --card-glass-color: rgba(14, 13, 13, 0.92);
   --card-glass-blur: 18px;
   --card-glass-saturation: 1.35;
   --card-glass-highlight: rgba(255, 255, 255, 0.42);
