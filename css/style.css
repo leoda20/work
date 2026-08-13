@@ -69,7 +69,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "datatype", sans-serif;
+  font-family: "inter", sans-serif;
   font-size: 18px;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.65);
@@ -278,7 +278,7 @@ h3,
 
 h4,
 .mil-h4 {
-  font-size: 20px;
+  font-size: 24px;
 }
 @media screen and (max-width: 1200px) {
   h4,
@@ -301,7 +301,7 @@ h4,
 
 h5,
 .mil-h5 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 150%;
 }
 @media screen and (max-width: 768px) {
@@ -603,11 +603,19 @@ link
 
   text-decoration: underline;
   text-decoration-color: #1c1c1c;
+
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+
 }
 
 .mil-link-lg:hover {
   color: #5bb86a;
   text-decoration: none;
+  font-family: "datatype", sans-serif;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+
 }
 
 
@@ -907,6 +915,9 @@ breadcrumbs
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+          font-family: "datatype", sans-serif;
+
+          width: max-content;
 }
 .mil-breadcrumbs:before {
   content: "";
@@ -922,7 +933,7 @@ breadcrumbs
   list-style-type: none;
 }
 .mil-breadcrumbs li:after {
-  content: "/";
+  content: "";
   margin: 0 2px;
   color: rgb(0, 0, 0);
   color: #6d6d6d;
@@ -933,11 +944,10 @@ breadcrumbs
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 16px;
   white-space: nowrap;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
-  text-decoration: underline;
 }
 .mil-breadcrumbs li a:hover {
   color: #5bb86a;
@@ -946,7 +956,6 @@ breadcrumbs
 }
 .mil-breadcrumbs li:last-child {
   margin-right: 0;
-  cursor: not-allowed;
 }
 .mil-breadcrumbs li:last-child a {
   
@@ -1331,7 +1340,7 @@ body.scrolled {
   align-items: start;
   justify-content: center;
   margin-bottom: 48px;
-  max-height: 72dvb;
+  max-height: 100dvb;
   max-width: 100%;
   
 }
@@ -1347,24 +1356,28 @@ body.scrolled {
 }
 
 .hero-title{
-  color: #fff;
-  font-size: clamp(80px, 24vw, 500px);
+  font-size: clamp(80px, 24vw, 100px);
   z-index: -100;
-  letter-spacing: 10%;
-  text-align:  center;
-  line-height: 80%;
+  line-height: 100%;
   cursor:unset;
-    pointer-events: none;
+  pointer-events: none;
   user-select: none;
+  text-align: center;
 
 
 }
 
 .hero-paragraph{
-  width: 640px; 
   margin-top: 16px;
   font-weight: 200;
-  
+  font-family: "inter", sans-serif;
+  font-size: 32px;
+  text-align:center;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  line-height:1.1;
 }
 
 @media screen and (max-width: 768px) {
@@ -1591,20 +1604,19 @@ blog
 
 .blog-list{
   display: grid;
-  grid-template-columns: 1fr; /* Two equal columns */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
   gap: 16px;
+  padding: 32px
   
 }
 
 .mil-blog-card {
   display: block;
   overflow: hidden;
-
+  border-radius: 16px;
   min-width: 240px;
-  height: 50dvh;
-  margin-bottom: 16px;
-  
-  
+  height: 60dvh;
+ 
 }
 
 .mil-blog-card:hover {
@@ -1628,17 +1640,17 @@ blog
   
 }
 
-.mil-cover-frame:hover {
+.mil-cover-frame {
   
-  position: relative;
-  transform: scale(0.95);
-  transform-style: preserve-3d;
+
 
   box-shadow: #1c1c1c 1 1;
 
 
   
 }
+
+
 
 
 .blur-container {
@@ -1650,11 +1662,9 @@ blog
   padding: 16px;
   width: 100%;
   height: 100%;
-  color: #1c1c1c;
 
   p{
     margin-bottom: 16px;
-    color: #212121;
   }
   
   
@@ -1665,7 +1675,7 @@ blog
 
 .blur-tag {
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: 0.01em;
   display: inline-flex;
   align-items: center;
@@ -1718,6 +1728,9 @@ blog
   .mil-blog-card  {
   
   height: 320px;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  
 
   
   }
@@ -1726,6 +1739,8 @@ blog
   overflow: hidden;
   height: 320px;
   border-radius: 16px;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 
   
   }
@@ -1735,7 +1750,6 @@ blog
      object-fit: cover;
      object-position: center;
   position: relative;
-  mask-image: sa;
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
@@ -1776,10 +1790,22 @@ blog
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-
-  backdrop-filter: saturate(1.35);
   
 }
+.mil-blog-card .mil-cover-frame video {
+ 
+  height: 100%;
+  width: 100%;
+     object-fit: cover;
+     object-position: center;
+  position: relative;
+
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  
+}
+
+
 .mil-blog-card .mil-post-descr {
   padding: 0 30px 48px 0;
 }
@@ -1790,7 +1816,30 @@ blog
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.mil-blog-card:hover  {
+            box-shadow: 0 10px 10px #1c1c1c10;
+            -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+          -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+
+}
+
+.mil-blog-card:after  {
+          
+          -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+
+}
+
 .mil-blog-card:hover .mil-cover-frame img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+
+}
+
+.mil-blog-card:hover .mil-cover-frame video {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
@@ -1949,13 +1998,19 @@ footer
 ------------------------------------------- */
 
 .footer-content{
+  
   display: flex;
   height: fit-content;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding: 32px;
   justify-content: space-between;
   align-items: center;
-  gap:16px;
+  gap:32px;
+  
+
+}
+
+.footer-spacer{
+  height:120px;
 }
 
 /* -------------------------------------------
@@ -2133,8 +2188,7 @@ portfolio
 .top-header {
   position: fixed; 
   width: 100%; 
-  top: 0; 
-  left: 0; 
+  top: 0;
   z-index: 50; 
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
@@ -2145,11 +2199,12 @@ portfolio
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
+  padding: 0 32px;
   
 }
 
 .header-container {
-  height: 64px; 
+  height: 88px; 
   align-items: center; 
   display: flex;
   justify-content: space-between;
@@ -2527,7 +2582,7 @@ portfolio
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 8px;
+  gap: 16px;
 }
 
 @media screen and (max-width: 768px) {
@@ -2609,11 +2664,32 @@ portfolio
   animation: 4s linear infinite pulse;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 
+   --card-glass-bg: rgba(255, 255, 255, 0.16);
+  --card-glass-border: rgba(255, 255, 255, 0.42);
+  --card-glass-color: rgba(255, 255, 255, 0.92);
+  --card-glass-blur: 18px;
+  --card-glass-saturation: 1.35;
+  --card-glass-highlight: rgba(255, 255, 255, 0.42);
+  --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
+  --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
+  --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
+  
+  backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+  height: fit-content;
+
   
   
 }  
 
 .card-button h4 {
+  margin: 24px;
+
+  
+}  
+
+.card-button div {
   margin: 24px;
 
   
@@ -3143,6 +3219,14 @@ images
   width: 100%;
   min-width: 220px;
   height: fit-content;
+}
+
+.img-border{
+  width: 100%;
+  min-width: 220px;
+  height: fit-content;
+  border: solid 1px #1c1c1c10;
+  border-radius: 16px;
 }
 
 .img-sandbox{
@@ -3696,6 +3780,8 @@ justify-content: center;
   position: absolute;
   overflow: hidden;
   
+
+  mix-blend-mode: difference;
   
 }
 
@@ -3794,27 +3880,39 @@ justify-content: center;
 
 -----------
 
+.projects {
+  padding: 100px 40px;
+}
 
+.project {
+  font-size: 80px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 0;
+}
 
+.btn-test:hover {
+  color: #5bb86a;
+}
 
-/* This wrapper stands in for the React component's props */
-  #host {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: visible;
-    background: #000000; /* "background" prop */
-  }
+.preview {
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 10;
+}
 
-  #host canvas {
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-  }
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-
-
-
-
-  -------
+.preview.show {
+  opacity: 1;
+  transform: scale(1);
+}

@@ -7,104 +7,29 @@
 </head>
 <body>
 
-<div class="gravity-section" id="gravitySection">
-  <img src="YOUR_IMAGE_URL_HERE.jpg" class="gravity-img" id="gravityImg" alt="falling pic" draggable="false">
+<div class="projects">
+
+  <a class="project " data-image="img/profile-image.jpeg">
+    <h2 class="btn-test">TRMulator</h2>
+  </a>
+
+  <div class="project" data-image="images/project2.jpg">
+    <h2>Color Check</h2>
+  </div>
+
+  <div class="project" data-image="images/project3.jpg">
+    WCAG Assistant
+  </div>
+
 </div>
 
-<script>
-const section = document.getElementById('gravitySection');
-const img = document.getElementById('gravityImg');
+<div class="preview">
+  <img id="preview-image" src="" alt="">
+</div>
 
-let x = 20, y = 20;
-let vx = 0, vy = 0;
-const gravity = 0.5;
-const bounce = 0.6;
-const friction = 0.98;
+<script src="js/plugins/script.js"></script>
 
-let dragging = false;
-let dragOffsetX = 0, dragOffsetY = 0;
 
-function bounds() {
-  return {
-    w: section.clientWidth,
-    h: section.clientHeight,
-    imgW: img.offsetWidth,
-    imgH: img.offsetHeight
-  };
-}
-
-function loop() {
-  if (!dragging) {
-    const b = bounds();
-    vy += gravity;
-    x += vx;
-    y += vy;
-
-    if (y + b.imgH > b.h) {
-      y = b.h - b.imgH;
-      vy *= -bounce;
-      vx *= friction;
-      if (Math.abs(vy) < 0.5) vy = 0;
-    }
-    if (x < 0) { x = 0; vx *= -bounce; }
-    if (x + b.imgW > b.w) { x = b.w - b.imgW; vx *= -bounce; }
-
-    img.style.left = x + 'px';
-    img.style.top = y + 'px';
-  }
-  requestAnimationFrame(loop);
-}
-
-function pointerDown(e) {
-  e.preventDefault();
-  dragging = true;
-  img.classList.add('dragging');
-  const rect = img.getBoundingClientRect();
-  const secRect = section.getBoundingClientRect();
-  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-  dragOffsetX = clientX - rect.left;
-  dragOffsetY = clientY - rect.top;
-  vx = 0; vy = 0;
-}
-
-function pointerMove(e) {
-  if (!dragging) return;
-  e.preventDefault();
-  const secRect = section.getBoundingClientRect();
-  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-  const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-  const newX = clientX - secRect.left - dragOffsetX;
-  const newY = clientY - secRect.top - dragOffsetY;
-  vx = newX - x;
-  vy = newY - y;
-  x = newX;
-  y = newY;
-  img.style.left = x + 'px';
-  img.style.top = y + 'px';
-}
-
-const throwScale = 0.4;
-const maxThrowSpeed = 15;
-
-function pointerUp() {
-  dragging = false;
-  img.classList.remove('dragging');
-  vx *= throwScale;
-  vy *= throwScale;
-  vx = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vx));
-  vy = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, vy));
-}
-
-img.addEventListener('mousedown', pointerDown);
-img.addEventListener('touchstart', pointerDown);
-window.addEventListener('mousemove', pointerMove);
-window.addEventListener('touchmove', pointerMove);
-window.addEventListener('mouseup', pointerUp);
-window.addEventListener('touchend', pointerUp);
-
-loop();
-</script>
 
 </body>
 </html>
