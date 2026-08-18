@@ -23,6 +23,482 @@
     </title>
 
 
+    <style>
+    .gravity-section {
+        position: relative;
+        height: 15vh;
+        overflow: unset;
+        width: 100%;
+        margin-bottom: 80px;
+    }
+    .gravity-img {
+        position: absolute;
+        width: 240px;
+        cursor: grab;
+        user-select: none;
+        touch-action: none;
+    }
+
+    @media screen and (max-width: 1200px) {
+    .gravity-img {
+        width: 120px;
+    }
+    }
+    .gravity-img.dragging {
+        cursor: grabbing;
+        z-index: 999;
+    }
+    .custom-tooltip {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #1c1c1c;
+        padding: 8px 12px;
+        border-radius: 99px;
+        font-size: 14px;
+        white-space: nowrap;
+        z-index: 1000;
+        pointer-events: none;
+        display: none;
+        --card-glass-bg: rgba(255, 255, 255, 0.16);
+        --card-glass-border: rgba(255, 255, 255, 0.42);
+        --card-glass-color: rgba(255, 255, 255, 0.92);
+        --card-glass-blur: 18px;
+        --card-glass-saturation: 1.35;
+        --card-glass-highlight: rgba(255, 255, 255, 0.42);
+        --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
+        --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
+        --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
+        background: var(--card-glass-bg);
+        box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
+        text-shadow: 0 1px 8px var(--card-glass-text-shadow);
+        backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+        -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+
+    }
+    .custom-tooltip.visible {
+        display: block;
+    }
+
+
+    h4 {
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    line-height: 1;
+    }
+    h4 span {
+    display: block;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+    }
+
+    @keyframes reveal {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+    }
+
+
+
+
+
+
+    .fluid {
+        --fluid-min: calc(
+            var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+        );
+        --fluid-max: calc(
+            var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+        );
+        --fluid-preferred: calc(
+            (var(--fluid-max) - var(--fluid-min)) /
+                (var(--font-width-max) - var(--font-width-min))
+        );
+
+        font-size: clamp(
+            (var(--fluid-min) / 16) * 1rem,
+            ((var(--fluid-min) / 16) * 1rem) -
+                (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+                (var(--fluid-preferred) * 100vi),
+            (var(--fluid-max) / 16) * 1rem
+        );
+    }
+
+
+
+    .section-centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .word-scroll {
+        --font-level: 10;
+        width: 100%;
+    }
+
+    .word-scroll-inner {
+        display: flex;
+        justify-content: center;
+        line-height: 1.25;
+    }
+
+    .word-scroll-inner h2 {
+        position: sticky;
+        top: calc(50vh - 0.5lh);
+        margin: 0;
+        font-size: inherit;
+        font-weight: 500;
+        height: fit-content;
+    }
+
+    .word-scroll-inner ul {
+        font-weight: 500;
+        list-style: none;
+        margin: 0;
+        padding-block: calc(50vh - 0.5lh);
+        padding-left: 0;
+        --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+    }
+
+    li {
+
+          font-size: clamp(24px, 5vw, 80px);
+
+    }
+
+    .word-scroll[data-snap="true"] {
+        height: 100vh;
+        overflow-y: auto;
+        scroll-snap-type: y proximity;
+    }
+
+    .word-scroll[data-snap="true"] li {
+        scroll-snap-align: center;
+    }
+
+    [data-sync-scrollbar="true"] {
+        scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--hue))
+            transparent;
+    }
+
+    .word-scroll li:not(:last-of-type) {
+        color: oklch(
+            var(#ffffff) var(#fff)
+                calc(var(--start) + (var(--step) * var(--i)))
+        );
+    }
+
+    
+
+    @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+        [data-animate="true"] li {
+            opacity: 0.2;
+            animation-name: brighten;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+            animation-timeline: view();
+        }
+
+        [data-animate="true"] li:first-of-type {
+            --start-opacity: 1;
+        }
+
+        [data-animate="true"] li:last-of-type {
+            --brightness: 1;
+            --end-opacity: 1;
+        }
+
+        @keyframes brighten {
+            0% {
+                opacity: var(--start-opacity, 0.2);
+            }
+            50% {
+                opacity: 1;
+                filter: brightness(var(--brightness, 1.2));
+            }
+            100% {
+                opacity: var(--end-opacity, 0.2);
+            }
+        }
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+
+    .fluid {
+        --fluid-min: calc(
+            var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+        );
+        --fluid-max: calc(
+            var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+        );
+        --fluid-preferred: calc(
+            (var(--fluid-max) - var(--fluid-min)) /
+                (var(--font-width-max) - var(--font-width-min))
+        );
+
+        font-size: clamp(
+            (var(--fluid-min) / 16) * 1rem,
+            ((var(--fluid-min) / 16) * 1rem) -
+                (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+                (var(--fluid-preferred) * 100vi),
+            (var(--fluid-max) / 16) * 1rem
+        );
+    }
+
+    .section-centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .word-scroll {
+        --font-level: 5;
+        width: 100%;
+    }
+
+    .word-scroll-inner {
+        display: flex;
+        justify-content: center;
+        line-height: 1.25;
+    }
+
+    .word-scroll-inner h2 {
+        position: sticky;
+        top: calc(10vh - 0.5lh);
+        margin: 0;
+        font-size: inherit;
+        font-weight: 500;
+        height: fit-content;
+    }
+
+    .word-scroll-inner ul {
+        font-size: 80px;
+        list-style: none;
+        margin: 0;
+        padding-block: calc(5vh - 0.5lh);
+        padding-left: 0;
+        --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+        font-family: "datatype", sans-serif;
+    }
+
+    .word-scroll[data-snap="true"] {
+        height: 100vh;
+        overflow-y: auto;
+        scroll-snap-type: y proximity;
+    }
+
+    .word-scroll[data-snap="true"] li {
+        scroll-snap-align: center;
+    }
+
+    [data-sync-scrollbar="true"] {
+        scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--hue))
+            transparent;
+    }
+
+    .word-scroll li:not(:last-of-type) {
+        color: oklch(
+            var(--lightness) var(--base-chroma)
+                calc(var(--start) + (var(--step) * var(--i)))
+        );
+    }
+
+    .word-scroll h2,
+    .word-scroll li:last-of-type {
+        background: linear-gradient(
+            canvasText 50%,
+            color-mix(in oklch, canvas, canvasText 25%)
+        );
+        background-clip: text;
+        color: #0000;
+    }
+
+    @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+        [data-animate="true"] li {
+            opacity: 0.2;
+            animation-name: brighten;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+            animation-timeline: view();
+        }
+
+        [data-animate="true"] li:first-of-type {
+            --start-opacity: 1;
+        }
+
+        [data-animate="true"] li:last-of-type {
+            --brightness: 1;
+            --end-opacity: 1;
+        }
+
+        @keyframes brighten {
+            0% {
+                opacity: var(--start-opacity, 0.2);
+            }
+            50% {
+                opacity: 1;
+                filter: brightness(var(--brightness, 1.2));
+            }
+            100% {
+                opacity: var(--end-opacity, 0.2);
+            }
+        }
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+
+    h1 {
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    line-height: 1;
+
+    }
+    h1 span {
+    display: block;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+    }
+
+    @keyframes reveal {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+    }
+
+    .animation {
+    display: block;
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+    }
+
+    @keyframes reveal {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+    }
+
+
+
+     :root {
+	--font-size-min: 14;
+	--font-size-max: 20;
+	--font-ratio-min: 1.1;
+	--font-ratio-max: 1.33;
+	--font-width-min: 375;
+	--font-width-max: 1500;
+
+	--start: 0;
+	--end: 360;
+	--lightness: 65%;
+	--base-chroma: 0.3;
+}
+
+
+
+
+
+
+
+.fluid {
+	--fluid-min: calc(
+		var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
+	);
+	--fluid-max: calc(
+		var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
+	);
+	--fluid-preferred: calc(
+		(var(--fluid-max) - var(--fluid-min)) /
+			(var(--font-width-max) - var(--font-width-min))
+	);
+
+	font-size: clamp(
+		(var(--fluid-min) / 16) * 1rem,
+		((var(--fluid-min) / 16) * 1rem) -
+			(((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
+			(var(--fluid-preferred) * 100vi),
+		(var(--fluid-max) / 16) * 1rem
+	);
+}
+
+
+
+.word-scroll {
+	--font-level: 5;
+	width: 100%;
+}
+
+.word-scroll-inner {
+	display: flex;
+	justify-content: center;
+	line-height: 1.3;
+}
+
+.word-scroll-inner h2 {
+	position: sticky;
+	top: calc(50vh - 0.5lh);
+	margin: 0;
+	font-size: inherit;
+	font-weight: 500;
+	height: fit-content;
+}
+
+.word-scroll-inner ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	--step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+}
+
+
+
+.word-scroll li:not(:last-of-type) {
+	color: #7a7a7a;
+    font-weight: 500 ;
+}
+
+.word-scroll h2,
+.word-scroll li:last-of-type {
+	background: #1c1c1c;
+	background-clip: text;
+	color: #0000;
+
+    font-weight: 500 ;
+}
+    </style>
+
+
     
 
 
@@ -30,417 +506,243 @@
 
 
 
-<body>
+<body style="overflow-x: hidden;">
 
-    <div>
-
-        <div class="top-header" >
-            <div class="header-container " >
-                <h3 class="text-inverse" href="index.html">👋 </h3>
-
-                <img src="img/ezgif.com-gif-maker.gif" alt="profile" style="width: 64px; height: 64px; object-fit: cover;">
-
-                
-
-            
-            </div>
-
-            
-        </div>
-
-        <!-- Spacer to offset the fixed header so page content isn't hidden -->
-        <div style="height: 64px;"></div>
-            
-
-            
-        <div class=" hero mil-p-120-120 container scroll-animation" id="#hero" >
-            
-
-            
-            <p class="hero-paragraph text-inverse mil-mb-30">Hi, I'm <strong>Leo Denega</strong>.</p>
-                <h1 class="hero-title text-inverse mil-up">I find patterns ✾ build ✺ clarity, ✣ and turn complexity ✶ into simpler products.✢</h1>
-
-            
-
-            
-
-        </div>
-
+    <div class="top-header" >
+        <div class="header-container " >
+            <h3 class="text-inverse" href="index.html">👋 </h3>
 
         
 
-        <div class="tab container flex-div justify-content-center gap-8" >
-            <a  class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
-            <a  class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
-            <a class="tablinks" onclick="openCity(event, 'about')">About me</a>
-            
+            <img src="img/ezgif.com-gif-maker.gif" alt="profile" style="width: 64px; height: 64px; object-fit: cover;">
         </div>
+    </div>
 
-        <!-- Tab content -->
-        <div id="work" class="tabcontent ">
+    <!-- Spacer to offset the fixed header so page content isn't hidden -->
+    <div style="height: 64px;"></div>
 
+    <div class="word-scroll hero fluid">
+        <h1 class="hero-title text-inverse">
+            <span>Hi, I'm</span>
+            
+        </h1>
+
+
+        <h1 class="hero-title text-inverse mil-mb-30">
+            <span>Leo Denega</span>
+            
+        </h1>
+    </div>
+
+    <section class="word-scroll fluid " style="overflow: visible;">
+        
+
+        <div class="word-scroll-inner">
+            <h2 >
+                <span aria-hidden="true">I build&nbsp;</span>
+                <span class="sr-only">I build products, systems, platforms, and infrastructure.</span>
+            </h2>
+            <ul>
+                
+                <li>products.</li>
+                <li>experiences.</li>
+                <li>design systems.</li>
+                <li>clarity.</li>
+                <li>consistency.</li>
+                <li>better experiences.</li>
+                <li>AI-powered tools.</li>
+                <li>simplicity.</li>
+            </ul>
+        </div>
+        
 
         
+    </section>
+
+
+    <div class="container mil-p-120-120">
+
+
+
+        <div class="flex-div justify-content-between align-content-center mil-mb-30">
+            <h2>Recent Projects</h2>
+            <a class="mil-link-lg"> View all →</a>
+        </div>
+
+        
+       
+        <div class="blog-list">
+                
             
 
-            <div class="blog-list scroll-up"  id="work" >
-                    
-                
+
+            <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card " >
 
 
-                    <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card scroll-animation" >
+                <div class="mil-cover-frame">
+                    <video style="width: 100%;" src="img/work/aeg/tokens-cover.mp4" alt="cover" autoplay muted loop></video>
+                    <div class="blur-container">
+                        <h3>Token refactor</h3>
 
-
-                        <div class="mil-cover-frame">
-                            <video style="width: 100%;" src="img/work/aeg/tokens-cover.mp4" alt="cover" autoplay muted></video>
-                            <div class="blur-container">
-                                <h3>Token refactor</h3>
-
-                                <p>Renewing the tokens to improve consistency, accessibility and usability.</p>
-                                
-                                <p class="blur-tag">Design System</p>
-                                <p class="blur-tag">
-                                    Accessibility
-                                </p>
-
-                                
-                            </div>
-                        </div>
-
-
-                    </a>
-
-                    
-
-                    
-
-
-                    <a href="project-finbooks.html" class="mil-blog-card  scroll-animation">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/finbook/finbooks-cover.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Finbooks website</h3>
-
-                                <p>Redesigned the website to boost engagement with AI and financial services.</p>
-
-                                
-                                <p class="blur-tag">Web design</p>
-                                
-                            </div>
-                        </div>
+                        <p>Renewing the tokens to improve consistency, accessibility and usability.</p>
                         
-
-                    </a>
-
-                    
-                    
-                
-
-
-                    <a href="project-TR-blueprint.html" class="mil-blog-card  ">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/tr/service-blueprint-tr.png" alt="cover">
-                            <div class="blur-container">
-
-
-                                <h3>Service Blueprint</h3>
-
-                                <p>Streamlined Accountability Team workflow with a service blueprint.</p>
-
-
-                                <p class="blur-tag">Service design</p>
-                                <p class="blur-tag">
-                                    Workflow
-                                </p>
-                            </div>
-                        </div>
-
-
-                    </a>
+                        <p class="blur-tag">Design System</p>
+                        <p class="blur-tag">
+                            Accessibility
+                        </p>
 
                         
-
-
-                    <a href="project-TR-messages.html" class="mil-blog-card   ">
-                        <div class="mil-cover-frame">
-                            <video style="width: 100%;" src="img/work/tr/messages-cover.mp4" alt="cover" autoplay muted></video>
-                            <div class="blur-container">
-
-                                <h3>User Communication</h3>
-
-                                <p>Improved Thomson Reuters’ emails and notification touchpoints.</p>
-
-                                <p class="blur-tag">Messaging</p>
-                                <p class="blur-tag">
-                                    UX
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-                    
-
-
-                    <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/umbler/email-onboarding-umbler.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>E-mail App Onboarding</h3>
-
-                                <p>Designed Umbler’s onboarding for easy, smooth email setup.</p>
-
-                                <p class="blur-tag">Onboarding</p>
-                                <p class="blur-tag">
-                                    Mobile
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-                    <a href="project-email-marketing.html" class="mil-blog-card   ">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/umbler/email-marketing-umbler.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>E-mail Marketing tool</h3>
-
-                                <p>Improved Email Marketing usability using UX research.</p>
-
-                                <p class="blur-tag">UI</p>
-                                <p class="blur-tag">
-                                    Desktop
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-
-                    <a href="project-medtime.html" class="mil-blog-card  ">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/medtime/medtime.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Medtime</h3>
-
-                                <p>Simplified medication management with Medtime’s personalized alarms.</p>
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-                    
-
-
-
-                    <a href="project-dronelivery.html" class="mil-blog-card   " >
-                        <div class="mil-cover-frame " >
-                            <img src="img/work/dronelivery/dronelivery.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Dronelivery</h3>
-
-                                <p>Created a drone delivery app for easy first-time scheduling.</p>
-
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-            
-
-                
-
-                    <a href="project-cluber.html" class="mil-blog-card    ">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/cluber/cover-cluber.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Cluber</h3>
-
-                                <p>Built an NFT marketplace to drive loyalty in bars and restaurants.</p>
-
-
-                                <p class="blur-tag">Web3</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-                        
-
-
-                    <a href="project-cadastrapet.html" class="mil-blog-card   ">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/cadastrapet/cover-cadastrapet.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Cadatrapet</h3>
-
-                                <p>Designed Cadastrapet app for Pet IDs and medical history tracking.</p>
-
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-                    </a>
-
-
+                    </div>
                 </div>
 
+
+            </a>
+
+                
+
+                
+
+
+            <a href="project-finbooks.html" class="mil-blog-card  ">
+                <div class="mil-cover-frame">
+                    <img src="img/work/finbook/finbooks-cover.png" alt="cover">
+                    <div class="blur-container">
+
+                        <h3>Finbooks website</h3>
+
+                        <p>Redesigned the website to boost engagement with AI and financial services.</p>
+
+                        
+                        <p class="blur-tag">Web design</p>
+                        
+                    </div>
+                </div>
+                
+
+            </a>
+
+
         </div>
 
-        <div id="about" class="tabcontent container" style="opacity: 1;">
-
-            <div class="title-group col-lg-8 text-inverse">
-                <h2 class="text-inverse">About me</h2>
+        
 
 
-                <p >I’m a Product Designer who likes turning complexity into simple, well-defined solutions. Over the years, I’ve learned that good design isn’t just about the final interface — it’s also about consistency, documentation, accessibility, business context, and getting the team aligned around a shared direction.</p>
 
-                <p >I’m naturally drawn to patterns and systems, which helps me spot opportunities and connect the dots between user needs and business goals.</p>
+    </div>
 
-                <p >Lately, I’ve also been experimenting with AI as a collaborator and accelerator — mostly by building small tools that adapt to the way I work and make me more productive, without compromising design standards or critical thinking.</p>
-
-                <p >Outside of work, you'll usually find me experimenting with coffee ☕️, cooking 🍳, or planning my next trip ✈️.</p>
-            </div>
-            
-            <p class="mil-link-lg">Download Resume</p>
-            
-            
-            
-
-        </div>
-
-        <div id="ai" class="tabcontent justify-content-center align-items-center justify-content-center container " style="opacity: 1;">
+    <div class=" justify-content-center align-items-center container mil-p-120-120 ">
         
                 
-            <div class="col-lg-8 title-group">
-                <h2 class="text-inverse ">AI sandbox</h2>
+        <div class="col-lg-8 title-group">
+            <h2>AI sandbox</h2>
+            <p>
+                I use AI to build custom tools that adapt to how I work — automating repetitive tasks, speeding up workflows, and giving me more time to focus on design.
+            </p>
+        </div>
 
+        
 
-                <p class="text-inverse">
-                    I use AI to build custom tools that adapt to how I work — automating repetitive tasks, speeding up workflows, and giving me more time to focus on design.
-                </p>
-            </div>
-
-            
-
-            <div class="themes-grid" id="work" >
-                    
-                <a href="ai-accessibilitygpt.html" class="card-button gap-32">
-
-                    <img class="img-card"  src="img/ai/accessibilitygpt-cover.png" alt="cover">
-                    <div >
-
-                        <h3>AccessibilityGPT</h3>
-
-                        <p class=" mil-mb-15">An AI-powered tool that analyzes UI screenshots, identifies contrast issues, compares them against the design system, and proposes accessible design tokens to fix them.</p>
-
-
-                        <p class="blur-tag">Accessibility</p>
-                        
-                        <p class="blur-tag">
-                            WCAG
-                        </p>
-                    </div>
-                    
-
-
-                </a>
+        <div class="themes-grid">
                 
-                
-                <a href="ai-documentation.html" class="card-button gap-32">
+            <a href="ai-accessibilitygpt.html" class="card-button">
 
-                    <img class="img-card" src="img/ai/document-generator.png" alt="cover">
-                    <div >
+                <img src="img/ai/accessibilitygpt.png" class="img-card">
 
-                            <h3>Design Documentation</h3>
+                <div>
 
-                            <p class=" mil-mb-15">An AI-powered tool that turns designers’ notes and definitions into structured, reusable design documentation—making documentation faster, more consistent, and easier to maintain.</p>
+                    <h3>AccessibilityGPT</h3>
+
+                    <p class=" mil-mb-15">An AI-powered tool that analyzes UI screenshots, identifies contrast issues, compares them against the design system, and proposes accessible design tokens to fix them.</p>
 
 
-                            <p class="blur-tag">Design Systems</p>
-                            <p class="blur-tag">
-                                Documentation
-                            </p>
-                        </div>
+                    <p class="blur-tag">Accessibility</p>
                     
+                    <p class="blur-tag">
+                        WCAG
+                    </p>
+                </div>
+
+            </a>
+
+            <a href="ai-accessibilitygpt.html" class="card-button">
+
+                <img src="img/ai/accessibilitygpt.png" class="img-card">
+
+                <div>
+
+                    <h3>Design Documentation</h3>
+
+                    <p class=" mil-mb-15">An AI-powered tool that turns designers’ notes and definitions into structured, reusable design documentation—making documentation faster, more consistent, and easier to maintain.</p>
 
 
-                </a>
-
-                <a href="ai-contrast-tokens.html" class="card-button gap-32">
-
-                    <img class="img-card"  src="img/ai/contrast-tokens.png" alt="cover">
-                    <div >
-
-                        <h3>Contrast Tokens</h3>
-
-                        <p class=" mil-mb-15">An AI-powered tool that analyzes UI screenshots, identifies contrast issues, compares them against the design system, and proposes accessible design tokens to fix them.</p>
-
-
-                        <p class="blur-tag">Accessibility</p>
-                        
-                        <p class="blur-tag">
-                            WCAG
-                        </p>
-                    </div>
+                    <p class="blur-tag">Design Systems</p>
                     
+                    <p class="blur-tag">
+                        Documentation
+                    </p>
+                </div>
+
+            </a>
+
+            <a href="ai-accessibilitygpt.html" class="card-button">
+
+                <img src="img/ai/accessibilitygpt.png" class="img-card">
+
+                <div>
+
+                    <h3>Contrast Tokens</h3>
+
+                    <p class=" mil-mb-15">An AI-powered tool that analyzes UI screenshots, identifies contrast issues, compares them against the design system, and proposes accessible design tokens to fix them.</p>
 
 
-                </a>
+                    <p class="blur-tag">Accessibility</p>
+                    
+                    <p class="blur-tag">
+                        WCAG
+                    </p>
+                </div>
 
-                        
-
-
-                
-
-
-            </div>
+            </a>
 
 
         </div>
 
 
     </div>
-    
+
+
+    <div  class=" container mil-p-120-120">
+
+        <div class="title-group col-lg-8 mil-mb-60">
+            <h2 class="text-inverse">About me</h2>
+
+
+            <p >I’m a Product Designer who likes turning complexity into simple, well-defined solutions. Over the years, I’ve learned that good design isn’t just about the final interface — it’s also about consistency, documentation, accessibility, business context, and getting the team aligned around a shared direction.</p>
+
+            <p >I’m naturally drawn to patterns and systems, which helps me spot opportunities and connect the dots between user needs and business goals.</p>
+
+            <p >Lately, I’ve also been experimenting with AI as a collaborator and accelerator — mostly by building small tools that adapt to the way I work and make me more productive, without compromising design standards or critical thinking.</p>
+
+            <p >Outside of work, you'll usually find me experimenting with coffee ☕️, cooking 🍳, or planning my next trip ✈️.</p>
+
+            <p class="mil-link-lg mil-mb-60">Download Resume</p>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="gravity-section" id="gravitySection">
+        <img src="img/drawings/belgium.png" class="gravity-img" alt="Belgium drawing" title="Belgium">
+        <img src="img/drawings/argentina.png" class="gravity-img" alt="Argentina drawing" title="Argentina">
+        <img src="img/drawings/luxembourg.png" class="gravity-img" alt="Luxembourg drawing" title="Luxembourg">
+        <img src="img/drawings/south-africa.png" class="gravity-img" alt="South Africa drawing" title="South Africa">
+        <img src="img/drawings/morocco.png" class="gravity-img" alt="Morocco drawing" title="Morocco">
+        <img src="img/drawings/spain.png" class="gravity-img" alt="Spain drawing" title="Spain">
+        <img src="img/drawings/uruguay.png" class="gravity-img" alt="Uruguay drawing" title="Uruguay">
+        <img src="img/drawings/portugal.png" class="gravity-img" alt="Portugal drawing" title="Portugal">
+    </div>
 
     <!-- footer -->
     <footer class=" footer-content ">
@@ -547,163 +849,292 @@
             });
     </script>
 
-    
 
-<script>
-const section = document.getElementById('gravitySection');
-const gravity = 0.2;
-const bounce = 0.90;
-const friction = 0.5;
-const throwScale = 0.4;
-const maxThrowSpeed = 12;
- 
-const items = [];
- 
-const imgEls = Array.from(section.querySelectorAll('img.gravity-img'));
- 
-imgEls.forEach((img) => {
-  img.draggable = false;
- 
-  const item = {
-    el: img,
-    x: Math.random() * (section.clientWidth - 120),
-    y: Math.random() * (section.clientHeight / 2),
-    vx: 0,
-    vy: 0,
-    w: 120,
-    h: 120,
-    dragging: false,
-    dragOffsetX: 0,
-    dragOffsetY: 0
-  };
- 
-  img.addEventListener('load', () => {
-    item.w = img.offsetWidth;
-    item.h = img.offsetHeight;
-  });
- 
-  items.push(item);
-  attachHandlers(item);
-});
- 
-function bounds() {
-  return { w: section.clientWidth, h: section.clientHeight };
-}
- 
-function attachHandlers(item) {
-  function pointerDown(e) {
-    e.preventDefault();
-    item.dragging = true;
-    item.el.classList.add('dragging');
-    const rect = item.el.getBoundingClientRect();
-    const secRect = section.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    item.dragOffsetX = clientX - rect.left;
-    item.dragOffsetY = clientY - rect.top;
-    item.vx = 0;
-    item.vy = 0;
-  }
- 
-  function pointerMove(e) {
-    if (!item.dragging) return;
-    e.preventDefault();
-    const secRect = section.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    const newX = clientX - secRect.left - item.dragOffsetX;
-    const newY = clientY - secRect.top - item.dragOffsetY;
-    item.vx = newX - item.x;
-    item.vy = newY - item.y;
-    item.x = newX;
-    item.y = newY;
-  }
- 
-  function pointerUp() {
-    if (!item.dragging) return;
-    item.dragging = false;
-    item.el.classList.remove('dragging');
-    item.vx *= throwScale;
-    item.vy *= throwScale;
-    item.vx = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, item.vx));
-    item.vy = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, item.vy));
-  }
- 
-  item.el.addEventListener('mousedown', pointerDown);
-  item.el.addEventListener('touchstart', pointerDown);
-  window.addEventListener('mousemove', pointerMove);
-  window.addEventListener('touchmove', pointerMove);
-  window.addEventListener('mouseup', pointerUp);
-  window.addEventListener('touchend', pointerUp);
-}
- 
-function resolveCollisions() {
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      const a = items[i], b = items[j];
-      if (a.dragging || b.dragging) continue;
- 
-      const ax2 = a.x + a.w, ay2 = a.y + a.h;
-      const bx2 = b.x + b.w, by2 = b.y + b.h;
- 
-      const overlapX = Math.min(ax2, bx2) - Math.max(a.x, b.x);
-      const overlapY = Math.min(ay2, by2) - Math.max(a.y, b.y);
- 
-      if (overlapX > 0 && overlapY > 0) {
-        if (overlapX < overlapY) {
-          const push = overlapX / 2;
-          if (a.x < b.x) { a.x -= push; b.x += push; }
-          else { a.x += push; b.x -= push; }
-          a.vx *= -0.2; b.vx *= -0.2;
-        } else {
-          const push = overlapY / 2;
-          if (a.y < b.y) { a.y -= push; b.y += push; a.vy = Math.min(a.vy, 0); }
-          else { a.y += push; b.y -= push; b.vy = Math.min(b.vy, 0); }
+    <script>
+    const section = document.getElementById('gravitySection');
+    const gravity = 0.2;
+    const bounce = 0.90;
+    const friction = 0.5;
+    const throwScale = 0.4;
+    const maxThrowSpeed = 12;
+    
+    const items = [];
+    
+    const imgEls = Array.from(section.querySelectorAll('img.gravity-img'));
+    
+    imgEls.forEach((img) => {
+    img.draggable = false;
+    
+    const item = {
+        el: img,
+        x: Math.random() * (section.clientWidth - 120),
+        y: Math.random() * (section.clientHeight / 2),
+        vx: 0,
+        vy: 0,
+        w: 120,
+        h: 120,
+        dragging: false,
+        dragOffsetX: 0,
+        dragOffsetY: 0
+    };
+    
+    img.addEventListener('load', () => {
+        item.w = img.offsetWidth;
+        item.h = img.offsetHeight;
+    });
+    
+    items.push(item);
+    attachHandlers(item);
+    });
+    
+    function bounds() {
+    return { w: section.clientWidth, h: section.clientHeight };
+    }
+    
+    function attachHandlers(item) {
+    function pointerDown(e) {
+        e.preventDefault();
+        item.dragging = true;
+        item.el.classList.add('dragging');
+        const rect = item.el.getBoundingClientRect();
+        const secRect = section.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        item.dragOffsetX = clientX - rect.left;
+        item.dragOffsetY = clientY - rect.top;
+        item.vx = 0;
+        item.vy = 0;
+    }
+    
+    function pointerMove(e) {
+        if (!item.dragging) return;
+        e.preventDefault();
+        const secRect = section.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const newX = clientX - secRect.left - item.dragOffsetX;
+        const newY = clientY - secRect.top - item.dragOffsetY;
+        item.vx = newX - item.x;
+        item.vy = newY - item.y;
+        item.x = newX;
+        item.y = newY;
+    }
+    
+    function pointerUp() {
+        if (!item.dragging) return;
+        item.dragging = false;
+        item.el.classList.remove('dragging');
+        item.vx *= throwScale;
+        item.vy *= throwScale;
+        item.vx = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, item.vx));
+        item.vy = Math.max(-maxThrowSpeed, Math.min(maxThrowSpeed, item.vy));
+    }
+    
+    item.el.addEventListener('mousedown', pointerDown);
+    item.el.addEventListener('touchstart', pointerDown);
+    window.addEventListener('mousemove', pointerMove);
+    window.addEventListener('touchmove', pointerMove);
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('touchend', pointerUp);
+    }
+    
+    function resolveCollisions() {
+    for (let i = 0; i < items.length; i++) {
+        for (let j = i + 1; j < items.length; j++) {
+        const a = items[i], b = items[j];
+        if (a.dragging || b.dragging) continue;
+    
+        const ax2 = a.x + a.w, ay2 = a.y + a.h;
+        const bx2 = b.x + b.w, by2 = b.y + b.h;
+    
+        const overlapX = Math.min(ax2, bx2) - Math.max(a.x, b.x);
+        const overlapY = Math.min(ay2, by2) - Math.max(a.y, b.y);
+    
+        if (overlapX > 0 && overlapY > 0) {
+            if (overlapX < overlapY) {
+            const push = overlapX / 2;
+            if (a.x < b.x) { a.x -= push; b.x += push; }
+            else { a.x += push; b.x -= push; }
+            a.vx *= -0.2; b.vx *= -0.2;
+            } else {
+            const push = overlapY / 2;
+            if (a.y < b.y) { a.y -= push; b.y += push; a.vy = Math.min(a.vy, 0); }
+            else { a.y += push; b.y -= push; b.vy = Math.min(b.vy, 0); }
+            }
         }
-      }
+        }
     }
-  }
-}
- 
-function loop() {
-  const b = bounds();
- 
-  items.forEach(item => {
-    if (item.dragging) return;
-    item.vy += gravity;
-    item.x += item.vx;
-    item.y += item.vy;
- 
-    if (item.y + item.h > b.h) {
-      item.y = b.h - item.h;
-      item.vy *= -bounce;
-      item.vx *= friction;
-      if (Math.abs(item.vy) < 0.5) item.vy = 0;
     }
-    if (item.x < 0) { item.x = 0; item.vx *= -bounce; }
-    if (item.x + item.w > b.w) { item.x = b.w - item.w; item.vx *= -bounce; }
+    
+    function loop() {
+    const b = bounds();
+    
+    items.forEach(item => {
+        if (item.dragging) return;
+        item.vy += gravity;
+        item.x += item.vx;
+        item.y += item.vy;
+    
+        if (item.y + item.h > b.h) {
+        item.y = b.h - item.h;
+        item.vy *= -bounce;
+        item.vx *= friction;
+        if (Math.abs(item.vy) < 0.5) item.vy = 0;
+        }
+        if (item.x < 0) { item.x = 0; item.vx *= -bounce; }
+        if (item.x + item.w > b.w) { item.x = b.w - item.w; item.vx *= -bounce; }
+    });
+    
+    resolveCollisions();
+    
+    items.forEach(item => {
+        item.el.style.left = item.x + 'px';
+        item.el.style.top = item.y + 'px';
+    });
+    
+    requestAnimationFrame(loop);
+    }
+    
+    loop();
+    </script>
+
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+    });
+    }, {
+    threshold: 0.2
+    });
+    </script>
+
+    <script>
+// Custom Tooltip System
+const tooltip = document.createElement('div');
+tooltip.className = 'custom-tooltip';
+document.body.appendChild(tooltip);
+
+const images = document.querySelectorAll('.gravity-img[title]');
+
+images.forEach(img => {
+  img.addEventListener('mouseenter', (e) => {
+    tooltip.textContent = img.getAttribute('title');
+    tooltip.classList.add('visible');
+    updateTooltipPosition(e);
   });
- 
-  resolveCollisions();
- 
-  items.forEach(item => {
-    item.el.style.left = item.x + 'px';
-    item.el.style.top = item.y + 'px';
+
+  img.addEventListener('mousemove', (e) => {
+    updateTooltipPosition(e);
   });
- 
-  requestAnimationFrame(loop);
+
+  img.addEventListener('mouseleave', () => {
+    tooltip.classList.remove('visible');
+  });
+});
+
+function updateTooltipPosition(e) {
+  const offsetX = 15;
+  const offsetY = -30;
+  tooltip.style.left = (e.clientX + offsetX) + 'px';
+  tooltip.style.top = (e.clientY + offsetY) + 'px';
+  tooltip.style.position = 'fixed';
 }
- 
-loop();
 </script>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle('visible', entry.isIntersecting);
+<script>function checkForVisibility() {
+  var headers = document.querySelectorAll(".header");
+  headers.forEach(function(header) {
+    if (isElementInViewport(header)) {
+      header.classList.add("headerVisible");
+    } else {
+      header.classList.remove("headerVisible");
+    }
   });
-}, {
-  threshold: 0.2
+}
+
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+if (window.addEventListener) {
+  addEventListener("DOMContentLoaded", checkForVisibility, false);
+  addEventListener("load", checkForVisibility, false);
+  addEventListener("scroll", checkForVisibility, false);
+}
+
+
+</script>
+
+
+<!-- scrolling hero -->
+<script >
+        
+
+       const WordScroll = (() => {
+
+  const defaults = {
+    snap: true,
+    animate: true,
+    start: Math.floor(Math.random() * 100),
+    end: Math.floor(900 + Math.random() * 100),
+    startIndex: 0,
+    debug: false
+  };
+
+  const init = (selector = ".word-scroll", options = {}) => {
+
+    const root = document.querySelector(selector);
+    if (!root) return;
+
+    const config = { ...defaults, ...options };
+
+    const list = root.querySelector("ul");
+    const items = [...list.children];
+
+    list.style.setProperty("--count", items.length);
+
+    items.forEach((item, i) => {
+      item.style.setProperty("--i", i);
+    });
+
+    root.dataset.snap = config.snap;
+    root.dataset.animate = config.animate;
+    root.dataset.debug = config.debug;
+
+    root.style.setProperty("--start", config.start);
+    root.style.setProperty("--hue", config.start);
+    root.style.setProperty("--end", config.end);
+
+    const index = Math.max(0, Math.min(config.startIndex, items.length - 1));
+    const target = items[index];
+
+    if (target) {
+      requestAnimationFrame(() => {
+        const offset = target.offsetTop - (root.clientHeight / 2) + (target.clientHeight / 2);
+        root.scrollTop = offset;
+      });
+    }
+
+  };
+
+  return { init };
+
+})();
+
+WordScroll.init(".word-scroll", {
+  snap: true,
+  animate: true,
+  start: 25,
+  end: 100,
+  startIndex: 4
 });
 </script>
 

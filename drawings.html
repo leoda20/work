@@ -23,61 +23,61 @@
     </title>
 
     <style>
-        .gravity-section {
-            position: relative;
-            height: 65vh;
-            overflow: unset;
-            z-index: 999;
-        }
+      .gravity-section {
+          position: relative;
+          height: 65vh;
+          overflow: unset;
+          z-index: 999;
+      }
+      .gravity-img {
+          position: absolute;
+          width: 240px;
+          cursor: grab;
+          user-select: none;
+          touch-action: none;
+      }
+
+      @media screen and (max-width: 768px) {
         .gravity-img {
-            position: absolute;
-            width: 240px;
-            cursor: grab;
-            user-select: none;
-            touch-action: none;
+          width: 120px;
+          height: 120px;
         }
+      }
+      .gravity-img.dragging {
+          cursor: grabbing;
+          z-index: 999;
+      }
+      .custom-tooltip {
+          position: fixed;
+          background-color: rgba(0, 0, 0, 0.9);
+          color: #1c1c1c;
+          padding: 8px 12px;
+          border-radius: 99px;
+          font-size: 14px;
+          white-space: nowrap;
+          z-index: 1000;
+          pointer-events: none;
+          display: none;
+          --card-glass-bg: rgba(255, 255, 255, 0.16);
+          --card-glass-border: rgba(255, 255, 255, 0.42);
+          --card-glass-color: rgba(255, 255, 255, 0.92);
+          --card-glass-blur: 18px;
+          --card-glass-saturation: 1.35;
+          --card-glass-highlight: rgba(255, 255, 255, 0.42);
+          --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
+          --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
+          --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
+          background: var(--card-glass-bg);
+          box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
+          text-shadow: 0 1px 8px var(--card-glass-text-shadow);
+          backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+          -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
 
-        @media screen and (max-width: 768px) {
-          .gravity-img {
-            width: 120px;
-            height: 120px;
-          }
-        }
-        .gravity-img.dragging {
-            cursor: grabbing;
-            z-index: 999;
-        }
-        .custom-tooltip {
-            position: fixed;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #1c1c1c;
-            padding: 8px 12px;
-            border-radius: 99px;
-            font-size: 14px;
-            white-space: nowrap;
-            z-index: 1000;
-            pointer-events: none;
-            display: none;
-            --card-glass-bg: rgba(255, 255, 255, 0.16);
-            --card-glass-border: rgba(255, 255, 255, 0.42);
-            --card-glass-color: rgba(255, 255, 255, 0.92);
-            --card-glass-blur: 18px;
-            --card-glass-saturation: 1.35;
-            --card-glass-highlight: rgba(255, 255, 255, 0.42);
-            --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
-            --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
-            --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-            background: var(--card-glass-bg);
-            box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
-            text-shadow: 0 1px 8px var(--card-glass-text-shadow);
-            backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
-            -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
-
-        }
-        .custom-tooltip.visible {
-            display: block;
-        }
-        </style>
+      }
+      .custom-tooltip.visible {
+          display: block;
+      }
+      </style>
 
 
 </head>

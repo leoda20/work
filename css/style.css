@@ -606,7 +606,7 @@ link
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-
+  
 }
 
 .mil-link-lg:hover {
@@ -915,7 +915,6 @@ breadcrumbs
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-          font-family: "datatype", sans-serif;
 
           width: max-content;
 }
@@ -943,7 +942,6 @@ breadcrumbs
   color: #1c1c1c;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 500;
   font-size: 16px;
   white-space: nowrap;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
@@ -1337,11 +1335,10 @@ body.scrolled {
   
   display:flex; 
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 48px;
-  max-height: 100dvb;
   max-width: 100%;
+  height: 80dvh;
   
 }
 
@@ -1356,8 +1353,8 @@ body.scrolled {
 }
 
 .hero-title{
-  font-size: clamp(80px, 24vw, 100px);
-  z-index: -100;
+  font-size: clamp(80px, 24vw, 240px);
+  
   line-height: 100%;
   cursor:unset;
   pointer-events: none;
@@ -1606,16 +1603,20 @@ blog
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   gap: 16px;
-  padding: 32px
-  
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  mask-type: y mandatory;
+  -ms-ime-align: start;
 }
 
 .mil-blog-card {
-  display: block;
+  top: 80px;
   overflow: hidden;
   border-radius: 16px;
   min-width: 240px;
-  height: 60dvh;
+  height:60dvh;
+  border-top: 2px solid #ffffff9c;
+  
  
 }
 
@@ -1721,6 +1722,8 @@ blog
     gap: 16px;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+     
+  height: fit-content;
     
   }
 
@@ -2005,6 +2008,7 @@ footer
   justify-content: space-between;
   align-items: center;
   gap:32px;
+  border-top: #1c1c1c10 solid 1px;
   
 
 }
@@ -2582,10 +2586,10 @@ portfolio
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 16px;
+  gap: 8px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   
   .themes-grid{
     display: grid;
@@ -2656,7 +2660,7 @@ portfolio
 .card-button {
   border: solid 1px #1c1c1c10;
   border-radius: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   flex:1;
   min-width:0;
   overflow: hidden;
@@ -2679,7 +2683,6 @@ portfolio
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   height: fit-content;
 
-  
   
 }  
 
@@ -3219,6 +3222,7 @@ images
   width: 100%;
   min-width: 220px;
   height: fit-content;
+  border-radius: 16px;
 }
 
 .img-border{
@@ -3663,6 +3667,9 @@ justify-content: center;
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
 
+
+
+  border: solid 1px #1c1c1c10;
 }
 
 
@@ -3679,24 +3686,18 @@ justify-content: center;
   text-decoration: none;
   font-family: "datatype", sans-serif;
   align-items: center;
+  
 
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab a {
   background-color: inherit;
-  float: left;
-  border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
   transition: 0.3s;
-  font-size: 20px;
-
-
+  font-size: 16px;
   pointer-events: auto;
-
-  bottom: 24px;
   border: none;
   align-content: center;
   justify-content: center;
@@ -3713,8 +3714,8 @@ justify-content: center;
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-  min-height: 44px;
-  padding: 6px 18px;
+  min-height: 38px;
+  padding: 2px 14px;
   border-radius: 999px;
   
   border: solid 1px #1c1c1c10;
@@ -3915,4 +3916,18 @@ justify-content: center;
 .preview.show {
   opacity: 1;
   transform: scale(1);
+}
+
+
+-------
+div::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+mix-blend-mode: overlay;
+  opacity: 0.10;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
