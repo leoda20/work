@@ -24,6 +24,8 @@
 
 
     <style>
+
+
     .gravity-section {
         position: relative;
         height: 15vh;
@@ -82,7 +84,6 @@
 
     h4 {
     margin: 0;
-    text-align: center;
     overflow: hidden;
     line-height: 1;
     }
@@ -506,28 +507,36 @@
 
 
 
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;" class="no-scroll-animation dotted-bg">
 
     <div class="top-header" >
         <div class="header-container " >
-            <h3 class="text-inverse" href="index.html">👋 </h3>
 
         
 
-            <img src="img/ezgif.com-gif-maker.gif" alt="profile" style="width: 64px; height: 64px; object-fit: cover;">
+            <div class="tab flex-div  gap-8" >
+                <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Projects</a>
+                <a href="#ai" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
+                <a href="#aboutme" class="tablinks" onclick="openCity(event, 'about')">About me</a>
+                
+            </div>
         </div>
     </div>
 
     <!-- Spacer to offset the fixed header so page content isn't hidden -->
     <div style="height: 64px;"></div>
 
-    <div class="word-scroll hero fluid">
+    <div class="word-scroll hero fluid align-content-center justify-content-between ">
+        
+        
+        <div class="  flex-div magnetic align-items-center justify-content-center">
+            <img class="img-hero" src="img/figma-profile.png">
+        </div>
+        
         <h1 class="hero-title text-inverse">
             <span>Hi, I'm</span>
             
         </h1>
-
-
         <h1 class="hero-title text-inverse mil-mb-30">
             <span>Leo Denega</span>
             
@@ -547,10 +556,10 @@
                 <li>products.</li>
                 <li>experiences.</li>
                 <li>design systems.</li>
+                <li>AI-powered tools.</li>
                 <li>clarity.</li>
                 <li>consistency.</li>
                 <li>better experiences.</li>
-                <li>AI-powered tools.</li>
                 <li>simplicity.</li>
             </ul>
         </div>
@@ -560,12 +569,12 @@
     </section>
 
 
-    <div class="container mil-p-120-120">
+    <div class="container mil-p-120-120" id="projects">
 
 
 
         <div class="flex-div justify-content-between align-content-center mil-mb-30">
-            <h2>Recent Projects</h2>
+            <h2>Projects</h2>
             <a href="projects.html" class="mil-link-lg"> View all →</a>
         </div>
 
@@ -630,7 +639,7 @@
 
     </div>
 
-    <div class=" justify-content-center align-items-center container mil-p-120-120 ">
+    <div class=" justify-content-center align-items-center container mil-p-120-120 " id="ai">
         
                 
         <div class="col-lg-8 title-group">
@@ -664,9 +673,9 @@
 
             </a>
 
-            <a href="ai-accessibilitygpt.html" class="card-button">
+            <a href="ai-documentation.html" class="card-button">
 
-                <img src="img/ai/accessibilitygpt.png" class="img-card">
+                <img src="img/ai/document-2.png" class="img-card">
 
                 <div>
 
@@ -684,9 +693,9 @@
 
             </a>
 
-            <a href="ai-accessibilitygpt.html" class="card-button">
+            <a href="ai-contrast-tokens.html" class="card-button">
 
-                <img src="img/ai/accessibilitygpt.png" class="img-card">
+                <img src="img/ai/color-check.png" class="img-card">
 
                 <div>
 
@@ -711,7 +720,7 @@
     </div>
 
 
-    <div  class=" container mil-p-120-120">
+    <div  class=" container mil-p-120-120" id="aboutme">
 
         <div class="title-group col-lg-8 mil-mb-60">
             <h2 class="text-inverse">About me</h2>
@@ -829,7 +838,7 @@
     </script>
     <script>
         window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 1500) {
         document.body.classList.add("scrolled");
     } else {
         document.body.classList.remove("scrolled");
@@ -1074,67 +1083,35 @@ if (window.addEventListener) {
 </script>
 
 
-<!-- scrolling hero -->
-<script >
-        
 
-       const WordScroll = (() => {
 
-  const defaults = {
-    snap: true,
-    animate: true,
-    start: Math.floor(Math.random() * 100),
-    end: Math.floor(900 + Math.random() * 100),
-    startIndex: 0,
-    debug: false
-  };
 
-  const init = (selector = ".word-scroll", options = {}) => {
+<script>
+    <!--magnetic imgae hero-->
+const magnetic = document.querySelector('.magnetic');
 
-    const root = document.querySelector(selector);
-    if (!root) return;
+magnetic.addEventListener('mousemove', (e) => {
+  const rect = magnetic.getBoundingClientRect();
 
-    const config = { ...defaults, ...options };
+  const x = e.clientX - (rect.left + rect.width / 2);
+  const y = e.clientY - (rect.top + rect.height / 2);
 
-    const list = root.querySelector("ul");
-    const items = [...list.children];
+  magnetic.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+});
 
-    list.style.setProperty("--count", items.length);
+magnetic.addEventListener('mouseleave', () => {
+  magnetic.style.transform = 'translate(0, 0)';
+});
+</script>
 
-    items.forEach((item, i) => {
-      item.style.setProperty("--i", i);
-    });
+<script>
 
-    root.dataset.snap = config.snap;
-    root.dataset.animate = config.animate;
-    root.dataset.debug = config.debug;
-
-    root.style.setProperty("--start", config.start);
-    root.style.setProperty("--hue", config.start);
-    root.style.setProperty("--end", config.end);
-
-    const index = Math.max(0, Math.min(config.startIndex, items.length - 1));
-    const target = items[index];
-
-    if (target) {
-      requestAnimationFrame(() => {
-        const offset = target.offsetTop - (root.clientHeight / 2) + (target.clientHeight / 2);
-        root.scrollTop = offset;
-      });
-    }
-
-  };
-
-  return { init };
-
-})();
-
-WordScroll.init(".word-scroll", {
-  snap: true,
-  animate: true,
-  start: 25,
-  end: 100,
-  startIndex: 4
+    <!--scroll anchor-->
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+  }
 });
 </script>
 
