@@ -3221,12 +3221,14 @@ images
 
 .img-hero{
   width: 640px;
+  height: 640px;
   height: fit-content;
 }
 
 @media screen and (max-width: 768px) {
   .img-hero{
   width: 320px;
+  height: 320px;
   height: fit-content;
   }
   
