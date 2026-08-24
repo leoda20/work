@@ -259,7 +259,7 @@ h3,
 }
 @media screen and (max-width: 1200px) {
   h3,
-.mil-h3 {
+.mil-h3 { 
     font-size: 32px;
   }
 }
@@ -1670,6 +1670,8 @@ blog
 
 
 .blur-container {
+
+  
   position: absolute; 
   top: 0;
   left: 0;
@@ -1678,6 +1680,11 @@ blog
   padding: 16px;
   width: 100%;
   height: 100%;
+
+  h3{
+    font-family: "inter", sans-serif;
+    font-weight: 400;
+  }
 
   p{
     margin-bottom: 16px;
@@ -2024,6 +2031,7 @@ footer
   align-items: center;
   gap:32px;
   border-top: #1c1c1c10 solid 1px;
+  background-color: #fff;
   
 
 }
@@ -2218,7 +2226,6 @@ portfolio
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-  padding: 0 32px;
   
 }
 
@@ -2227,6 +2234,7 @@ portfolio
   align-items: center; 
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   
 }
@@ -2675,7 +2683,7 @@ portfolio
 .card-button {
   border: solid 1px #1c1c1c10;
   border-radius: 16px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   flex:1;
   min-width:0;
   overflow: hidden;
@@ -2711,7 +2719,6 @@ portfolio
 .card-button:hover {
   border: solid 1px #1c1c1c10;
   border-radius: 16px;
-  margin-bottom: 16px;
   flex:1;
   min-width:0;
   background-color: #1c1c1c10;
@@ -3710,6 +3717,7 @@ display: flex;
   cursor: pointer;
   animation: 4s linear infinite pulse;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
+  font-family: "inter", sans-serif;
 
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);

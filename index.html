@@ -30,7 +30,7 @@
         position: relative;
         height: 15vh;
         overflow: unset;
-        width: 100%;
+        max-width: 100%;
         margin-bottom: 80px;
     }
     .gravity-img {
@@ -42,14 +42,22 @@
     }
 
     @media screen and (max-width: 1200px) {
+
+    .gravity-section {
+    height: 30vh;
+    }
     .gravity-img {
-        width: 120px;
+        width: 80px;
     }
     }
     .gravity-img.dragging {
         cursor: grabbing;
         z-index: 999;
     }
+
+
+
+    
     .custom-tooltip {
         position: fixed;
         background-color: rgba(0, 0, 0, 0.9);
@@ -151,7 +159,6 @@
         top: calc(50vh - 0.5lh);
         margin: 0;
         font-size: inherit;
-        font-weight: 500;
         height: fit-content;
     }
 
@@ -166,7 +173,7 @@
 
     li {
 
-          font-size: clamp(24px, 5vw, 80px);
+          font-size: clamp(24px, 5vw, 88px);
 
     }
 
@@ -307,16 +314,14 @@
         scroll-snap-align: center;
     }
 
-    [data-sync-scrollbar="true"] {
-        scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--hue))
-            transparent;
-    }
+    
 
     .word-scroll li:not(:last-of-type) {
         color: oklch(
             var(--lightness) var(--base-chroma)
                 calc(var(--start) + (var(--step) * var(--i)))
         );
+
     }
 
     .word-scroll h2,
@@ -497,6 +502,9 @@
 
     font-weight: 500 ;
 }
+
+
+
     </style>
 
 
@@ -510,7 +518,7 @@
 <body style="overflow-x: hidden;" class="no-scroll-animation dotted-bg">
 
     <div class="top-header" >
-        <div class="header-container " >
+        <div class="header-container justify-content-center" >
 
         
 
@@ -526,7 +534,7 @@
     <!-- Spacer to offset the fixed header so page content isn't hidden -->
     <div style="height: 64px;"></div>
 
-    <div class="word-scroll hero fluid align-content-center justify-content-between ">
+    <div class="word-scroll hero fluid align-content-center justify-content-between " id="hero">
         
         
         <div class="  flex-div magnetic align-items-center justify-content-center">
@@ -574,7 +582,7 @@
 
 
         <div class="flex-div justify-content-between align-content-center mil-mb-30">
-            <h2>Projects</h2>
+            <h2>Recent Projects</h2>
             <a href="projects.html" class="mil-link-lg"> View all →</a>
         </div>
 
@@ -582,7 +590,28 @@
        
         <div class="blog-list">
                 
-            
+            <a href="project-finbooks.html" class="mil-blog-card  ">
+                <div class="mil-cover-frame">
+                    <video style="width: 100%;" src="img/work/SLT Assist/text squared — 12 FPS HOLD.mp4" alt="cover" autoplay muted loop></video>
+                    <div class="blur-container">
+
+                        <h3>SLT Assist</h3>
+
+                        <p class="mil-mb-15">
+                            An AI-powered writing tool that lets users select text inside any input and instantly generate improved suggestions while keeping the original intent.
+                        </p>
+
+                        <p class="blur-tag">AI</p>
+
+                        <p class="blur-tag">
+                            Productivity
+                        </p>        
+                        
+                    </div>
+                </div>
+                
+
+            </a>
 
 
             <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card " >
@@ -612,23 +641,7 @@
                 
 
 
-            <a href="project-finbooks.html" class="mil-blog-card  ">
-                <div class="mil-cover-frame">
-                    <img src="img/work/finbook/finbooks-cover.png" alt="cover">
-                    <div class="blur-container">
-
-                        <h3>Finbooks website</h3>
-
-                        <p>Redesigned the website to boost engagement with AI and financial services.</p>
-
-                        
-                        <p class="blur-tag">Web design</p>
-                        
-                    </div>
-                </div>
-                
-
-            </a>
+            
 
 
         </div>
@@ -722,8 +735,8 @@
 
     <div  class=" container mil-p-120-120" id="aboutme">
 
-        <div class="title-group col-lg-8 mil-mb-60">
-            <h2 class="text-inverse">About me</h2>
+        <div class="title-group col-lg-8">
+            <h2>About me</h2>
 
 
             <p >I’m a Product Designer who likes turning complexity into simple, well-defined solutions. Over the years, I’ve learned that good design isn’t just about the final interface — it’s also about consistency, documentation, accessibility, business context, and getting the team aligned around a shared direction.</p>
@@ -732,17 +745,37 @@
 
             <p >Lately, I’ve also been experimenting with AI as a collaborator and accelerator — mostly by building small tools that adapt to the way I work and make me more productive, without compromising design standards or critical thinking.</p>
 
-            <p >Outside of work, you'll usually find me experimenting with coffee ☕️, cooking 🍳, or planning my next trip ✈️.</p>
+            <p class="mil-mb-60">Outside of work, you'll usually find me experimenting with coffee ☕️, cooking 🍳, planning my next trip ✈️, or drawing ✍️.</p>
 
-            <p class="mil-link-lg mil-mb-60">Download Resume</p>
+          
+            
+            <h3>If you are interested in my professional experience:</h3>
+
         </div>
+        <a href="Docs/Leonardo Denega.pdf" class="card-button col-lg-6 align-items-center  flex-div">
+
+            <div>
+                <h2>📄</h2>
+            </div>
+
+            <div>
+
+                <h4>Download Resume</h4>
+
+                <p >Just a few KBs・PDF file</p>
+
+
+                
+            </div>
+
+        </a>
 
 
 
 
     </div>
 
-    <div class="gravity-section" id="gravitySection">
+    <div class="gravity-section container" id="gravitySection">
         <img src="img/drawings/belgium.png" class="gravity-img" alt="Belgium drawing" title="Belgium">
         <img src="img/drawings/argentina.png" class="gravity-img" alt="Argentina drawing" title="Argentina">
         <img src="img/drawings/luxembourg.png" class="gravity-img" alt="Luxembourg drawing" title="Luxembourg">
@@ -752,6 +785,8 @@
         <img src="img/drawings/uruguay.png" class="gravity-img" alt="Uruguay drawing" title="Uruguay">
         <img src="img/drawings/portugal.png" class="gravity-img" alt="Portugal drawing" title="Portugal">
     </div>
+
+    
 
     <!-- footer -->
     <footer class=" footer-content ">
@@ -792,74 +827,26 @@
     <script src="js/plugins/swup.min.js"></script>
     
 
-    <script>
+ 
 
-        function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
+<!--Scroll hide bg-->
+    <!--<script>
 
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    } 
-    </script>
         
-
-    <script>
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-    </script>
-
-    <script>
-        const container = document.querySelector(".video-container");
-        const video = document.getElementById("preview");
-
-        container.addEventListener("mouseenter", () => {
-        video.play().catch(err => console.log(err));
-        });
-
-        container.addEventListener("mouseleave", () => {
-        video.pause();
-        video.currentTime = 0;
-        });
-    </script>
-    <script>
         window.addEventListener("scroll", () => {
-    if (window.scrollY > 1500) {
-        document.body.classList.add("scrolled");
-    } else {
-        document.body.classList.remove("scrolled");
-    }
-});
-    </script>
+        if (window.scrollY > 1500) {
+            document.body.classList.add("scrolled");
+        } else {
+            document.body.classList.remove("scrolled");
+        }
+    });
+    </script>-->
 
+
+
+<!--Gravity Section-->
     <script>
-        const div = document.querySelector(".tabcontent");
-
-            window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                div.classList.add("visible");
-            } else {
-                div.classList.remove("visible");
-            }
-            });
-    </script>
-
-
-    <script>
+        
     const section = document.getElementById('gravitySection');
     const gravity = 0.2;
     const bounce = 0.90;
@@ -1007,6 +994,8 @@
     loop();
     </script>
 
+
+<!--Custom Tooltip System-->
     <script>
     const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1018,102 +1007,69 @@
     </script>
 
     <script>
-// Custom Tooltip System
-const tooltip = document.createElement('div');
-tooltip.className = 'custom-tooltip';
-document.body.appendChild(tooltip);
 
-const images = document.querySelectorAll('.gravity-img[title]');
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        document.body.appendChild(tooltip);
 
-images.forEach(img => {
-  img.addEventListener('mouseenter', (e) => {
-    tooltip.textContent = img.getAttribute('title');
-    tooltip.classList.add('visible');
-    updateTooltipPosition(e);
-  });
+        const images = document.querySelectorAll('.gravity-img[title]');
 
-  img.addEventListener('mousemove', (e) => {
-    updateTooltipPosition(e);
-  });
+        images.forEach(img => {
+        img.addEventListener('mouseenter', (e) => {
+            tooltip.textContent = img.getAttribute('title');
+            tooltip.classList.add('visible');
+            updateTooltipPosition(e);
+        });
 
-  img.addEventListener('mouseleave', () => {
-    tooltip.classList.remove('visible');
-  });
-});
+        img.addEventListener('mousemove', (e) => {
+            updateTooltipPosition(e);
+        });
 
-function updateTooltipPosition(e) {
-  const offsetX = 15;
-  const offsetY = -30;
-  tooltip.style.left = (e.clientX + offsetX) + 'px';
-  tooltip.style.top = (e.clientY + offsetY) + 'px';
-  tooltip.style.position = 'fixed';
-}
-</script>
+        img.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('visible');
+        });
+        });
 
-<script>function checkForVisibility() {
-  var headers = document.querySelectorAll(".header");
-  headers.forEach(function(header) {
-    if (isElementInViewport(header)) {
-      header.classList.add("headerVisible");
-    } else {
-      header.classList.remove("headerVisible");
-    }
-  });
-}
-
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-if (window.addEventListener) {
-  addEventListener("DOMContentLoaded", checkForVisibility, false);
-  addEventListener("load", checkForVisibility, false);
-  addEventListener("scroll", checkForVisibility, false);
-}
+        function updateTooltipPosition(e) {
+        const offsetX = 15;
+        const offsetY = -30;
+        tooltip.style.left = (e.clientX + offsetX) + 'px';
+        tooltip.style.top = (e.clientY + offsetY) + 'px';
+        tooltip.style.position = 'fixed';
+        }
+    </script>
 
 
-</script>
+<!--magnetic image hero-->
+    <script>
+        <!--magnetic imgae hero-->
+        const magnetic = document.querySelector('.magnetic');
+
+        magnetic.addEventListener('mousemove', (e) => {
+        const rect = magnetic.getBoundingClientRect();
+
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+
+        magnetic.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        magnetic.addEventListener('mouseleave', () => {
+        magnetic.style.transform = 'translate(0, 0)';
+        });
+    </script>
 
 
+<!--Scroll anchor-->
+    <script>
 
-
-
-<script>
-    <!--magnetic imgae hero-->
-const magnetic = document.querySelector('.magnetic');
-
-magnetic.addEventListener('mousemove', (e) => {
-  const rect = magnetic.getBoundingClientRect();
-
-  const x = e.clientX - (rect.left + rect.width / 2);
-  const y = e.clientY - (rect.top + rect.height / 2);
-
-  magnetic.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-});
-
-magnetic.addEventListener('mouseleave', () => {
-  magnetic.style.transform = 'translate(0, 0)';
-});
-</script>
-
-<script>
-
-    <!--scroll anchor-->
-window.addEventListener("load", () => {
-  if (window.location.hash) {
-    history.replaceState(null, null, window.location.pathname + window.location.search);
-    window.scrollTo(0, 0);
-  }
-});
-</script>
+        window.addEventListener("load", () => {
+        if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+        window.scrollTo(0, 0);
+        }
+        });
+    </script>
 
  
 </body>

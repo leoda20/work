@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap grid css -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css">
+    <!-- ashley scss -->
+    <link rel="stylesheet" href="css/style.css">
+      <link rel="icon" type="image/gif" href="/img/ezgif.com-gif-maker.gif">
+    <!-- page name -->
+
+    
+    <title>Portfolio | Leo Denega
+    </title>
+
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  background-color: #000;
+  color: #fff
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  cursor: crosshair;
+  
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-size: 7.5vw;
+    letter-spacing: -0.1rem;
+    line-height: 0.95;
+    text-align: center;
+    width: 80%;
+    font-weight: 500;
+    
+    div {
+      position: relative;
+    }
+  }
+}
+
+.detail-size {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-width: 50px;
+  height: 1px;
+  font-size: 11px;
+}
+
+    </style>
+
+
+    
+
+
+</head>
+
+
+
+<body style="overflow-x: hidden;">
+
+  
+
+    <section class="title">
+  <h1>Andrea</h1>
+  <h1>Catanzaro</h1>
+  <h1>26 years old</h1>
+  <h1>Palermo, Sicily IT</h1>
+  <h1>Front-end Developer</h1>
+  <h1>Graphic Designer</h1>
+  <h1>GSAP Lover</h1>
+  <h1>DM for collabs</h1>
+</section>
+
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="script.js"></script>
+
+
+
+<script>
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+function split(el) {
+    return new SplitText(el, { type: "lines, chars" });
+}
+
+const texts = gsap.utils.toArray("h1");
+
+texts.forEach((txt) => {
+    const lineArray = split(txt);
+
+    lineArray.lines.forEach((line) => {
+        line.addEventListener("mouseenter", () => {
+
+            const charsInLine = lineArray.chars.filter((char) => line.contains(char));
+
+            const totalChars = charsInLine.length;
+            const middleIndex = (totalChars - 1) / 2;
+
+            charsInLine.forEach((char, index) => {
+                if (!char.dataset.orig) {
+                    char.dataset.orig = char.textContent;
+                }
+
+                // 2. Calcola la distanza dal centro (il centro avrà distanza 0)
+                const distanceFromCenter = Math.abs(index - middleIndex);
+
+                gsap.fromTo(char, {color: "#fff"},{
+                    color: gsap.utils.random([
+                        "#85AF00", 
+                        "#FFCC00", 
+                        "#FB9CFD", 
+                        "#A19BFF", 
+                        "#FF4C00"
+                    ]),
+                    ease: "power3.out",
+                    duration: 0.3,
+                    delay: distanceFromCenter * 0.03, 
+                    repeat: 1,
+                    yoyo: true,
+                    overwrite: "auto",
+
+                    onStart: () => {
+                        const randomNum = gsap.utils.random(["0", "1"])
+                        const randomNumThree = gsap.utils.random(["0", "1", "2"])
+                        // Generazione di caratteri alternativi
+                        if(randomNum == 1) {
+                            char.textContent = gsap.utils.random([
+                                // Lettere minuscole
+                                "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+                                "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+
+                                // Lettere maiuscole
+                                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+                                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+
+                                // Numeri
+                                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+
+                                // Caratteri speciali
+                                "<", ">", "%", "&", "@", "!", "#", "$", "^", "*", "(", ")", "-", 
+                                "_", "+", "=", "{", "}", "[", "]", "|", "\\", ":", ";", "\"", 
+                                "?", "/", "~", "`"
+                                ]
+                            );
+                        }
+
+                        // Generazione di dettagli ai caratteri
+                        if(randomNumThree == 1) {
+                            const detail = document.createElement("span")
+                            detail.classList.add("detail-size")
+                            detail.textContent = `△x = ${char.clientWidth}px`
+                            char.appendChild(detail)
+                        }
+
+                        // Generazione di bordi
+                        if(randomNumThree == 1) {
+                            char.style.border = `1px solid ${gsap.utils.random(["#85AF00", "#FFCC00", "#FB9CFD", "#A19BFF", "#FF4C00"])}`
+                        }
+                    },
+
+                    onComplete: () => {
+                        char.textContent = char.dataset.orig;
+                        char.style.border = "none"
+                    }
+                });
+            });
+        });
+    });
+});
+</script>
+
+
+   
+
+ 
+</body>
+
+
+</html>
+
