@@ -2606,7 +2606,7 @@ portfolio
 .card-themes {
   padding: 24px;
   border: solid 1px #1c1c1c10;
-  border-radius: 16px;
+  border-radius: 32px;
   margin-bottom: 16px;
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
@@ -2750,7 +2750,7 @@ portfolio
 .card-neutral {
   padding: 48px;
   background-color: #F1F5F9;
-  border-radius: 16px;
+  border-radius: 32px;
   margin-bottom: 16px;
   
 }  
