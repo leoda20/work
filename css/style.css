@@ -1336,6 +1336,7 @@ body.scrolled {
   display:flex; 
   flex-direction: column;
   justify-content: space-between;
+  align-content: center;
   max-width: 100%;
   height: 90dvh;
   background: radial-gradient(
@@ -1351,7 +1352,7 @@ body.scrolled {
 
 @media screen and (max-width: 768px) {
   .hero-content {
-  height: 120dvh;
+  height: 90dvh;
   
   }
 }
@@ -1375,6 +1376,7 @@ body.scrolled {
 
 .hero-title{
   font-size: clamp(80px, 24vw, 240px);
+  height: auto;
   
   line-height: 100%;
   cursor:unset;
@@ -1401,9 +1403,12 @@ body.scrolled {
 }
 
 @media screen and (max-width: 768px) {
+  
+  
+  
   .hero{
     
-  max-height: 40dvb;
+  max-height: 80dvb;
   }
   .hero-content {
     padding-top: 24px;
@@ -2243,8 +2248,18 @@ portfolio
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: 0px 32px;
 
   
+}
+
+@media screen and (max-width: 480px) {
+  .header-container {
+    
+    padding: 0px 16px;
+
+    
+  }
 }
 
 .header-buttons {
@@ -3232,13 +3247,7 @@ images
   height: 640px;
 }
 
-@media screen and (max-width: 768px) {
-  .img-hero{
-  width: 320px;
-  height: 320px;
-  }
-  
-}
+
 
 .magnetic{
   position: absolute;
@@ -3255,6 +3264,22 @@ images
   perspective: 1000px;
 }
 
+
+@media screen and (max-width: 768px) {
+  .img-hero{
+  width: 320px;
+  height: 320px;
+  }
+
+  .magnetic{
+  position:absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+}
+  
+}
 
 .img-border{
   width: 100%;
