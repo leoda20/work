@@ -1348,6 +1348,14 @@ body.scrolled {
   
 }
 
+
+@media screen and (max-width: 768px) {
+  .hero-content {
+  height: 120dvh;
+  
+  }
+}
+
 .dotted-bg{
   background-color: #ffffff;
 
