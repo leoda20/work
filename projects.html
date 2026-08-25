@@ -27,6 +27,14 @@
 #falling-text span {
   display: inline-block;
 }
+
+.floor {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: 2px;
+}
     </style>
 
 
@@ -60,18 +68,22 @@
             
 
             
-        <div class=" mil-p-120-120 container">
+        <div class=" mil-mb-60 container">
             
 
             
 
-            <h1 id="falling-text">Projects</h1>
+            <h1 >Projects</h1>
+
+            
 
             
 
             
 
         </div>
+        <div class="floor"></div>
+        
 
 
         
@@ -85,7 +97,7 @@
             <div class="blog-list scroll-up">
                     
 
-                <a href="project-finbooks.html" class="mil-blog-card  ">
+                <a href="project-slt-assist.html" class="mil-blog-card  ">
                     <div class="mil-cover-frame">
                         <video style="width: 100%;" src="img/work/SLT Assist/text squared — 12 FPS HOLD.mp4" alt="cover" autoplay muted loop></video>
                         <div class="blur-container">
@@ -391,37 +403,7 @@
     <script src="js/plugins/ScrollTo.min.js"></script>
     <!-- ashley js -->
     <script src="js/main.js"></script>
-    <script src="js/plugins/swup.min.js"></script>
-    <!--Gravity Section-->
-    <script>
-        const text = document.querySelector("#falling-text");
-
-text.innerHTML = text.textContent
-  .split("")
-  .map(char => `<span>${char === " " ? "&nbsp;" : char}</span>`)
-  .join("");
-
-const letters = text.querySelectorAll("span");
-
-// Start in the correct position
-gsap.set(letters, {
-  y: 0,
-  rotation: 0
-});
-
-// Wait a little, then let them fall
-gsap.to(letters, {
-  y: () => window.innerHeight * 0.8,
-  rotation: () => gsap.utils.random(-40, 40),
-  duration: 1.5,
-  ease: "power2.in",
-  stagger: {
-    each: 0.05,
-    from: "random"
-  }
-});
-    </script>
-
+    
     
 
  
