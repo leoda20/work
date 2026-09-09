@@ -18,46 +18,25 @@
       <link rel="icon" type="image/gif" href="/img/ezgif.com-gif-maker.gif">
     <!-- page name -->
 
-    <style>
-        .projects-div{
-            position: fixed; 
-            top: 120px; 
-            left:32px; 
-            z-index:100;
-        }
-
-        
-        .list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .list li {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-
-        @media (max-width: 768px) {
-            .projects-div {
-                position: static; 
-                top: auto; 
-                left: auto; 
-                z-index: auto;
-            }
-            .list {
-            height: 0px;
-            display: none;
-            }
-        }
-    </style>
-
     
     <title>Portfolio | Leo Denega
     </title>
 
-  
+    <style>
+
+#falling-text span {
+  display: inline-block;
+}
+
+.floor {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: 2px;
+}
+    </style>
+
 
     
 
@@ -85,41 +64,37 @@
         <div style="height: 64px;"></div>
             
 
-      
+            
+        <div class=" mil-mb-60 container">
+            
+
+            
+
+            <h1 >Projects</h1>
+
+            
+
+            
+
+            
+
+        </div>
         <div class="floor"></div>
         
 
 
         
         <!-- Tab content -->
-        <div class="container-32 justify-content-end flex-div mil-mb-60 ">
+        <div class="container mil-mb-60 ">
 
 
-            <div class="projects-div"  class="col-lg-5 mil-mb-60">
-                <h1 >Projects</h1>
-
-                <ul class="list">
-                    <li class="mil-link-lg" ><a href="#slt-assist">SLT Assist ・ Emergn ・ 2026</a></li>
-                    <li class="mil-link-lg" ><a href="#tokens-refactor">Tokens Refactor ・ Emergn ・ 2025</a></li>
-                    <li class="mil-link-lg" ><a href="#finbooks">Finbooks ・ Freelancer ・ 2025</a></li>
-                    <li class="mil-link-lg" ><a href="#service-blueprint">Service Blueprint ・ Thomson Reuters ・ 2024</a></li>
-                    <li class="mil-link-lg" ><a href="#user-communication">User Communication ・ Thomson Reuters ・ 2024</a></li>
-                    <li class="mil-link-lg" ><a href="#email-app-onboarding">Email app onboarding ・ Umbler ・ 2023</a></li>
-                    <li class="mil-link-lg" ><a href="#email-marketing-tool">Email marketing tool ・ Umbler ・ 2023</a></li>
-                    <li class="mil-link-lg" ><a href="#medtime">Medtime ・ Freelancer ・ 2023</a></li>
-                    <li class="mil-link-lg" ><a href="#dronelivery">Dronelivery ・ Freelancer ・ 2023</a></li>
-                    <li class="mil-link-lg" ><a href="#cluber">Cluber ・ Freelancer ・ 2022</a></li>
-                    <li class="mil-link-lg" ><a href="#cadastrapet">Cadastrapet ・ Freelancer ・ 2022</a></li>
-                    
-                </ul>
-
-            </div>
+        
             
 
-            <div class="blog-list ">
+            <div class="blog-list scroll-up">
                     
 
-                <a href="project-slt-assist.html" class="mil-blog-card  " id="slt-assist">
+                <a href="project-slt-assist.html" class="mil-blog-card  ">
                     <div class="mil-cover-frame">
                         <video style="width: 100%;" src="img/work/SLT Assist/text squared — 12 FPS HOLD.mp4" alt="cover" autoplay muted loop></video>
                         <div class="blur-container">
@@ -144,7 +119,7 @@
                 
 
 
-                    <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card " id="tokens-refactor">
+                    <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card " >
 
 
                         <div class="mil-cover-frame">
@@ -171,7 +146,7 @@
                     
 
 
-                    <a href="project-finbooks.html" class="mil-blog-card  scroll-animation" id="finbooks">
+                    <a href="project-finbooks.html" class="mil-blog-card  scroll-animation">
                         <div class="mil-cover-frame">
                             <img src="img/work/finbook/finbooks-cover.png" alt="cover">
                             <div class="blur-container">
@@ -194,7 +169,7 @@
                 
 
 
-                    <a href="project-TR-blueprint.html" class="mil-blog-card  " id="service-blueprint">
+                    <a href="project-TR-blueprint.html" class="mil-blog-card  ">
                         <div class="mil-cover-frame">
                             <img src="img/work/tr/service-blueprint-tr.png" alt="cover">
                             <div class="blur-container">
@@ -218,7 +193,7 @@
                         
 
 
-                    <a href="project-TR-messages.html" class="mil-blog-card   " id="user-communication">
+                    <a href="project-TR-messages.html" class="mil-blog-card   ">
                         <div class="mil-cover-frame">
                             <video style="width: 100%;" src="img/work/tr/messages-cover.mp4" alt="cover" autoplay muted></video>
                             <div class="blur-container">
@@ -242,7 +217,7 @@
                     
 
 
-                    <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation" id="email-app-onboarding">
+                    <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation">
                         <div class="mil-cover-frame">
                             <img src="img/work/umbler/email-onboarding-umbler.png" alt="cover">
                             <div class="blur-container">
@@ -263,7 +238,7 @@
                     </a>
 
 
-                    <a href="project-email-marketing.html" class="mil-blog-card   " id="email-marketing-tool">
+                    <a href="project-email-marketing.html" class="mil-blog-card   ">
                         <div class="mil-cover-frame">
                             <img src="img/work/umbler/email-marketing-umbler.png" alt="cover">
                             <div class="blur-container">
@@ -285,7 +260,7 @@
 
 
 
-                    <a href="project-medtime.html" class="mil-blog-card  " id="medtime">
+                    <a href="project-medtime.html" class="mil-blog-card  ">
                         <div class="mil-cover-frame">
                             <img src="img/work/medtime/medtime.png" alt="cover">
                             <div class="blur-container">
@@ -308,7 +283,7 @@
 
 
 
-                    <a href="project-dronelivery.html" class="mil-blog-card   " id="dronelivery">
+                    <a href="project-dronelivery.html" class="mil-blog-card   " >
                         <div class="mil-cover-frame " >
                             <img src="img/work/dronelivery/dronelivery.png" alt="cover">
                             <div class="blur-container">
@@ -334,7 +309,7 @@
 
                 
 
-                    <a href="project-cluber.html" class="mil-blog-card    " id="cluber">
+                    <a href="project-cluber.html" class="mil-blog-card    ">
                         <div class="mil-cover-frame">
                             <img src="img/work/cluber/cover-cluber.png" alt="cover">
                             <div class="blur-container">
@@ -358,7 +333,7 @@
                         
 
 
-                    <a href="project-cadastrapet.html" class="mil-blog-card   " id="cadastrapet">
+                    <a href="project-cadastrapet.html" class="mil-blog-card   ">
                         <div class="mil-cover-frame">
                             <img src="img/work/cadastrapet/cover-cadastrapet.png" alt="cover">
                             <div class="blur-container">
