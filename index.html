@@ -455,14 +455,33 @@
 
 .floating-image {
   position: absolute;
-  width: 180px;
+  width: 200px;
   height: 220px;
-  object-fit: cover;
+  object-fit:contain;
 
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
   will-change: transform;
 }
+
+    @media screen and (max-width: 1200px) {
+
+        .gravity-section {
+        height: 30vh;
+        }
+        .floating-image {
+            width: 160px;
+        }
+    }
+        @media screen and (max-width: 768px) {
+
+        .gravity-section {
+        height: 10vh;
+        }
+        .floating-image {
+            width: 100px;
+        }
+    }
 
 
 
@@ -503,21 +522,34 @@
 
     
 
-    <div class="word-scroll hero fluid align-content-center  " id="hero">
+    <div class="word-scroll hero align-content-center  " id="hero">
         
         
         <div class="  flex-div magnetic align-items-center justify-content-center">
             <img class="img-hero" src="img/ezgif.com-gif-maker.gif">
         </div>
         
-        <p class="mil-mb-60" style="text-align:center;">
+        <h3 style="text-align:center; padding-bottom:120px;">
             <span>Hi, I'm</span>
             
-        </p>
+        </h3>
         <h1 class="hero-title text-inverse mil-mb-30">
             <span>Leo Denega</span>
             
         </h1>
+
+        <div class="justify-content-center flex-div " style="padding-top:120px;">
+        
+
+            <div class="col-lg-6">
+                <p  style="text-align: center;">
+                    5+ years as a Product Designer, turning complex problems into clear, thoughtful experiences — from product strategy and UX to systems and UI.
+                </p>
+            </div>
+            
+
+            
+        </div>
 
         
     </div>
@@ -538,20 +570,6 @@
     
 
 
-
-
-    <section class="justify-content-center flex-div mil-mb-30">
-        
-
-        <div class="col-lg-6">
-            <p style="text-align: center;">
-                5+ years as a Product Designer, turning complex problems into clear, thoughtful experiences — from product strategy and UX to systems and UI.
-            </p>
-        </div>
-        
-
-        
-    </section>
 
     <section class="word-scroll fluid " style="overflow: visible;">
         
@@ -1104,76 +1122,159 @@
     </script>
 
     <script>
-        const playground = document.querySelector('.image-playground');
-        const images = document.querySelectorAll('.floating-image');
+const playground = document.querySelector('.image-playground');
+const images = document.querySelectorAll('.floating-image');
 
-        images.forEach((image, index) => {
-        // Random starting position
-        const x = Math.random() * 80 + 10;
-        const y = Math.random() * 80 + 10;
-        const rotation = Math.random() * 20 - 10;
+function positionImages() {
+  const width = playground.clientWidth;
+  const height = playground.clientHeight;
 
-        image.style.left = `${x}%`;
-        image.style.top = `${y}%`;
-        image.style.transform = `rotate(${rotation}deg)`;
+  // Approximate size of your central content
+  const centerWidth = width * 0.50;
+  const centerHeight = height * 0.55;
 
-        image.dataset.rotation = rotation;
-        });
+  const centerLeft = (width - centerWidth) / 2;
+  const centerTop = (height - centerHeight) / 2;
 
-        playground.addEventListener('mousemove', (e) => {
-        const rect = playground.getBoundingClientRect();
+  images.forEach((image, index) => {
+    const imageWidth = image.offsetWidth;
+    const imageHeight = image.offsetHeight;
 
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
+    let x;
+    let y;
 
-        images.forEach((image) => {
-            const imageRect = image.getBoundingClientRect();
+    // Divide images between the 4 sides
+    const side = index % 4;
 
-            const imageCenterX =
-            imageRect.left - rect.left + imageRect.width / 2;
+    if (side === 0) {
+      // LEFT
+      x = Math.random() * (centerLeft - imageWidth - 20) + 20;
+      y = Math.random() * (height - imageHeight - 40) + 20;
 
-            const imageCenterY =
-            imageRect.top - rect.top + imageRect.height / 2;
+    } else if (side === 1) {
+      // RIGHT
+      const rightStart = centerLeft + centerWidth + 20;
 
-            const distanceX = mouseX - imageCenterX;
-            const distanceY = mouseY - imageCenterY;
+      x = rightStart +
+          Math.random() * (width - rightStart - imageWidth - 20);
 
-            const distance = Math.sqrt(
-            distanceX * distanceX +
-            distanceY * distanceY
-            );
+      y = Math.random() * (height - imageHeight - 40) + 20;
 
-            // Only affect images close to the cursor
-            const radius = 300;
+    } else if (side === 2) {
+      // TOP
+      x = centerLeft +
+          Math.random() * (centerWidth - imageWidth);
 
-            if (distance < radius) {
-            const strength = (1 - distance / radius) * 25;
+      y = Math.random() * (centerTop - imageHeight - 20) + 20;
 
-            const moveX = (distanceX / distance) * strength;
-            const moveY = (distanceY / distance) * strength;
+    } else {
+      // BOTTOM
+      x = centerLeft +
+          Math.random() * (centerWidth - imageWidth);
 
-            image.style.transform = `
-                translate(${moveX}px, ${moveY}px)
-                rotate(${image.dataset.rotation}deg)
-            `;
-            } else {
-            image.style.transform = `
-                translate(0, 0)
-                rotate(${image.dataset.rotation}deg)
-            `;
-            }
-        });
-        });
+      const bottomStart = centerTop + centerHeight + 20;
 
-        playground.addEventListener('mouseleave', () => {
-        images.forEach((image) => {
-            image.style.transform = `
-            translate(0, 0)
-            rotate(${image.dataset.rotation}deg)
-            `;
-        });
-        });
-        </script>
+      y = bottomStart +
+          Math.random() * (height - bottomStart - imageHeight - 20);
+    }
+
+    const rotation = Math.random() * 16 - 8;
+
+    image.style.left = `${x}px`;
+    image.style.top = `${y}px`;
+
+    image.dataset.rotation = rotation;
+
+    image.style.transform = `
+      translate(0, 0)
+      rotate(${rotation}deg)
+    `;
+  });
+}
+
+positionImages();
+
+
+// -----------------------------
+// MAGNETIC MOVEMENT
+// -----------------------------
+
+playground.addEventListener('mousemove', (e) => {
+  const rect = playground.getBoundingClientRect();
+
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  images.forEach((image) => {
+
+    const imageRect = image.getBoundingClientRect();
+
+    const imageCenterX =
+      imageRect.left - rect.left + imageRect.width / 2;
+
+    const imageCenterY =
+      imageRect.top - rect.top + imageRect.height / 2;
+
+    const distanceX = mouseX - imageCenterX;
+    const distanceY = mouseY - imageCenterY;
+
+    const distance = Math.sqrt(
+      distanceX * distanceX +
+      distanceY * distanceY
+    );
+
+    const radius = 350;
+
+    if (distance < radius && distance > 0) {
+
+      const strength = (1 - distance / radius) * 30;
+
+      const moveX =
+        (distanceX / distance) * strength;
+
+      const moveY =
+        (distanceY / distance) * strength;
+
+      image.style.transform = `
+        translate(${moveX}px, ${moveY}px)
+        rotate(${image.dataset.rotation}deg)
+      `;
+
+    } else {
+
+      image.style.transform = `
+        translate(0, 0)
+        rotate(${image.dataset.rotation}deg)
+      `;
+    }
+  });
+});
+
+
+// -----------------------------
+// RESET WHEN MOUSE LEAVES
+// -----------------------------
+
+playground.addEventListener('mouseleave', () => {
+
+  images.forEach((image) => {
+
+    image.style.transform = `
+      translate(0, 0)
+      rotate(${image.dataset.rotation}deg)
+    `;
+
+  });
+
+});
+
+
+// -----------------------------
+// REPOSITION ON RESIZE
+// -----------------------------
+
+window.addEventListener('resize', positionImages);
+</script>
 
  
 </body>
