@@ -1685,18 +1685,23 @@ blog
   border-radius: 16px;
   width:100%;
   border-top: 2px solid #ffffff9c;
-
   aspect-ratio: 1 / 1;
 
- 
+  p {
+    height: 0px;
+    overflow: hidden;
+  }
 }
 
+
 .mil-blog-card:hover {
-  
   box-shadow:  #1c1c1c 1 1;
-  
-  
+
+  p {
+    height: fit-content;
+  }
 }
+
 
 
 .mil-blog-card .mil-cover-frame {
@@ -1705,29 +1710,17 @@ blog
   height: 100%;
   min-width: 240px;
   border-radius: 8px;
-  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
-          transition: 0.4s cubic-bezier(0, 0, 0.2, 1);
-          margin-bottom: 16px;
-          
   
 }
 
 .mil-cover-frame {
-  
-
-
   box-shadow: #1c1c1c 1 1;
-
-
-  
 }
 
 
 
 
 .blur-container {
-
-  
   position: absolute; 
   top: 0;
   left: 0;
