@@ -1342,8 +1342,8 @@ body.scrolled {
   background: radial-gradient(
     circle,
     rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.03) 15%,
-    rgba(0, 0, 0, 0) 20%
+    rgba(0, 0, 0, 0.03) 20%,
+    rgba(0, 0, 0, 0) 40%
   );
   
   
@@ -1656,9 +1656,9 @@ blog
   -ms-ime-align: start;
 }
 
-.grid-2{
+.grid-3{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-columns: 1fr 1fr 1fr; /* Two equal columns */
   gap: 16px;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -1687,7 +1687,7 @@ blog
   border-top: 2px solid #ffffff9c;
 
   aspect-ratio: 1 / 1;
-  
+
  
 }
 
@@ -3282,8 +3282,8 @@ images
 }
 
 .img-hero{
-  width: 320px;
-  height: 320px;
+  width: 400px;
+  height: 400px;
 }
 
 
