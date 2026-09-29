@@ -430,11 +430,15 @@
 
 .project-card {
   overflow: hidden;
-  width: 300px;
+  width: 860px;
+  position: absolute;
+  top:0;
+  right: 0;
+  z-index: -9999;
 }
 
 .project-card video {
-  position: absolute;
+  
   inset: 0;
   width: 100%;
   height: 100%;
@@ -442,38 +446,11 @@
   z-index: -1;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 
 </style>
 
-<script>
-const reveals = document.querySelectorAll('.reveal');
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('active');
-    }
-  });
-}, {
-  threshold: 0.15
-});
-
-reveals.forEach((element) => {
-  observer.observe(element);
-});
-</script>
 
 
     
@@ -510,14 +487,16 @@ reveals.forEach((element) => {
 
     
 
-    <div class=" hero align-content-end col-lg-8 flex-div" id="hero">
+    <div class=" hero col-lg-8 " id="hero">
         
         
-        <h1 class="">
-            <span>Making complex products <br>feel effortless.</span>
-        </h1>
+        
 
-       <div class="project-card">
+        <div style="width: 100%; height: fit-content;">
+            <h1 >Making complex products <br>feel effortless.</h1>
+        </div>
+        
+        <div class="project-card">
             <video autoplay muted playsinline>
                 <source src="/work/img/work/GRID-BLEND.mp4" type="video/mp4">
             </video>
