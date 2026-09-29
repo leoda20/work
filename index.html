@@ -104,7 +104,7 @@
     }
 
     .word-scroll-inner ul {
-        font-weight: 500;
+        font-weight: 400;
         list-style: none;
         margin: 0;
         padding-block: calc(50vh - 0.5lh);
@@ -231,7 +231,7 @@
         top: calc(10vh - 0.5lh);
         margin: 0;
         font-size: inherit;
-        font-weight: 500;
+        font-weight: 400;
         height: fit-content;
     }
 
@@ -242,7 +242,7 @@
         padding-block: calc(5vh - 0.5lh);
         padding-left: 0;
         --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
-        font-family: "datatype", sans-serif;
+        font-family: "inter", sans-serif;
     }
 
     .word-scroll[data-snap="true"] {
@@ -321,40 +321,7 @@
     }
 
 
-    h1 {
-    margin: 0;
-    text-align: center;
-    overflow: hidden;
-    line-height: 1;
-
-    }
-    h1 span {
-    display: block;
-    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
-    }
-
-    @keyframes reveal {
-    0% {
-        transform: translate(0,100%);
-    }
-    100% {
-        transform: translate(0,0);
-    }
-    }
-
-    .animation {
-    display: block;
-    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
-    }
-
-    @keyframes reveal {
-    0% {
-        transform: translate(0,100%);
-    }
-    100% {
-        transform: translate(0,0);
-    }
-    }
+    
 
 
 
@@ -370,34 +337,9 @@
 	--end: 360;
 	--lightness: 65%;
 	--base-chroma: 0.3;
-}
+    }   
 
 
-
-
-
-
-
-.fluid {
-	--fluid-min: calc(
-		var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0))
-	);
-	--fluid-max: calc(
-		var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0))
-	);
-	--fluid-preferred: calc(
-		(var(--fluid-max) - var(--fluid-min)) /
-			(var(--font-width-max) - var(--font-width-min))
-	);
-
-	font-size: clamp(
-		(var(--fluid-min) / 16) * 1rem,
-		((var(--fluid-min) / 16) * 1rem) -
-			(((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) +
-			(var(--fluid-preferred) * 100vi),
-		(var(--fluid-max) / 16) * 1rem
-	);
-}
 
 
 
@@ -417,7 +359,7 @@
 	top: calc(50vh - 0.5lh);
 	margin: 0;
 	font-size: inherit;
-	font-weight: 500;
+	font-weight: 400;
 	height: fit-content;
 }
 
@@ -431,25 +373,26 @@
 
 
 .word-scroll li:not(:last-of-type) {
-	color: #7a7a7a;
-    font-weight: 500 ;
+    font-weight: 400 ;
+    mix-blend-mode: difference;
+    color: #fff;
 }
 
 .word-scroll h2,
 .word-scroll li:last-of-type {
 	background: #1c1c1c;
 	background-clip: text;
-	color: #0000;
-
-    font-weight: 500 ;
+    font-weight: 400 ;
+    mix-blend-mode: difference;
+    color: #fff;
 }
 
 
 .image-playground {
-  position:absolute;
+  position:relative;
   top: 0;
   width: 100%;
-  height: 100dvh;
+  height:100dvh;
   overflow: unset;
 }
 
@@ -462,30 +405,75 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
   will-change: transform;
+
+  z-index: -999;
 }
 
-    @media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 
-        .gravity-section {
-        height: 30vh;
-        }
-        .floating-image {
-            width: 160px;
-        }
+    .gravity-section {
+    height: 30vh;
     }
-        @media screen and (max-width: 768px) {
-
-        .gravity-section {
-        height: 10vh;
-        }
-        .floating-image {
-            width: 100px;
-        }
+    .floating-image {
+        width: 160px;
     }
+}
+    @media screen and (max-width: 768px) {
+
+    .image-playground {
+    height: 40vh;
+    }
+    .floating-image {
+        width: 80px;
+    }
+}
+
+.project-card {
+  overflow: hidden;
+  width: 300px;
+}
+
+.project-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 
-    </style>
+</style>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+reveals.forEach((element) => {
+  observer.observe(element);
+});
+</script>
 
 
     
@@ -496,21 +484,21 @@
 
 
 
-<body style="overflow-x: hidden;" class="no-scroll-animation dotted-bg">
+<body style="overflow-x: hidden;" class="no-scroll-animation">
 
 
    
 
 
     <div class="top-header" >
-        <div class="header-container justify-content-center" >
+        <div class="header-container flex-div justify-content-between" >
 
-        
+            <h4 style="color:#1c1c1c70">Leo Denega</h4>
 
             <div class="tab flex-div  gap-8" >
-                <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Projects</a>
+                <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
                 <a href="#ai" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
-                <a href="#aboutme" class="tablinks" onclick="openCity(event, 'about')">About me</a>
+                <a href="#aboutme" class="tablinks" onclick="openCity(event, 'about')">About</a>
                 
             </div>
         </div>
@@ -522,112 +510,44 @@
 
     
 
-    <div class="word-scroll hero align-content-center  " id="hero">
+    <div class=" hero align-content-end col-lg-8 flex-div" id="hero">
         
         
-        <div class="  flex-div magnetic align-items-center justify-content-center">
-            <img class="img-hero" src="img/ezgif.com-gif-maker.gif">
-        </div>
-        
-        <h3 style="text-align:center; padding-bottom:40px;">
-            <span>Hi, I'm</span>
-            
-        </h3>
-        <h1 class="hero-title text-inverse mil-mb-30">
-            <span>Leo Denega</span>
-            
+        <h1 class="">
+            <span>Making complex products <br>feel effortless.</span>
         </h1>
 
-        <div class="justify-content-center flex-div " style="padding-top:80px;">
-        
-
-            <div class="col-lg-6">
-                <h3  style="text-align: center;">
-                    5+ years as a Product Designer, turning complex problems into clear, thoughtful experiences — from product strategy and UX to systems and UI.
-                </h3>
-            </div>
-            
-
-            
+       <div class="project-card">
+            <video autoplay muted playsinline>
+                <source src="/work/img/work/GRID-BLEND.mp4" type="video/mp4">
+            </video>
         </div>
+
+
+
+        
 
         
     </div>
-
-    <div class="image-playground">
-      <img src="img/drawings/argentina.png" class="floating-image">
-      <img src="img/drawings/belgium.png" class="floating-image">
-      <img src="img/drawings/luxembourg.png" class="floating-image">
-      <img src="img/drawings/morocco.png" class="floating-image">
-      <img src="img/drawings/portugal.png" class="floating-image">
-      <img src="img/drawings/south-africa.png" class="floating-image">
-      <img src="img/drawings/spain.png" class="floating-image">
-      <img src="img/drawings/uruguay.png" class="floating-image">
-    </div>
-
     
-
     
 
 
+    <div class="container-32" style="margin-bottom: 120px;" id="projects">
 
-    <section class="word-scroll fluid " style="overflow: visible;">
-        
-
-        <div class="word-scroll-inner">
-            <h2 >
-                <span aria-hidden="true">I build&nbsp;</span>
-                <span class="sr-only">I build products, systems, platforms, and infrastructure.</span>
-            </h2>
-            <ul>
-                
-                <li>products.</li>
-                <li>simplicity.</li>
-                <li>design systems.</li>
-                <li>AI-powered tools.</li>
-                <li>clarity.</li>
-                <li>consistency.</li>
-                <li>better experiences.</li>
-                <li>experiences.</li>
-            </ul>
-        </div>
-        
-
-        
-    </section>
-
-    
-
-
-    <div class="container-32 mil-p-120-120" id="projects">
-
-
-
-        <div class="flex-div justify-content-between align-content-center mil-mb-30">
-            <h2>Projects</h2>
-        </div>
-
-        
        
         <div class="grid-3">
 
             <a href="project-Energyline-concept.html" class="mil-blog-card  ">
                 <div class="mil-cover-frame">
                     <img src="img/work/Energyline/Energyline-cover.png" alt="cover">
-                    <div class="blur-container">
+                    <div class="blur-container title-group">
 
-                        <h3>Energyline and AI Assist</h3>
+                        <h4>Energyline dashboard</h4>   
 
-                        <p class="mil-mb-15">
-                            A dashboard concept for energy teams to review customer application, undestand progress, and act on what needs attention -- Withouth digging through layers of information.
+                        <p>
+                            A dashboard concept for energy teams to review customer application, undestand progress, and act on what needs attention.
                         </p>
-
-                        <p class="blur-tag">AI</p>
-
-                        <p class="blur-tag">
-                            Productivity
-                        </p>        
-                        
                     </div>
                 </div>
                 
@@ -637,20 +557,12 @@
             <a href="project-slt-assist.html" class="mil-blog-card  ">
                 <div class="mil-cover-frame">
                     <video style="width: 100%;" src="img/work/SLT Assist/text squared — 12 FPS HOLD.mp4" alt="cover" autoplay muted loop></video>
-                    <div class="blur-container">
+                    <div class="blur-container title-group">
 
-                        <h3>AI Assist</h3>
-
-                        <p class="mil-mb-15">
+                        <h4>AI Assist</h4>
+                        <p>
                             An AI-powered writing tool that lets users select text inside any input and instantly generate improved suggestions while keeping the original intent.
                         </p>
-
-                        <p class="blur-tag">AI</p>
-
-                        <p class="blur-tag">
-                            Productivity
-                        </p>        
-                        
                     </div>
                 </div>
                 
@@ -663,17 +575,9 @@
 
                 <div class="mil-cover-frame">
                     <video style="width: 100%;" src="img/work/aeg/tokens-cover.mp4" alt="cover" autoplay muted loop></video>
-                    <div class="blur-container">
-                        <h3>Token refactor</h3>
-
+                    <div class="blur-container title-group">
+                        <h4>Token refactor</h4>
                         <p>Renewing the tokens to improve consistency, accessibility and usability.</p>
-                        
-                        <p class="blur-tag">Design System</p>
-                        <p class="blur-tag">
-                            Accessibility
-                        </p>
-
-                        
                     </div>
                 </div>
 
@@ -681,225 +585,178 @@
             </a>
 
             <a href="project-finbooks.html" class="mil-blog-card  scroll-animation" id="finbooks">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/finbook/finbooks-cover.png" alt="cover">
-                            <div class="blur-container">
+                <div class="mil-cover-frame">
+                    <img src="img/work/finbook/finbooks-cover.png" alt="cover">
+                    <div class="blur-container title-group">
 
-                                <h3>Finbooks website</h3>
+                        <h4 >Finbooks website</h4>
 
-                                <p>Redesigned the website to boost engagement with AI and financial services.</p>
+                        <p>Redesigned the website to boost engagement with AI and financial services.</p>
+                    </div>
+                </div>
+                
 
-                                
-                                <p class="blur-tag">Web design</p>
-                                
-                            </div>
-                        </div>
-                        
-
-                    </a>
+            </a>
 
                     
                     
                 
 
 
-                    <a href="project-TR-blueprint.html" class="mil-blog-card  " id="service-blueprint">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/tr/service-blueprint-tr.png" alt="cover">
-                            <div class="blur-container">
+            <a href="project-TR-blueprint.html" class="mil-blog-card  " id="service-blueprint">
+
+                <div class="mil-cover-frame">
+                    <img src="img/work/tr/service-blueprint-tr.png" alt="cover">
+                    <div class="blur-container title-group">
 
 
-                                <h3>Service Blueprint</h3>
+                        <h4>Service Blueprint</h4>
 
-                                <p>Streamlined Accountability Team workflow with a service blueprint.</p>
-
-
-                                <p class="blur-tag">Service design</p>
-                                <p class="blur-tag">
-                                    Workflow
-                                </p>
-                            </div>
-                        </div>
+                        <p>Streamlined Accountability Team workflow with a service blueprint.</p>
+                    </div>
+                </div>
 
 
-                    </a>
-
-                        
-
-
-                    <a href="project-TR-messages.html" class="mil-blog-card   " id="user-communication">
-                        <div class="mil-cover-frame">
-                            <video style="width: 100%;" src="img/work/tr/messages-cover.mp4" alt="cover" autoplay muted></video>
-                            <div class="blur-container">
-
-                                <h3>User Communication</h3>
-
-                                <p>Improved Thomson Reuters’ emails and notification touchpoints.</p>
-
-                                <p class="blur-tag">Messaging</p>
-                                <p class="blur-tag">
-                                    UX
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-                    
-
-
-                    <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation" id="email-app-onboarding">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/umbler/email-onboarding-umbler.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>E-mail App Onboarding</h3>
-
-                                <p>Designed Umbler’s onboarding for easy, smooth email setup.</p>
-
-                                <p class="blur-tag">Onboarding</p>
-                                <p class="blur-tag">
-                                    Mobile
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-                    <a href="project-email-marketing.html" class="mil-blog-card   " id="email-marketing-tool">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/umbler/email-marketing-umbler.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>E-mail Marketing tool</h3>
-
-                                <p>Improved Email Marketing usability using UX research.</p>
-
-                                <p class="blur-tag">UI</p>
-                                <p class="blur-tag">
-                                    Desktop
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-
-                    <a href="project-medtime.html" class="mil-blog-card  " id="medtime">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/medtime/medtime.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Medtime</h3>
-
-                                <p>Simplified medication management with Medtime’s personalized alarms.</p>
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-                    
-
-
-
-                    <a href="project-dronelivery.html" class="mil-blog-card   " id="dronelivery">
-                        <div class="mil-cover-frame " >
-                            <img src="img/work/dronelivery/dronelivery.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Dronelivery</h3>
-
-                                <p>Created a drone delivery app for easy first-time scheduling.</p>
-
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
-
-
-            
+            </a>
 
                 
 
-                    <a href="project-cluber.html" class="mil-blog-card    " id="cluber">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/cluber/cover-cluber.png" alt="cover">
-                            <div class="blur-container">
 
-                                <h3>Cluber</h3>
+            <a href="project-TR-messages.html" class="mil-blog-card   " id="user-communication">
+                <div class="mil-cover-frame">
+                    <img style="width: 100%;" src="img/work/tr/TR-messages-cover.png" alt="cover" autoplay muted></img>
+                    <div class="blur-container title-group">
 
-                                <p>Built an NFT marketplace to drive loyalty in bars and restaurants.</p>
+                        <h4>User Communication</h4>
 
-
-                                <p class="blur-tag">Web3</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-
-
-                    </a>
+                        <p>Improved Thomson Reuters’ emails and notification touchpoints.</p>
 
                         
-
-
-                    <a href="project-cadastrapet.html" class="mil-blog-card   " id="cadastrapet">
-                        <div class="mil-cover-frame">
-                            <img src="img/work/cadastrapet/cover-cadastrapet.png" alt="cover">
-                            <div class="blur-container">
-
-                                <h3>Cadatrapet</h3>
-
-                                <p>Designed Cadastrapet app for Pet IDs and medical history tracking.</p>
-
-
-                                <p class="blur-tag">Mobile</p>
-                                <p class="blur-tag">
-                                    Study case
-                                </p>
-                            </div>
-                        </div>
-                        
-                    </a>
-
+                    </div>
+                </div>
                 
 
-                
+
+            </a>
 
 
             
 
 
-        </div>
+            <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation" id="email-app-onboarding">
+                <div class="mil-cover-frame">
+                    <img src="img/work/umbler/email-onboarding-umbler.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>E-mail App Onboarding</h4>
+
+                        <p>Designed Umbler’s onboarding for easy, smooth email setup.</p>
+
+                        
+                    </div>
+                </div>
+                
+
+
+            </a>
+
+
+            <a href="project-email-marketing.html" class="mil-blog-card   " id="email-marketing-tool">
+                <div class="mil-cover-frame">
+                    <img src="img/work/umbler/email-marketing-umbler.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>E-mail Marketing tool</h4>
+
+                        <p>Improved Email Marketing usability using UX research.</p>
+
+                        
+                    </div>
+                </div>
+                
+
+
+            </a>
+
+
+
+            <a href="project-medtime.html" class="mil-blog-card  " id="medtime">
+                <div class="mil-cover-frame">
+                    <img src="img/work/medtime/medtime.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>Medtime</h4>
+
+                        <p>Simplified medication management with Medtime’s personalized alarms.</p>
+
+                        
+                    </div>
+                </div>
+                
+
+
+            </a>
+            
+
+
+
+            <a href="project-dronelivery.html" class="mil-blog-card   " id="dronelivery">
+                <div class="mil-cover-frame " >
+                    <img src="img/work/dronelivery/dronelivery.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>Dronelivery</h4>
+
+                        <p>Created a drone delivery app for easy first-time scheduling.</p>
+                        
+                    </div>
+                </div>
+                
+
+
+            </a>
+
+
+    
 
         
 
+            <a href="project-cluber.html" class="mil-blog-card reveal-scroll   " id="cluber">
+                <div class="mil-cover-frame">
+                    <img src="img/work/cluber/cover-cluber.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>Cluber</h4>
+
+                        <p>Built an NFT marketplace to drive loyalty in bars and restaurants.</p>
+                        
+                    </div>
+                </div>
+                
 
 
+            </a>
+
+                
+
+
+            <a href="project-cadastrapet.html" class="mil-blog-card   " id="cadastrapet">
+                <div class="mil-cover-frame">
+                    <img src="img/work/cadastrapet/cover-cadastrapet.png" alt="cover">
+                    <div class="blur-container title-group">
+
+                        <h4>Cadatrapet</h4>
+
+                        <p>Designed Cadastrapet app for Pet IDs and medical history tracking.</p>
+
+
+                        
+                    </div>
+                </div>
+                
+            </a>
+
+        </div>
     </div>
 
     <div class=" justify-content-center align-items-center container mil-p-120-120 " id="ai">
@@ -914,11 +771,11 @@
 
         
 
-        <div class="themes-grid">
+        <div class="grid-3">
                 
-            <a href="ai-accessibilitygpt.html" class="card-button">
+            <a href="ai-accessibilitygpt.html" class="card-button flex-div" >
 
-                <img src="img/work/gradients/gradients-accessibility.png" class="img-card">
+                
 
                 <div>
 
@@ -936,9 +793,9 @@
 
             </a>
 
-            <a href="ai-documentation.html" class="card-button">
+            <a href="ai-documentation.html" class="card-button flex-div">
 
-                <img src="img/work/gradients/gradient-document.png" class="img-card">
+              
 
                 <div>
 
@@ -956,11 +813,11 @@
 
             </a>
 
-            <a href="ai-contrast-tokens.html" class="card-button">
+            <a href="ai-contrast-tokens.html" class="card-button flex-div">
+                
+                
 
-                <img src="img/work/gradients/gradient-compare.png" class="img-card">
-
-                <div>
+                <div >
 
                     <h4>Contrast Tokens</h4>
 
@@ -982,43 +839,87 @@
 
     </div>
 
-
-    <div  class=" container mil-p-120-120" id="aboutme">
-
-        <div class="title-group col-lg-8">
-            <h2>About me</h2>
+    <div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center" style="overflow: visible;">
 
 
-            <p >I’m a Product Designer who likes turning complexity into simple, well-defined solutions. Over the years, I’ve learned that good design isn’t just about the final interface — it’s also about consistency, documentation, accessibility, business context, and getting the team aligned around a shared direction.</p>
+        
+        
 
-            <p >I’m naturally drawn to patterns and systems, which helps me spot opportunities and connect the dots between user needs and business goals.</p>
-
-            <p >Lately, I’ve also been experimenting with AI as a collaborator and accelerator — mostly by building small tools that adapt to the way I work and make me more productive, without compromising design standards or critical thinking.</p>
-
-            <p class="mil-mb-60">Outside of work, you'll usually find me experimenting with coffee ☕️, cooking 🍳, planning my next trip ✈️, or drawing ✍️.</p>
-
-          
-            
-            <h3>If you are interested in my professional experience:</h3>
-
+        <div class="word-scroll-inner">
+            <h2 >
+                <span aria-hidden="true">I build&nbsp;</span>
+                <span class="sr-only">I build products, systems, platforms, and infrastructure.</span>
+            </h2>
+            <ul>
+                <li>↓</li>
+                <li>products.</li>
+                <li>simplicity.</li>
+                <li>design systems.</li>
+                <li>AI-powered tools.</li>
+                <li>clarity.</li>
+                <li>consistency.</li>
+                <li>experiences.</li>
+            </ul>
         </div>
-        <a href="Docs/Leonardo Denega.pdf" class="card-button col-lg-6 align-items-center  flex-div">
-
-            <div>
-                <h2>📄</h2>
-            </div>
-
-            <div>
-
-                <h4>Download Resume</h4>
-
-                <p >Just a few KBs・PDF file</p>
 
 
+        <img src="img/drawings/argentina.png" class="floating-image">
+            <img src="img/drawings/belgium.png" class="floating-image">
+            <img src="img/drawings/luxembourg.png" class="floating-image">
+            <img src="img/drawings/morocco.png" class="floating-image">
+            <img src="img/drawings/portugal.png" class="floating-image">
+            <img src="img/drawings/south-africa.png" class="floating-image">
+            <img src="img/drawings/spain.png" class="floating-image">
+            <img src="img/drawings/uruguay.png" class="floating-image">
+
+        
+        
+
+        
+    </div>
+
+    
+
+
+    <div  class=" container flex-div mil-p-120-120" id="aboutme">
+        <div class="col-lg-6">
+            <div class="title-group ">
+                <h2>About me</h2>
+
+                <p> 5+ years as a Product Designer, turning complex problems into clear, thoughtful experiences — across strategy, UX, systems, and UI. </p>
+
+                <p> I’m drawn to patterns and systems, connecting user needs with business goals to create products that are consistent, accessible, and built to scale. Lately, I’ve also been exploring AI to improve how I design, build, and work. </p>
+
+                <p class="mil-mb-120"> Outside of work, you'll find me making coffee ☕️, cooking 🍳, planning my next trip ✈️, or drawing ✍️. </p>
+
+            
                 
-            </div>
+                <h3 style="margin-top:80px">Looking for my resume?</h3>
 
-        </a>
+            </div>
+            <a href="Docs/Leonardo Denega.pdf" class="card-button align-items-center  flex-div">
+
+                <div>
+                    <h2>📄</h2>
+                </div>
+
+                <div>
+
+                    <h4>Download Resume</h4>
+
+                    <p >Just a few KBs・PDF file</p>
+
+
+                    
+                </div>
+
+            </a>
+        </div>
+
+
+        <div class="  magnetic col-lg-6">
+            <img class="img-hero" src="img/ezgif.com-gif-maker.gif">
+        </div>
 
 
 
@@ -1070,18 +971,7 @@
 
  
 
-<!--Scroll hide bg-->
-    <!--<script>
 
-        
-        window.addEventListener("scroll", () => {
-        if (window.scrollY > 1500) {
-            document.body.classList.add("scrolled");
-        } else {
-            document.body.classList.remove("scrolled");
-        }
-    });
-    </script>-->
 
 
 
@@ -1275,6 +1165,10 @@ playground.addEventListener('mouseleave', () => {
 
 window.addEventListener('resize', positionImages);
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 
  
 </body>

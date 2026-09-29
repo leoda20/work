@@ -13,6 +13,28 @@ $(function () {
 
     "use strict";
 
+
+    /***************************
+
+    gsap
+
+    ***************************/
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".reveal-scroll").forEach((element) => {
+    gsap.from(element, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+
+        scrollTrigger: {
+        trigger: element,
+        start: "top 85%"
+        }
+    });
+    });
+
     /***************************
 
     swup
@@ -144,6 +166,11 @@ $(function () {
         $(".mil-lines").clone().appendTo(".mil-lines-place");
         $(".mil-main-menu ul li.mil-active > a").clone().appendTo(".mil-current-page");
     });
+
+
+
+
+
     /***************************
 
     accordion
