@@ -2471,6 +2471,7 @@ images
 .mil-image-frame {
     position: relative;
     overflow: hidden;
+    border-radius: 16px;
 
     & > img {
         position: absolute;

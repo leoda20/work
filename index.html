@@ -430,10 +430,9 @@
 
 .project-card {
   overflow: hidden;
-  width: 860px;
+  width: 100%;
   position: absolute;
-  top:0;
-  right: 0;
+  right: 0px;
   z-index: -9999;
 }
 
@@ -441,7 +440,6 @@
   
   inset: 0;
   width: 100%;
-  height: 100%;
   object-fit: contain;
   z-index: -1;
 }
@@ -470,9 +468,9 @@
     <div class="top-header" >
         <div class="header-container flex-div justify-content-between" >
 
-            <h4 style="color:#1c1c1c70">Leo Denega</h4>
+            <h5 style="color:#1c1c1c70">Leo Denega</h5>
 
-            <div class="tab flex-div  gap-8" >
+            <div class="tab flex-div  gap-4" >
                 <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
                 <a href="#ai" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
                 <a href="#aboutme" class="tablinks" onclick="openCity(event, 'about')">About</a>
@@ -487,18 +485,16 @@
 
     
 
-    <div class=" hero col-lg-8 " id="hero">
+    <div class=" hero" id="hero">
         
         
         
 
-        <div style="width: 100%; height: fit-content;">
-            <h1 >Making complex products <br>feel effortless.</h1>
-        </div>
+        <h1 >Making complex products <br>feel effortless.</h1>
         
         <div class="project-card">
-            <video autoplay muted playsinline>
-                <source src="/work/img/work/GRID-BLEND.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline>
+                <source src="/work/img/work/colums-trim.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -681,7 +677,7 @@
 
             <a href="project-dronelivery.html" class="mil-blog-card   " id="dronelivery">
                 <div class="mil-cover-frame " >
-                    <img src="img/work/dronelivery/dronelivery.png" alt="cover">
+                    <img src="img/work/dronelivery/dronelivery-cover.png" alt="cover">
                     <div class="blur-container title-group">
 
                         <h4>Dronelivery</h4>
@@ -700,9 +696,9 @@
 
         
 
-            <a href="project-cluber.html" class="mil-blog-card reveal-scroll   " id="cluber">
+            <!--<a href="project-cluber.html" class="mil-blog-card reveal-scroll   " id="cluber">
                 <div class="mil-cover-frame">
-                    <img src="img/work/cluber/cover-cluber.png" alt="cover">
+                    <img src="img/work/cluber.png" alt="cover">
                     <div class="blur-container title-group">
 
                         <h4>Cluber</h4>
@@ -714,14 +710,14 @@
                 
 
 
-            </a>
+            </a>-->
 
                 
 
 
             <a href="project-cadastrapet.html" class="mil-blog-card   " id="cadastrapet">
                 <div class="mil-cover-frame">
-                    <img src="img/work/cadastrapet/cover-cadastrapet.png" alt="cover">
+                    <img src="img/work/cadastrapet/cadastrapet-hero.png" alt="cover">
                     <div class="blur-container title-group">
 
                         <h4>Cadatrapet</h4>
@@ -750,7 +746,7 @@
 
         
 
-        <div class="grid-3">
+        <div class="grid-3 ">
                 
             <a href="ai-accessibilitygpt.html" class="card-button flex-div" >
 

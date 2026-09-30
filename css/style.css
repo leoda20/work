@@ -201,7 +201,7 @@ h6 br,
 
 h1,
 .mil-h1 {
-  font-size: 120px;
+  font-size: 100px;
   margin-bottom: 8px;
 }
 @media screen and (max-width: 1400px) {
@@ -1228,6 +1228,11 @@ spaces
   padding: 32px;
 }
 
+.gap-4 {
+  gap: 4px;
+  column-gap: 4px;
+}
+
 .gap-8 {
   gap: 8px;
   column-gap: 8px;
@@ -1353,13 +1358,9 @@ body.scrolled {
   
   .hero {
   
-  display:flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  gap: 200px;
   max-width: 100%;
-  height: 50dvh;
+  height: 64dvh;
+  
   
   
   
@@ -1782,8 +1783,15 @@ blog
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   border-radius: 16px;
+
+  margin-bottom: 8px;
+
   
 }
+
+
+
+
 .mil-blog-card .mil-cover-frame video {
  
   height: 100%;
@@ -1795,6 +1803,7 @@ blog
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   border-radius: 16px;
+  margin-bottom: 8px;
   
 }
 
@@ -3193,7 +3202,7 @@ images
 }
 
 .img-hero{
-  width: 860px;
+  width: 640px;
   aspect-ratio: 1/1;
 }
 
@@ -3202,10 +3211,9 @@ images
 .magnetic{
   min-height: 320px;
   
-  
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
-    
+  
 
 
 }
@@ -3644,9 +3652,7 @@ min-height: 280px;
   border-radius: 99px;
   padding: 8px;
   background-color: #1c1c1c;
-display: flex;
-
-
+  display: flex;
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
   --card-glass-color: rgba(14, 13, 13, 0.92);
@@ -3661,9 +3667,6 @@ display: flex;
   text-shadow: 0 1px 8px var(--card-glass-text-shadow);
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
-
-
-
   border: solid 1px #1c1c1c10;
 }
 
