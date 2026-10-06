@@ -41,6 +41,22 @@
     animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
     }
 
+    .hero-rotating-phrase {
+        display: inline-block;
+        transition: opacity 400ms ease, transform 400ms ease;
+    }
+
+    .hero-rotating-phrase.is-changing {
+        opacity: 0;
+        transform: translateY(0.25em);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hero-rotating-phrase {
+            transition: none;
+        }
+    }
+
     @keyframes reveal {
     0% {
         transform: translate(0,100%);
@@ -430,18 +446,13 @@
 
 .project-card {
   overflow: hidden;
-  width: 100%;
-  position: absolute;
-  right: 0px;
-  z-index: -9999;
+  width: 80px;
+
 }
 
-.project-card video {
-  
-  inset: 0;
+.project-card img {
   width: 100%;
   object-fit: contain;
-  z-index: -1;
 }
 
 
@@ -485,17 +496,15 @@
 
     
 
-    <div class=" hero" id="hero">
+    <div class=" hero " id="hero">
         
         
         
 
-        <h1 >Making complex products <br>feel effortless.</h1>
+        <h1>Making complex products <br><span class="hero-rotating-phrase" aria-live="polite">feel effortless.</span></h1>
         
         <div class="project-card">
-            <video autoplay muted loop playsinline>
-                <source src="/work/img/work/colums-trim.mp4" type="video/mp4">
-            </video>
+            <img src="img/work/herogif.gif">
         </div>
 
 
@@ -972,6 +981,30 @@
         magnetic.addEventListener('mouseleave', () => {
         magnetic.style.transform = 'translate(0, 0)';
         });
+    </script>
+
+    <script>
+        (() => {
+            const phrase = document.querySelector('.hero-rotating-phrase');
+            if (!phrase || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const phrases = [
+                'feel effortless.',
+                'make sense.',
+                'work beautifully.',
+                'feel more human.'
+            ];
+            let index = 0;
+
+            window.setInterval(() => {
+                phrase.classList.add('is-changing');
+                window.setTimeout(() => {
+                    index = (index + 1) % phrases.length;
+                    phrase.textContent = phrases[index];
+                    phrase.classList.remove('is-changing');
+                }, 400);
+            }, 3000);
+        })();
     </script>
 
 

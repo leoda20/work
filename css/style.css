@@ -1337,15 +1337,12 @@ body.scrolled {
 
 
 .hero {
-  
-  display:flex; 
-  flex-direction: column;
-  justify-content: end;
-  align-content:end;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   height: 64dvh;
   padding: 32px;
-  
 }
 
 
