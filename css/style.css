@@ -1338,11 +1338,15 @@ body.scrolled {
 
 .hero {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
   width: 100%;
-  height: 64dvh;
+  gap: 64px;
   padding: 32px;
+
+  p{
+    max-width: 200px;
+  }
 }
 
 
@@ -1645,9 +1649,11 @@ blog
 }
 
 .grid-3{
-  columns: 3;
+  columns: 2;
   column-gap: 32px;
+  break-inside: avoid;
 }
+
 @media screen and (max-width: 768px) {
   .grid-3{
   display: grid;
