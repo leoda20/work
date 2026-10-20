@@ -38,7 +38,8 @@
     h4 {
     margin: 0;
     overflow: hidden;
-    line-height: 1;
+    line-height: 1.2;
+    margin-bottom:4px;
     }
     h4 span {
     display: block;
@@ -494,30 +495,8 @@ button:focus-visible {
     border-radius: 2px;
 }
 
-/* ---------- Header ---------- */
 
-.top-header .tablinks {
-    position: relative;
-    transition: color 0.2s ease;
-}
 
-.top-header .tablinks::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -4px;
-    height: 1px;
-    background: currentColor;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s var(--ease-out);
-}
-
-.top-header .tablinks:hover::after,
-.top-header .tablinks:focus-visible::after {
-    transform: scaleX(1);
-}
 
 /* ---------- Hero ---------- */
 
@@ -526,9 +505,8 @@ button:focus-visible {
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: clamp(48px, 9vh, 120px);
-    min-height: min(66vh, 680px);
+    justify-content: end;
+    gap: 64px;
     padding-top: clamp(24px, 5vh, 56px);
     padding-bottom: clamp(56px, 10vh, 112px);
 }
@@ -754,13 +732,6 @@ button:focus-visible {
     border-top: 1px solid rgba(28, 28, 28, 0.12);
 }
 
-.work-intro h2 {
-    margin: 0;
-    font-family: "Libre Caslon Condensed", "Times New Roman", serif;
-    font-weight: 400;
-    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
-    line-height: 1.1;
-}
 
 /* ---------- Cards: selection frame on hover / focus ---------- */
 
@@ -912,6 +883,7 @@ button:focus-visible {
     margin: 0 0 16px;
     font-size: 0.95rem;
     line-height: 1.6;
+    font-family: "inter", sans-serif;
 }
 
 .process-frame .process-frame__seen {
@@ -1079,6 +1051,7 @@ button:focus-visible {
     text-align: center;
     font-family: "Libre Caslon Condensed", "Times New Roman", serif;
     height:fit-content;
+    color: #1c1c1c;
 }
 .fill-word { opacity: .2; transition: opacity 250ms ease; }
 .fill-word.is-filled { opacity: 1; }
@@ -1106,9 +1079,11 @@ button:focus-visible {
 
 
     <div class="top-header" >
-        <div class="header-container flex-div justify-content-between" >
+        <div class="header-container flex-div" >
 
-            <h2 style="color:#1c1c1c70">✹</h2>
+            <div style="width:56px; height:56px; position:absolute;left:32px;">
+                <img style="width:100%; height:100%;" src="img/ezgif.com-gif-maker.gif">
+            </div>
 
             <div class="tab flex-div  gap-4" >
                 <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
@@ -1120,18 +1095,17 @@ button:focus-visible {
         </div>
     </div>
 
-    <!-- Spacer to offset the fixed header so page content isn't hidden -->
-    <div style="height: 64px;"></div>
+    
 
 
     
 
     <div class=" hero " id="hero">
 
-        <div class="flex-div justify-content-between">
+        <div class=" " style="margin-top:48px;">
 
-            <h5 style="color:#6b6b6b"><b>Hi, I'm Leo Denega Senior</b> ⎯ Product Designer with 5+ years of experience</h5>
-            <p></p>
+            <h5 style="color:#6b6b6b"><b>Hi, I'm Leo Denega</b></h5>
+            <h5 style="color:#6b6b6b">Product Designer with 5+ years of experience</h5>
 
         </div>
 
@@ -1140,7 +1114,7 @@ button:focus-visible {
         
         
 
-        <h1 class="hero-title" style="color: #8a8a8a;">Making complex products ⎯ <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name">Leo</span></span></span></h1>
+        <h1 class="hero-title" style="color: #8a8a8a;">Making complex products <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name">Leo</span></span></span></h1>
         
         
 
@@ -1157,7 +1131,7 @@ button:focus-visible {
     <div class="container-32" style="margin-bottom: 120px;" id="projects">
 
         <div class="work-intro">
-            <h2>Selected work</h2>
+            <h2>Recent work</h2>
         </div>
        
         <div class="grid-2">
@@ -1174,8 +1148,8 @@ button:focus-visible {
                         </p>
                     </div>
                     <div class="blur-container">
+                        <p class="blur-tag">Product Designer</p>
                         <p class="blur-tag">UI</p>
-                        <p class="blur-tag">UX</p>
                     </div>
                 </div>
                 
@@ -1194,8 +1168,8 @@ button:focus-visible {
                     </div>
 
                     <div class="blur-container">
-                        <p class="blur-tag">AI Assistant</p>
-                        <p class="blur-tag">UI</p>
+                        <p class="blur-tag">AI</p>
+                        <p class="blur-tag">Motion</p>
                     </div>
                 </div>
                 
@@ -1447,8 +1421,8 @@ button:focus-visible {
             <li class="process-step">
                 <span class="process-step__label"><span aria-hidden="true">1.</span> Strategy</span>
                 <div class="process-frame">
-                    <h3>Start with the problem, not the screen</h3>
-                    <p>I connect user needs with business goals, so the team agrees on what success looks like before anything gets designed.</p>
+                    <h3>Solve the right problem.</h3>
+                    <p>I connect user needs, business goals, and product constraints to establish a clear direction. The goal is to solve the right problem before investing in the wrong solution.</p>
                     <p class="process-frame__seen">Seen in <a href="project-finbooks.html">Finbooks website</a></p>
                 </div>
             </li>
@@ -1456,8 +1430,8 @@ button:focus-visible {
             <li class="process-step">
                 <span class="process-step__label"><span aria-hidden="true">2.</span> UX</span>
                 <div class="process-frame">
-                    <h3>Make the complexity visible</h3>
-                    <p>Research, flows and service blueprints show where people get stuck and why, before it becomes an interface problem.</p>
+                    <h3>Turn complexity into clarity.</h3>
+                    <p>I turn complex workflows and scattered information into clear experiences. Research, user flows, and service blueprints help uncover friction and reveal where the product needs to improve.</p>
                     <p class="process-frame__seen">Seen in <a href="project-email-marketing.html">E-mail Marketing tool</a>, <a href="project-TR-blueprint.html">Service Blueprint</a></p>
                 </div>
             </li>
@@ -1465,8 +1439,8 @@ button:focus-visible {
             <li class="process-step">
                 <span class="process-step__label"><span aria-hidden="true">3.</span> UI</span>
                 <div class="process-frame">
-                    <h3>Design it to feel effortless</h3>
-                    <p>Clear hierarchy, accessible contrast and interaction details that hold up in real use, not just in the mockup.</p>
+                    <h3>Make the details matter.</h3>
+                    <p>I bring clarity to interfaces through visual hierarchy, accessible contrast, and thoughtful interaction design. Every detail should serve a purpose, from the first impression to the smallest interaction.</p>
                     <p class="process-frame__seen">Seen in <a href="project-Energyline-concept.html">Energyline dashboard</a>, <a href="project-slt-assist.html">AI Assist</a></p>
                 </div>
             </li>
@@ -1474,13 +1448,20 @@ button:focus-visible {
             <li class="process-step">
                 <span class="process-step__label"><span aria-hidden="true">4.</span> Systems</span>
                 <div class="process-frame">
-                    <h3>Turn decisions into patterns</h3>
-                    <p>Tokens, components and documentation keep the product consistent and accessible as it scales. AI tools take care of the repetitive parts.</p>
+                    <h3>Design for what comes next.</h3>
+                    <p>I turn design decisions into reusable patterns, tokens, and documentation that keep products consistent and accessible as they grow. I also explore AI tools to reduce repetitive work and improve the design process.</p>
                     <p class="process-frame__seen">Seen in <a href="project-aeg-colors-and-tokens-rework.html">Token refactor</a>, <a href="ai-documentation.html">Design Documentation</a></p>
                 </div>
             </li>
 
         </ol>
+
+
+        <div class="flex-div gap-8  col-lg-8" style="margin-top: 48px;">
+            
+            <h4>Good product design isn't just how it looks. It's how you think, what you solve, and what you make possible.</h4>
+            
+        </div>
     </section>
 
     <div class=" justify-content-center align-items-center container mil-p-120-120 " id="ai">
