@@ -1341,10 +1341,9 @@ body.scrolled {
   flex-direction: column;
   width: 100%;
   padding: 32px 32px 32px 32px;
+  margin-top:160px;
 
-  p{
-    max-width: 320px;
-  }
+  
 }
 
 
@@ -1379,6 +1378,8 @@ body.scrolled {
   justify-items: center;
   align-items: center;
   position: absolute;
+
+  
   
 }
 
@@ -1398,27 +1399,25 @@ body.scrolled {
 }
 
 .hero-paragraph{
-  margin-top: 16px;
   font-weight: 200;
-  font-family: "inter", sans-serif;
-  font-size: 32px;
-  text-align:center;
+  font-size: 24px;
   align-content: center;
-  justify-content: center;
-  display: flex;
   align-items: center;
   line-height:1.1;
   pointer-events: none;
+  margin-top:16px;
+  h5{
+    max-width: 640px;
+    margin-bottom: 16px;
+  }
+  
 }
 
 @media screen and (max-width: 768px) {
   
   
   
-  .hero{
-    
-  max-height: 80dvb;
-  }
+  
   .hero-content {
     padding-top: 24px;
 
@@ -1427,6 +1426,9 @@ body.scrolled {
   .hero-paragraph{
     width: 480px; 
     margin-top: 16px;
+    
+  font-size: 16px;
+    
   }
 }
 
@@ -2640,6 +2642,33 @@ portfolio
   
 }  
 
+.card-flow {
+  padding: 8px;
+  border: solid 1px #2456F5;
+  height: fit-content;
+  flex: 1;
+  min-width: 0;
+
+  
+  
+}  
+
+.card-flow::after {
+    --h: 8px;
+    content: "";
+    position: absolute;
+    inset: calc(-4px - var(--h) / 2 + 0.75px);
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.985);
+    transition: opacity 0.2s ease, transform 0.35s var(--ease-out);
+    background:
+        linear-gradient(var(--select), var(--select)) top left / var(--h) var(--h) no-repeat,
+        linear-gradient(var(--select), var(--select)) top right / var(--h) var(--h) no-repeat,
+        linear-gradient(var(--select), var(--select)) bottom left / var(--h) var(--h) no-repeat,
+        linear-gradient(var(--select), var(--select)) bottom right / var(--h) var(--h) no-repeat;
+}
+
 .themes-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -3177,7 +3206,7 @@ images
   border-radius: 0px 0px 48px 48px;
   justify-content: center;
   align-items: center;
-  min-height: 720px;
+  min-height: 640px;
   margin-bottom:48px;
 }
 .mil-image-frame-hero > img {

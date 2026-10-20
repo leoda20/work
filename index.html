@@ -420,6 +420,10 @@
   width: 100%;
   height:100dvh;
   overflow: unset;
+
+  background-image: radial-gradient(circle, var(--canvas-dot) 1px, transparent 1.4px);
+    background-size: 24px 24px;
+    background-position: center;
 }
 
 .floating-image {
@@ -434,6 +438,8 @@
 
   z-index: -999;
 }
+
+
 
 @media screen and (max-width: 1200px) {
 
@@ -1053,6 +1059,11 @@ button:focus-visible {
     height:fit-content;
     color: #1c1c1c;
 }
+
+
+
+
+
 .fill-word { opacity: .2; transition: opacity 250ms ease; }
 .fill-word.is-filled { opacity: 1; }
 
@@ -1102,12 +1113,7 @@ button:focus-visible {
 
     <div class=" hero " id="hero">
 
-        <div class=" " style="margin-top:48px;">
-
-            <h5 style="color:#6b6b6b"><b>Hi, I'm Leo Denega</b></h5>
-            <h5 style="color:#6b6b6b">Product Designer with 5+ years of experience</h5>
-
-        </div>
+        
 
         
         
@@ -1118,7 +1124,20 @@ button:focus-visible {
         
         
 
+        <div class="hero-paragraph" style="">
 
+            <h5 style="color:#6b6b6b">I’m Leo Denega, a Product Designer working across product strategy, UX, and design systems. I turn complex workflows into clear, accessible products that work for both users and the business.</h5>
+
+            <div class="flex-div align-items-center gap-16">
+                <p class="blur-tag">5+ years in Product Design</p>
+                <p class="blur-tag">B2B SaaS & platforms</p>
+                <p class="blur-tag">Design systems & AI</p>
+            
+            </div>
+
+        </div>
+
+        
 
         
 
@@ -1131,7 +1150,7 @@ button:focus-visible {
     <div class="container-32" style="margin-bottom: 120px;" id="projects">
 
         <div class="work-intro">
-            <h2>Recent work</h2>
+            <h4>↓ Explore my work</h4>
         </div>
        
         <div class="grid-2">
@@ -1557,9 +1576,10 @@ button:focus-visible {
     <div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center align-items-center flex-div" style="overflow: visible;">
 
 
-        <p class="manifesto__text" data-scroll-fill>
-                       I build clarity into complex products, creating experiences that make sense for people and business.
-                    </p>
+        <h1 class=" manifesto__text" data-scroll-fill>
+            I build clarity into complex products, creating experiences that make sense for people and business.
+            </h1>
+
         
 
     
