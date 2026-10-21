@@ -27,34 +27,58 @@
 
     
     <div class="top-header">
-        <div class="header-container" >
-
-            <a href="index.html" class="mil-link-lg">← Home</a>
+        <div class="header-container " >
             
-            
-            <!-- Desktop nav -->
-            <div class="header-buttons gap-8">
-                
 
-                
+            <div class="tab flex-div align-items-center gap-8" >
 
+                <a href="index.html" class="tablinks" >Home</a>
+                <p style="color:#1c1c1c50;">|</p>
+                <a href="ai-contrast-tokens.html" class="tablinks" >← Previous</a>
+                <a href="ai-documentation.html" class="tablinks">Next →</a>
                 
             </div>
 
-            
+        
         </div>
 
         
     </div>
 
-    <!-- Spacer to offset the fixed header so page content isn't hidden -->
-    <div style="height: 64px;"></div>   
+
+    <div class="mil-image-frame-hero  ">
+        <img src="img/work/gradients/gradients-accessibility.png" alt="image">
+
+        
+        
+    </div>
 
     <section class="container">
 
         <div class="title-group">
             <h1>AccessibilityGPT</h1>
-            <h3>A Shared Source of Truth for Accessibility questions.</h3>
+            <h3>A thinking partner for accessible product decisions.</h3>
+            <p>An AI assistant that helps designers apply WCAG guidelines to real product scenarios, explore possible solutions, and make more informed accessibility decisions.</p>
+
+            <div >
+                <div class="flex-div align-items-center gap-16">
+                    <p>Focus:</p>
+                    <p class="blur-tag">Accessibility</p>
+                    <p class="blur-tag">WCAG</p>
+                    <p class="blur-tag">AI-assisted Product Design</p>
+                
+                </div>
+
+                <div class="flex-div align-items-center gap-16">
+                    <p>My role:</p>
+                    <p class="blur-tag">Product Design</p>
+                    <p class="blur-tag">Conversation Design</p>
+                    <p class="blur-tag">Workflow Definition</p>
+
+                    
+                
+                </div>
+            </div>
         </div>
 
         
@@ -65,9 +89,15 @@
 
             <div class="col-lg-8 title-group">
                 <h2>The Problem</h2>
-                <p>Accessibility discussions can quickly become subjective. When a question comes up about whether a design or interaction meets WCAG, people may interpret the guidelines differently or rely on personal experience.</p>
+                <h3>Knowing the guidelines is one thing. Applying them is another.</h3>
+                <p>Accessibility guidelines provide a foundation for building inclusive products, but applying them to a specific design situation isn't always straightforward.</p>
 
-                <p>I wanted to create a way for the team to quickly validate those discussions against the actual WCAG documentation, without having to search through a large and sometimes difficult-to-navigate specification.</p>
+                <p>Should an error message appear inline or in a notification? What's the most accessible way to communicate a required field? How should keyboard focus behave in a complex interaction?</p>
+                
+
+                <p>These questions require more than looking up a checklist. Designers need to understand the context, identify relevant WCAG criteria, and evaluate the trade-offs between possible solutions.</p>
+
+                <p>I explored how AI could help bridge that gap.</p>
             </div>
 
             
@@ -80,37 +110,20 @@
 
             <div class="col-lg-8 title-group">
                 <h2>The Idea</h2>
-                <p>I created a ChatGPT-like interface focused exclusively on WCAG documentation.</p>
+                <h3>Turn accessibility guidelines into practical design guidance.</h3>
+                <p>AccessibilityGPT is a conversational assistant designed to help product designers navigate accessibility decisions using WCAG as a reference.</p>
 
-                <p>Instead of providing general AI knowledge, the tool uses the WCAG guidelines as its source of truth, allowing the team to ask questions in natural language and get clear explanations based on the official documentation.</p>
+                <p>Instead of searching through documentation for every question, designers can describe a scenario in their own words and ask for guidance tailored to the situation.</p>
+
+                <p>The assistant helps identify relevant success criteria, explain their intent, compare potential approaches, and suggest practical next steps.</p>
+
+                <p>The goal is to make accessibility guidance easier to understand and apply during everyday product design.</p>
+                
+                
 
                 
 
             </div>
-
-            
-
-
-        </div>
-
-
-        <div class="mil-p-120-120">
-
-
-            <div class="col-lg-8 title-group">
-                <h2>How it works</h2>
-                <p>The experience is intentionally familiar: users can ask questions just as they would in a normal AI conversation.</p>
-
-                <p>The key difference is the knowledge boundary. The assistant is designed to answer questions using WCAG documentation, helping users understand what the guidelines actually say and how they relate to a specific situation.</p>
-
-                <p>This makes it useful during design critiques, QA discussions, and team conversations where a quick clarification is needed.</p>
-
-                
-                <h3>Question → WCAG knowledge → Clear explanation</h3>
-                
-
-            </div>
-
 
             <img class="img-border" src="img/ai/accessibilitygpt.png" alt="image">
 
@@ -122,14 +135,145 @@
         <div class="mil-p-120-120">
 
 
-            <div class="col-lg-8 title-group">
-                <h2>Designing the experience</h2>
-                <p>The interface needed to feel as approachable as ChatGPT while making it clear that this wasn't a general-purpose AI assistant.</p>
+            <div class=" title-group">
+                <h2>How it works</h2>
 
-                <p>The experience focuses on asking a question, understanding the relevant guideline, and using that information to support a discussion — rather than replacing human judgment, and allowing to have multiple conversations.</p>
 
+                <div class="flex-div gap-32 align-content-center mil-mb-16" style="border-bottom: 1px solid #f1f1f1; padding: 16px 0px;">
+
+                    <h3 class="col-lg-4">01 — Describe the situation</h3>
+
+                    <p class="col-lg-6">The designer asks a question about a specific component, interaction, or user flow.<br> For example: What's the best way to communicate validation errors in a multi-step form?</p>
+
+                </div>
+                <div class="flex-div gap-32 align-content-center mil-mb-16" style="border-bottom: 1px solid #f1f1f1; padding: 16px 0px;">
+
+                    <h3 class="col-lg-4">02 — Understand the requirements</h3>
+
+                    <p class="col-lg-6">The assistant identifies potentially relevant WCAG success criteria and explains how they relate to the scenario.<br>Rather than presenting guidelines without context, it helps the designer understand what the requirements mean for the experience.</p>
+
+                </div>
+                <div class="flex-div gap-32 align-content-center mil-mb-16" style="border-bottom: 1px solid #f1f1f1; padding: 16px 0px;">
+
+                    <h3 class="col-lg-4">03 — Explore possible solutions</h3>
+
+                    <p class="col-lg-6">The assistant outlines practical approaches, explains their trade-offs, and highlights important considerations such as keyboard interaction, focus management, clarity, and feedback. <br>Where the context is insufficient, it should ask clarifying questions instead of assuming a single correct answer.</p>
+
+                </div>
+                <div class="flex-div gap-32 align-content-center mil-mb-16" style=" padding: 16px 0px;">
+
+                    <h3 class="col-lg-4">04 — Make an informed decision</h3>
+
+                    <p class="col-lg-6">The designer uses the guidance to evaluate the available options and decide what to implement or investigate further.<br>The result is a more informed design decision—not an automatic declaration of accessibility compliance.</p>
+
+                </div>
+
+                
+
+            </div>
             
 
+
+        </div>
+
+        <div class="mil-p-120-120">
+
+
+            <div class=" title-group">
+                <h2>Usage Example</h2>
+            </div>
+            
+
+            <div class=" gap-16 card-themes justify-content-center" style="background: #1c1c1c10; max-height: 640px; overflow: scroll;">
+
+                <div class="card-themes " style="background: #b1bfec; margin-left: 64px;">
+
+                    <h6 class="mil-mb-30">💬 DESIGNER ASKS</h6>
+
+                    <p>I'm designing a multi-step form. Should validation errors appear inline next to each field, in a summary at the top, or both?</p>
+
+                </div>
+
+                
+                <div class="card-themes" style="background: #ffffff; margin-right: 64px;">
+
+                    <h6 class="mil-mb-30">💬 THE ASSISTANT'S GUIDANCE</h6>
+
+                    <div class="title-group">
+
+                        <h3>Summary</h3>
+
+
+                        <p>WCAG 2.2 does not strictly mandate whether a radio button group must have a default selection or load entirely unselected. Both approaches are compliant, provided that keyboard interaction, labeling, and error handling are implemented correctly according to W3C standards.</p>
+
+                        <h4>Relevant WCAG</h4>
+
+                        <h6><b>Principle:</b> 3. Understandable</h6>
+                        <h6><b>Guideline:</b> 3.3 Input Assistance</h6>
+                        <h6><b>Success Criterion:</b> 3.3.2 Labels or Instructions — Level A</h6>
+                        <h6 class="mil-mb-30"><b>Success Criterion:</b> 3.2.2 On Input — Level A</h6>
+
+                        <h4>Explanation</h4>
+
+                        <p>Neither WCAG 2.2 nor the HTML specification forbids leaving radio buttons unselected, but each approach serves specific UX and accessibility needs:</p>
+
+                        <h5>When to Pre-Select a Default Radio Button</h5>
+
+                        <p>Recommended for general settings or low-risk choices: Providing a safe, logical default reduces user effort and helps prevent submission errors.</p>
+
+                        <p>HTML Standard alignment: Historically, the HTML specification recommended that one radio button in a group always be checked by default.</p>
+
+                        <p>Keyboard navigation: When a default option is checked, pressing Tab moves focus directly to that selected radio button.</p>
+
+                        <h5>When to Leave All Options Unselected</h5>
+
+                        <p>Recommended for required explicit choices: If choosing a default might unfairly bias the user or cause them to accidentally submit incorrect data (e.g., legal agreements, opt-in consents, medical/financial decisions, or survey questions), leave all options unselected.</p>
+
+                        <p>
+                            Requirements when unselected: If the choice is mandatory and none are selected by default:<br>
+                            Clearly indicate that the field is required using text instructions (SC 3.3.2).<br>
+                            Keyboard focus must land on the first radio button in the group when tabbing into the field set.<br>
+                            If the form is submitted without a choice, generate a clear, accessible error message (SC 3.3.1).
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-themes ">
+
+                    <h6 class="mil-mb-8">☑️ Design implication</h6>
+
+                    <p>Leave radio options unselected when an intentional choice is needed. Use a default only when it clearly reflects user intent and carries little risk. Ensure labels, selection states, and validation are clear.</p>
+
+                </div>
+            
+
+
+        </div>
+
+
+        
+
+        <div class="mil-p-120-120">
+
+
+            <div class="col-lg-8 title-group">
+                <h2>The design decision</h2>
+                <h3>Make the guidance useful, not just technically correct.</h3>
+                <p>A response that quotes a WCAG criterion isn't necessarily helpful to a designer trying to solve a product problem.</p>
+
+                <p>I focused the concept on connecting three things:</p>
+                <ul>
+                    <li><b>The requirement:</b> Which WCAG criteria are relevant, and what do they mean?</li>
+                    <li><b>The application:</b> How do those requirements affect this specific design scenario?</li>
+                    <li><b>The action:</b> What practical options should the designer consider next?</li>
+                </ul>
+
+            
+                <p>This structure helps bridge the gap between accessibility knowledge and day-to-day product decisions.</p>
+                <p>The assistant should also distinguish between a formal WCAG requirement, a recommended technique, and a broader usability consideration. Not every good accessibility practice is a specific conformance requirement.</p>
 
             </div>
 
@@ -143,13 +287,14 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>The impact</h2>
-                <p>The tool gives the team a shared reference point when discussing accessibility.</p>
+                <h2>Designing for trust</h2>
+                <h3>Guidance should be explainable and grounded in the standard.</h3>
+                <p>Accessibility decisions can affect whether people can successfully use a product. That makes the quality and clarity of the assistant's guidance especially important.</p>
 
-                <p>Instead of debating based on interpretation or spending time searching through documentation, the team can quickly ask the assistant and use the WCAG guidance to inform the conversation.</p>
-
-                <p><strong>Less interpretation. More clarity. A shared accessibility language.</strong></p>
-
+                <p>The concept should prioritize traceable references to WCAG, clear explanations, and honest communication about uncertainty.</p>
+                
+                <p>When multiple solutions are possible, the assistant should explain the relevant trade-offs rather than present one option as universally correct.</p>
+                <p>For complex or ambiguous scenarios, it should identify what additional context or testing is needed.</p>
 
             </div>
 
@@ -157,6 +302,54 @@
 
 
         </div>
+
+        <div class="mil-p-120-120">
+
+
+            <div class="col-lg-8 title-group">
+                <h2>Validation and limitations</h2>
+                <h3>Helpful guidance still needs verification.</h3>
+                <p>The concept is intended to support designers, not replace accessibility specialists, conformance testing, or evaluation with people with disabilities.</p>
+
+                <p>The next step would be to test the assistant against representative design scenarios and evaluate:</p>
+
+
+                <ul>
+                    <li><b>Relevance:</b> Does it identify the appropriate WCAG criteria?</li>
+                    <li><b>Accuracy:</b> Are its explanations and references correct?</li>
+                    <li><b>Practical value:</b> Can designers use the guidance to make a clearer design decision?</li>
+                    <li><b>Trustworthiness:</b> Does it communicate uncertainty and recognize when more context is needed?</li>
+                </ul>
+                
+                <p>These tests would help establish where the assistant provides reliable value and where expert review remains necessary.</p>
+                
+
+            </div>
+
+            
+
+
+        </div>
+
+
+        <div class="mil-p-120-120">
+
+
+            <div class="col-lg-8 title-group">
+                <h2>The takeaway</h2>
+                <h3>Make accessibility knowledge easier to put into practice.</h3>
+                <p>AccessibilityGPT explores how AI can help designers move from searching for guidelines to understanding how those guidelines apply to real product decisions.</p>
+
+                <p>The opportunity isn't to automate accessibility judgment. It's to make reliable guidance more accessible at the moment a designer needs it.</p>
+            </div>
+
+            
+
+
+        </div>
+
+
+        
 
 
 

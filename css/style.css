@@ -1742,6 +1742,7 @@ blog
   padding: 0 10px;
   border-radius: 999px;
   color: #1c1c1c;
+  background: #1c1c1c20;
   
   text-decoration: uppercase;
   letter-spacing:1px;
@@ -1756,7 +1757,7 @@ blog
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-  background: #ffffff30;
+  
   box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
 
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
@@ -1776,6 +1777,7 @@ blog
   padding: 0 10px;
   border-radius: 999px;
   color: #ffffff;
+  background: #1c1c1c70;
 
   letter-spacing:1px;
   
@@ -1789,7 +1791,6 @@ blog
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-  background: #ffffff30;
   box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
   
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
@@ -1840,7 +1841,7 @@ blog
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  border-radius: 16px;
+  border-radius: 32px;
 
   margin-bottom: 8px;
 
@@ -1860,7 +1861,7 @@ blog
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  border-radius: 16px;
+  border-radius: 32px;
   margin-bottom: 8px;
   
 }
@@ -1881,6 +1882,9 @@ blog
           -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 
+  background-color:  #2456F5;
+  
+
 }
 
 .mil-blog-card:after  {
@@ -1894,13 +1898,15 @@ blog
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 
+          border-radius: 0px;
+
 
 }
 
 .mil-blog-card:hover .mil-cover-frame video {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-          
+          border-radius:0px;
 }
 .mil-blog-card.mil-blog-card-hori {
   padding-top: 60px;
@@ -2256,6 +2262,18 @@ portfolio
 }
 
 .header-container {
+  height: 88px; 
+  align-items: center; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0px 32px;
+  gap: 16px;
+
+  
+}
+
+.header-container-lp {
   height: 88px; 
   align-items: center; 
   display: flex;
