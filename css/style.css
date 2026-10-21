@@ -345,7 +345,7 @@ blockquote {
   font-size: 18px;
   color: #1c1c1c;
   font-style: italic;
-  border-left: solid 4px #5bb86a;
+  border-left: solid 4px  #2456F5;
 }
 @media screen and (max-width: 768px) {
   blockquote {
@@ -369,7 +369,7 @@ blockquote {
   padding-right: 12px;
   padding-bottom: 5px;
   padding-top: 3px;
-  background-color: #5bb86a;
+  background-color:  #2456F5;
   border-radius: 8px;
   color: #ffffff;
   font-weight: 600;
@@ -462,7 +462,7 @@ a {
 }
 
 .mil-marker {
-  background-color: #5bb86a;
+  background-color:  #2456F5;
   padding: 0 5px;
 }
 
@@ -610,11 +610,10 @@ link
 }
 
 .mil-link-lg:hover {
-  color: #428f4f;
+  color:  #2456F5;
   text-decoration: none;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  letter-spacing: 3px;
 
 }
 
@@ -780,7 +779,7 @@ button
 }
 .mil-button.mil-icon-button-sm svg {
   margin-left: 0;
-  background-color: #5bb86a;
+  background-color:  #2456F5;
 }
 .mil-button.mil-icon-button-sm svg path {
   fill: rgb(0, 0, 0);
@@ -791,7 +790,7 @@ button
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
 
-          background-color: #5bb86a;
+          background-color:  #2456F5;
 }
 .mil-button:hover svg {
   -webkit-transform: scale(1.15);
@@ -831,7 +830,7 @@ button
   min-width: 40px;
 }
 .btn-secondary:hover {
-  background-color: #5bb86a;
+  background-color:  #2456F5;
   color: #1c1c1c;
 }
 
@@ -948,7 +947,7 @@ breadcrumbs
   transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
 }
 .mil-breadcrumbs li a:hover {
-  color: #5bb86a;
+  color:  #2456F5;
   text-decoration: none;
 
 }
@@ -970,7 +969,7 @@ breadcrumbs
   color: rgba(255, 255, 255, 0.9);
 }
 .mil-breadcrumbs.mil-light li a:hover {
-  color: #5bb86a !important;
+  color:  #2456F5 !important;
 }
 .mil-breadcrumbs.mil-center {
   -webkit-box-pack: center;
@@ -1984,7 +1983,7 @@ blog
 }
 
 .mil-pagination-btn.mil-active {
-  background-color: #5bb86a;
+  background-color:  #2456F5;
 }
 
 .mil-category-list {
@@ -2025,7 +2024,7 @@ blog
   background-color: rgb(229, 229, 229);
 }
 .mil-category-list li a.mil-active {
-  background-color: #5bb86a;
+  background-color:  #2456F5;
 }
 @media screen and (max-width: 768px) {
   .mil-category-list {
@@ -2109,7 +2108,7 @@ portfolio
 
 .contact-card:hover{
   padding: 48px;
-  background-color: #5bb86a;
+  background-color:  #2456F5;
   border-radius: 8px;
   display: flex;
   
@@ -2210,7 +2209,7 @@ portfolio
 }
 .mil-hero-menu ul li a:hover {
   
-  color: #5bb86a;
+  color:  #2456F5;
   text-decoration: underline;
   
   font-weight: 500;
@@ -2219,7 +2218,7 @@ portfolio
 }
 .mil-hero-menu ul li svg path {
   
-  color: #5bb86a;
+  color:  #2456F5;
   
 }
 @media screen and (max-width: 768px) {
@@ -2228,7 +2227,7 @@ portfolio
   }
 }
 .mil-hero-menu ul li.mil-active a {
-  color: #5bb86a;
+  color:  #2456F5;
 }
 .mil-hero-menu ul li.mil-active a:hover {
   -webkit-transform: none;
@@ -2236,7 +2235,7 @@ portfolio
 }
 
 .mil-hero-menu ul li.mil-active {
-  color: #5bb86a;
+  color:  #2456F5;
   list-style-type: square !important;
   margin-left: 16px;
 }
@@ -2260,7 +2259,7 @@ portfolio
   height: 88px; 
   align-items: center; 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   padding: 0px 32px;
   gap: 16px;
@@ -2310,7 +2309,7 @@ portfolio
   align-items: center;
   text-align: center;
   height: auto;
-  color: #5bb86a;
+  color:  #2456F5;
   text-decoration: underline;
 
   padding-top: 8px;
@@ -2331,7 +2330,7 @@ portfolio
 }
 
 .hero-card-btn:hover h5{
-  color: #5bb86a;
+  color:  #2456F5;
   font-size: 18px;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   
@@ -2357,7 +2356,7 @@ portfolio
 }
 
 .hero-card-btn:hover path{
-  fill: #5bb86a;
+  fill:  #2456F5;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 
@@ -2862,7 +2861,7 @@ portfolio
 } 
 
 .card-themes path {
-  fill: #5bb86a;
+  fill:  #2456F5;
 }  
 
 .mil-counter {
@@ -2977,7 +2976,7 @@ position: absolute;
   width: 100%;
   height: 100%;
   left: 2px;
-  text-shadow: -2px 0 #5bb86a;
+  text-shadow: -2px 0  #2456F5;
   clip: rect(44px, 450px, 56px, 0);
   animation: glitch-anim 5s infinite linear alternate-reverse;
 }
@@ -3982,7 +3981,7 @@ min-height: 280px;
 }
 
 .btn-test:hover {
-  color: #5bb86a;
+  color:  #2456F5;
 }
 
 .preview {
