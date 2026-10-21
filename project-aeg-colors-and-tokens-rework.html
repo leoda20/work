@@ -66,7 +66,7 @@
 
             <div class="flex-div align-items-center gap-16 mil-mb-30">
                 <p>Tags:</p>
-                <p class="blur-tag">Strategy</p>
+                <p class="blur-tag">Design Engineering</p>
                 <p class="blur-tag">Design System</p>
                 <p class="blur-tag">Accessibility</p>
             
@@ -82,7 +82,7 @@
 
                 <div class="col-lg-5 col-md-5 title-group">
                     <h4>Project</h4>
-                    <p >Over time, AEG’s color system had evolved without a clear structure. Colors were duplicated, tokens lacked meaning, and hardcoded values made updates risky and time-consuming.</p>
+                    <p >Refactoring color tokens across 15 themes to improve maintainability, support light and dark modes, and make accessible UI decisions easier to implement.</p>
 
                 </div>
 
@@ -111,330 +111,154 @@
             
             <div class=" mil-p-120-120 " id="project">
 
-                <div class=" flex-div justify-content-between">
-
                     
                         
-                    <div class="col-lg-8 title-group">
-                        
-            
-                        <h2>Understanding the Current State</h2>
-                        
-                        <p>The first step was understanding how colors were actually being used across the product. The audit revealed:</p>
-
-                        <ul>
-                            <li>80+ color tokens with overlapping values</li>
-
-                            <li>Non-semantic naming (themeDarkColor, themeColorOneHalf)</li>
-
-                            <li>Hardcoded colors bypassing the token system</li>
-
-                            <li>No reliable structure for creating new themes</li>
-                        </ul>
-
-                    </div>
-
-
-                </div>  
-
-                
-                
-
-
-                <div class="flex-div gap-80 justify-content-between scroll-up card-neutral ">
-
-                    <div class="col-lg-5 s title-group">
-
-                                
-                        <h3>Rebuilding the Product Foundation</h3>
-
-                        <p>Because the existing product had no updated design source files, the interface was reconstructed in Figma to create a reliable testing environment.</p>
-
-
-
+                <div class="col-lg-8 title-group">
                     
-                    </div>
-
-                    <img class="img-card" src="img/work/AEG/screenshot-to-prototype.png" alt="image">
-
-                </div>
-
-
-                <div class="flex-div gap-80 justify-content-between card-neutral">
-
-                    <div class="col-lg-5 title-group">
-
+        
+                    <h2>The challenge</h2>
+                    <h3>A growing system needed stronger foundations</h3>
                     
+                    <p>The existing color-token structure made consistency, accessibility, and theme maintenance increasingly difficult.</p>
 
-                        <h3>Understanding Token Usage at Scale</h3>
+                    <p>The challenge was to simplify the underlying system while supporting 15 themes, light and dark modes, and more accessible interfaces.</p>
 
-                        <p>Before introducing a new system, I mapped existing tokens across real product screens.</p>
 
-                    </div>
-                        
-                    <img class="img-card" src="img/work/AEG/figma-variables.png" alt="image">
-                </div>
 
                 
-                    
-                
 
-
-                <!--<div class="flex-div gap-80 justify-content-between card-neutral">
-
-                    <div class="col-lg-5">
-
-                        
-                        <h3 class="mil-mb-15">Understanding Token Usage at Scale</h3>
-
-                        <p class=" mil-mb-15">Tailwind-compatible alternatives were defined for legacy tokens to align with the development workflow. These new values were applied to the old token structure, bridging the gap between existing code and a more maintainable system.</p>
-                        
-
-                    </div>
-
-                    <img class="img-card" src="img/work/AEG/remapping-to-tailwind.png" alt="image">
-
-                </div>-->
-
-            </div>
-
-            <div class="mil-p-120-120">
-
-
-                <div class=" col-lg-8 title-group">
-
-                    <h2 >From Literal Colors to Semantic Tokens</h2>
-                    <p>The previous system described colors by appearance rather than purpose.</p>
                 </div>
 
                 <div class="flex-div gap-16">
+
+                    <div class="card-themes">
+                        <h2>80</h2>
+                        <p>existing tokens</p>
+                    </div>
+
+                    <div class="card-themes">
+                        <h2>15</h2>
+                        <p>themes</p>
+                    </div>
+
+                    <div class="card-themes">
+
+                        <h2>2</h2>
                         
-
-
-
-                    <div class=" card-themes  ">
-
-                        <img class="img-card" src="img/work/AEG/token-change.png" alt="primary-persona">
-
-                        <h4 >Theme tokens</h4>
-
-                        <p class="mil-mb-15">Colors that change depending on brand/theme.</p>
-
-                        <h4>Common tokens</h4>
-
-                        <p>Universal states such as: Success, Warning, Critical, Information</p>
-
-
+                        <p>Modes: Light and dark</p>
                     </div>
 
 
+                </div>
+
+                <div class="card-themes">
+                    <p class="mil-mb-30">Contrast issues found in a single page:</p>
+
+                    <img class="img-border" src="img/work/AEG/before-1.png" >
+                </div>
+
+                
+
+                
+
+            </div>
+
+
+
+            <div class=" mil-p-120-120 " id="project">
+
+                <div class="col-lg-8 title-group">
+                    <h2>Rethinking the system</h2>
+                    <h3>From color values to meaningful roles</h3>
+                    
+                </div>
+
+                <div class="flex-div gap-16">
 
                     <div class=" card-themes  ">
 
-                        <img class="img-card" src="img/work/AEG/list-update.png" >
+                        <img class="img-card" src="img/work/AEG/hard-coded.png" alt="primary-persona">
+                        <p>This separated color values from their purpose, making the system easier to maintain and adapt without managing every component individually.</p>
+                    </div>
 
-                        <h4>Reducing the Token List</h4>
+                    <div class=" card-themes  ">
 
-                        <p >Through consolidation and removal of redundancies, the token list was significantly reduced. The system became easier to understand, maintain, and extend.</p>
+                        <img class="img-card" src="img/work/AEG/review.png" >
+                        <p >I reworked the token structure to create a clearer relationship between base colors, semantic roles, and UI components.</p>
 
                     </div>
                 </div>
+            </div>
 
 
+            <div class=" mil-p-120-120 " id="project">
 
+                    
+                        
+                <div class="col-lg-8 title-group">
+                    
         
-            </div>
-
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
-
-
-                <div class="col-lg-6 title-group">
-
-                    <h2 >Designing for Accessibility</h2>
-
-                    <p>Accessibility was not treated as a final check—it became part of the token creation process.
-                    Each theme was reviewed against WCAG contrast requirements.</p>
-
-                    <h4>Initial audit:</h4>
-
-                    <p>Only 3 of 12 themes passed contrast checks</p>
-
-                    <h4>After refinement:</h4>
-
-                    <p>All themes achieved accessible contrast levels</p>
-
-
-                </div>
+                    <h2>Designing for multiple themes</h2>
+                    <h3>One system, different appearances</h3>
                     
-                <img class="mil-image-frame " src="img/work/AEG/all-themes-wcag.jpeg" alt="image">
+                    <p>I focused on keeping color roles consistent across themes and light and dark modes, while allowing their underlying values to adapt.</p>
 
-            </div>
-
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
-
-                <div class="col-lg-6 title-group">
-
-                    <h2>Building a More Flexible Theming System</h2>
-
-                    <p>The previous token structure made dark mode difficult to maintain because colors were tied to specific values instead of usage.
-
-                    The new semantic approach allowed dark mode variations to be created by adjusting theme values instead of rebuilding components.</p>
-
-                </div>
+                    <p>The goal was to preserve visual hierarchy and usability while making theme updates more predictable.</p>
 
 
-                <img class="mil-image-frame" src="img/work/AEG/dark-theme-vector.png" alt="image">
-                    
-                
-            </div>
+                    <div class="card-info justify-content-between mil-mb-8">
 
-            <!--<div class="mil-p-120-120">
+                        <h4>ℹ️ Building a More Flexible Theming System</h4>
 
-
-
-
-
-                <div class="flex-div gap-24 justify-content-between">
-
-                    
-
-                    <div class="col-lg-6 ">
-
-                        <p class="mil-accent">First iteration</p>
-
-                        <h2 class="  mil-mb-30">Creating a New Theme with New Colors</h2>
-
-                        <p class="  mil-mb-30 mil-text-lg ">A new theme was created by assigning the updated color values to the existing tokens. This transitional step ensured visual improvements could start being implemented without waiting for the full token overhaul.</p>
-
-
-                        
-
-                    </div>
-                        
-                    <div class="col-lg-5">
-
-                        
-
-                        <div  class="card-info">
-
-                            <h4 class=" mil-mb-15">Modernizing the Interface</h4>
-
-                            <p class=" ">While applying updated colors, small adjustments were made to modernize the interface—enhancing elevation, improving text clarity, and refining overall color balance.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="carousel">
-
-                    <div class="track">
-                        
-                        <div class="col-lg-6 mil-image-frame">
-                            <img src="img/work/AEG/new-theme.png" alt="image">
-                                
-                        </div>
-
-                        <div class="col-lg-6 mil-image-frame">
-                            <img src="img/work/AEG/new-theme.png" alt="image">
+                        <h6>Semantic tokens made dark mode easier to maintain by enabling theme-level changes without rebuilding components.</h6>
                             
-                        </div>
-
-                        <div class="col-lg-6 mil-image-frame">
-                            <img src="img/work/AEG/new-theme.png" alt="image">
-                            
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-
-            </div>
-
-
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
-
-                <div class="col-lg-6">
-
-                    <p class=" mil-accent">Review</p>
-
-                    <h2 class="mil-mb-30">Replacing Hardcoded Colors</h2>
-
-                    <p class="mil-mb-30">Hardcoded color values were identified and replaced with corresponding tokens. This reduced visual inconsistencies and allowed themes to be applied systematically across the interface.</p>
-
-                </div>
-                    
-                <img class="mil-image-frame " src="img/work/AEG/hard-coded.png" alt="image">
-            </div>
-
-            
-
-
-            
-
-
-            
-
-
-            <div class="mil-p-120-120">
-
-                <div class="col-lg-8">
-
-                    <h2 class=" mil-mb-30" >Expanding to All Themes</h2>
-
-                    <p class="mil-mb-30" >With the new structure in place, color values for all twelve themes were defined. <br>This process became more efficient thanks to the token grouping, enabling fast creation of consistent themes.</p>
-
-                </div>
-                        
-                <div >
-
-                    <div class="mil-image-frame-vertical  ">
-                        <img src="img/work/AEG/tokens-list-1.png" alt="image">
                         
                     </div>
-                    <div class="mil-image-frame-vertical  ">
-                        <img src="img/work/AEG/tokens-list-2.png" alt="image">
 
-                    </div>
-                    <div class="mil-image-frame-vertical  ">
-                        <img src="img/work/AEG/tokens-list-3.png" alt="image">
-
-                    </div>
-                    <div class="mil-image-frame-vertical  ">
-                        <img src="img/work/AEG/tokens-list-4.png" alt="image">
-                        
-                    </div>
                 </div>
-            </div>
 
-
-            
+                <img class="img-border" src="img/ai/Tokens.png" >
 
 
                 
 
+            </div>
 
-                
 
-            <div class="flex-div gap-80 justify-content-between mil-p-120-120">
+            
 
-                <div class="col-lg-6">
+            <div class=" mil-p-120-120 " id="project">
 
-                    <h2 class="mil-mb-30">Final Review</h2>
+                    
+                        
+                <div class="col-lg-8 title-group">
+                    
+        
+                    <h2>Accessibility by design</h2>
+                    <h3>Fixing the system, not just the symptoms</h3>
+                    
+                    <p>I focused on identifying contrast issues and resolving them through the token system rather than relying solely on individual UI fixes.</p>
 
-                    <p class="mil-mb-30">A complete QA pass was conducted to validate the themes, check contrast, and ensure there were no remaining hardcoded or legacy tokens in use.</p>
+                    <p>The workflow combined contrast validation, suitable token alternatives, and visual review to support more accessible and consistent interfaces.</p>
 
                 </div>
 
-                <img class="mil-image-frame " src="img/work/AEG/review.png" alt="image">
+                <img class="img-border " src="img/work/AEG/all-themes-wcag.jpeg" alt="image">
 
-            </div>-->
+            </div>
+
+            
 
 
-            <div class="mil-p-120-120">     
+            
 
-                <h2 class=" mil-mb-30">Impact</h2>
+            
+
+            <div class="mil-p-120-120 title-group">     
+
+                <h2 class=" mil-mb-30">Migration and impact</h2>
+                <h3>Building a foundation for sustainable change</h3>
+                <p>The refactor aimed to improve:</p>
 
                 
                 <div class="col-lg-12 flex-div gap-16 ">
@@ -444,9 +268,9 @@
 
                         <img class="img-card" src="img/work/AEG/results-reduce.png" alt="">
                             
-                        <h4>59% reduction in token complexity</h4>
+                        <h4>Collaboration </h4>
 
-                        <p >Reduced the color system from 80 → 33 tokens, removing duplication and making usage clearer.</p>
+                        <p >Clearer definitions for design and engineering.</p>
                             
                             
                     </div>
@@ -455,9 +279,9 @@
 
                         <img class="img-card" src="img/work/AEG/results-structure.png" alt="">
                             
-                        <h4>Faster theme creation</h4>
+                        <h4>Consistency</h4>
 
-                        <p>Previously, creating or adjusting themes required days of manual updates.With the new token architecture, themes could be configured in minutes.</p>
+                        <p>Clearer color usage across components and themes.</p>
                             
                             
                     </div>
@@ -467,9 +291,9 @@
 
                         <img class="img-card" src="img/work/AEG/results-config.png" alt="">
                             
-                        <h4>Improved developer handoff</h4>
+                        <h4>Maintainability</h4>
 
-                        <p>Tokens aligned with Tailwind conventions, reducing translation effort between design and development.</p>
+                        <p>Simpler updates through semantic tokens.</p>
                             
                             
                     </div>
@@ -482,15 +306,17 @@
 
                         <img class="img-card" src="img/work/AEG/results-accessibility.png" alt="">
                             
-                        <h4>Accessibility built-in</h4>
+                        <h4>Accessibility</h4>
 
-                        <p>All 12 themes were reviewed and updated to meet accessibility standards.</p>
+                        <p>A repeatable approach to identifying and resolving contrast issues.</p>
                             
                             
                     </div>
                     
                         
                 </div>
+
+                <p class="col-lg-8">The key takeaway: a well-structured design system makes good design decisions easier to apply, validate, and maintain as a product evolves.</p>
             
 
 

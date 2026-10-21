@@ -260,19 +260,19 @@ h3,
 @media screen and (max-width: 1200px) {
   h3,
 .mil-h3 { 
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 @media screen and (max-width: 992px) {
   h3,
 .mil-h3 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 @media screen and (max-width: 768px) {
   h3,
 .mil-h3 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
