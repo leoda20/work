@@ -26,7 +26,7 @@
 <body class="no-scroll-animation">
 
     
-    <div class="top-header">
+    <div class="top-header-page">
         <div class="header-container " >
             
 
@@ -71,7 +71,7 @@
                 
                 </div>
 
-                <div class="flex-div align-items-center gap-16">
+                <div class="flex-div align-items-center gap-16 tag-group">
                     <p>My role:</p>
                     <p class="blur-tag">Product Design</p>
                     <p class="blur-tag">UX and workflow definition</p>
@@ -89,8 +89,8 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>The Problem</h2>
-                <h3>Fixing the contrast was only half the job.</h3>
+                <h3 class="mil-accent">The Problem</h3>
+                <h2>Fixing the contrast was only half the job</h2>
                 <p>During a design-token migration, small color changes created uncertainty during QA. It wasn't always clear whether a difference was an intentional update or an accessibility issue that still needed attention.</p>
 
                 <p>Finding a replacement wasn't straightforward either. A color could meet contrast requirements but still break the visual consistency of the existing design system.</p>
@@ -113,8 +113,8 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>The Idea</h2>
-                <h3>Move from detecting issues to finding the right fix.</h3>
+                <h3 class="mil-accent">The Idea</h3>
+                <h2>Move from detecting issues to finding the right fix</h2>
                 <p>I explored an AI-assisted workflow that connects screenshot-based contrast analysis with the existing design-token system.</p>
 
                 <p>Instead of returning a list of potential failures, the tool helps connect three pieces of information: the affected UI element, the contrast requirement it fails, and a more suitable token candidate.</p>
@@ -185,8 +185,8 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>The design decision</h2>
-                <h3>Accessibility should work with the design system, not around it.</h3>
+                <h3 class="mil-accent">The design decision</h3>
+                <h2>Accessibility should working with the design system</h2>
                 <p>A contrast checker can identify a problem, but it doesn't necessarily help a team choose a replacement that fits the product.</p>
 
                 <p>I focused the concept on connecting accessibility findings to the design system already in use.</p>
@@ -210,8 +210,8 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>Validation and limitations</h2>
-                <h3>A recommendation is a starting point, not a sign-off.</h3>
+                <h3 class="mil-accent">Validation and limitations</h3>
+                <h2>A recommendation is a starting point, not a sign-off</h2>
                 <p>Contrast requirements depend on the type of content and the colors being compared. A proposed alternative needs to be checked against the applicable WCAG criteria and reviewed in the context of the actual interface.</p>
 
                 <p>The concept is intended to support QA and design-system maintenance, not replace accessibility testing or human judgment.</p>
@@ -232,8 +232,8 @@
 
 
             <div class="col-lg-8 title-group">
-                <h2>The takeaway</h2>
-                <h3>Less time searching. More time solving.</h3>
+                <h3 class="mil-accent">The takeaway</h3>
+                <h2>Less time searching. More time solving</h2>
                 <p>The tool helped QA team members who were less familiar with the new token structure quickly identify contrast issues and find the right fixes, reducing the time spent reviewing UI changes.</p>
 
                 <p>By connecting accessibility findings to the existing design system, it made the migration easier to navigate and the review process more efficient, without requiring everyone to become an expert in the new token architecture first.</p>
@@ -259,21 +259,46 @@
     </section>
 
     <!-- footer -->
-    <footer class=" footer-content">
-        <p>@2026 Designed and Developed by Leonardo Denega</p>
-
-            <div class="flex-div gap-16" >
-                
-                <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link-lg"> 
-                    LinkedIn
-                </a>
-            
-                <a href="leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link-lg" > 
-                    E-mail
-                                
-                </a>
+    <footer style="border-top: #1c1c1c10 solid 1px;">
         
+        <div class="container footer-content" >
+
+            <div >
+                <h2 >Let's connect.</h2>
+
+                <div class="flex-div gap-16 links" >
+                    
+                    <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link-lg"> 
+                        LinkedIn
+                    </a>
+                
+                    <a href="mailto:leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link-lg" > 
+                        E-mail
+                                    
+                    </a>
+
+                    <a href="https://www.instagram.com/leodenega/" target="Instagram" aria-label="Instagram" class="mil-link-lg" > 
+                        Instagram
+                                    
+                    </a>
+
+                    <a href="Docs/Leonardo Denega - 2026.pdf" target="Resume" aria-label="Resume" class="mil-link-lg" > 
+                        Download Resume
+                                    
+                    </a>
+
+                    
+            
+                </div>
             </div>
+
+            <div class="flex-div gap-16" style="flex-direction: column; align-items: end;">
+                <div style="width:64px; height:64px; ">
+                    <img style="width:100%; height:100%;" src="img/ezgif.com-gif-maker.gif">
+                </div>
+                <p>@2026 Designed and Developed by Leonardo Denega</p>
+            </div>
+        </div>
     </footer>
     <!-- footer end -->
 
