@@ -112,6 +112,7 @@ body {
 .container-32 {
   margin-left: 32px;
   margin-right: 32px;
+  overflow: visible;
 }
 
 .mil-relative {
@@ -201,7 +202,7 @@ h6 br,
 
 h1,
 .mil-h1 {
-  font-size: 100px;
+  font-size: 64px;
   margin-bottom: 8px;
 }
 @media screen and (max-width: 1400px) {
@@ -419,11 +420,14 @@ a {
 }
 
 .mil-accent {
-  color: #538b5d;
+  color: #2456F5;
   font-size: 16px;
   margin-bottom: 8px;
   letter-spacing: 2px;
   text-transform: uppercase;
+
+  font-family: "Libre Caslon Condensed", "Times New Roman", serif;
+
 }
 
 
@@ -1339,9 +1343,11 @@ body.scrolled {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 32px 32px 32px;
-  margin-top:160px;
-
+  padding: 80px 32px 32px 32px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
   
 }
 
@@ -1390,7 +1396,6 @@ body.scrolled {
   cursor:unset;
   pointer-events: none;
   user-select: none;
-  text-align: start;
   font-family: "inter", sans-serif;
   font-weight: 400;
 
@@ -1399,16 +1404,13 @@ body.scrolled {
 
 .hero-paragraph{
   font-weight: 200;
-  font-size: 24px;
+  font-size: 18px;
   align-content: center;
   align-items: center;
   line-height:1.1;
   pointer-events: none;
-  margin-top:16px;
-  h5{
-    max-width: 640px;
-    margin-bottom: 16px;
-  }
+  margin-top: 16px;
+  max-width: 320px;
   
 }
 
@@ -1650,7 +1652,7 @@ blog
 
 .grid-2{
   columns: 2;
-  column-gap: 32px;
+  column-gap: 16px;
   break-inside: avoid;
 }
 
@@ -1663,9 +1665,10 @@ blog
 }
 
 .grid-3{
-  columns: 3;
-  column-gap: 32px;
-  break-inside: avoid;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr; /* Two equal columns */
+  gap: 16px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1803,7 +1806,10 @@ blog
 
 
 
-
+.tag-group{
+  border-bottom: 1px solid  #1c1c1c20 ; 
+  padding-bottom: 16px;
+}
 
 
 
@@ -2069,12 +2075,45 @@ footer
   padding: 32px;
   justify-content: space-between;
   align-items: center;
-  gap:32px;
-  border-top: #1c1c1c10 solid 1px;
   background-color: #fff;
+
+  h2{
+    font-family: "Libre Caslon Condensed", "Times New Roman", serif;
+    margin-bottom: 8px;
+  }
+
+  p{
+    font-size: 14px;
+  }
   
 
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .footer-content{
+    flex-direction: column;
+    column-gap: 24px;
+
+    h2{
+      height: fit-content;
+    }
+
+    a{
+      width: 100%;
+      height: 32px;
+    }
+    
+  }
+
+  .links{
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+}
+
+
 
 .footer-spacer{
   height:120px;
@@ -2253,12 +2292,32 @@ portfolio
 
 
 .top-header {
+  position: sticky; 
+  width: 100%; 
+  top: 0;
+  z-index: 50; 
+  margin-bottom: 24px;
+  border-top: #1c1c1c20 solid 1px;
+  
+}
+
+@media screen and (max-width: 768px) {
+    .top-header {
+    position: sticky; 
+    width: 100%; 
+    top: 32x;
+    z-index: 50; 
+    margin-bottom: 24px;
+    border-top: #1c1c1c20 solid 1px;
+    
+  }
+}
+
+.top-header-page {
   position: fixed; 
   width: 100%; 
   top: 0;
   z-index: 50; 
-
-  
 }
 
 .header-container {
@@ -2279,9 +2338,8 @@ portfolio
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 0px 32px;
   gap: 16px;
-
+  overflow: visible;
   
 }
 
@@ -2795,6 +2853,8 @@ portfolio
 }  
 
 
+
+
 .card-button div {
   margin: 24px;
 
@@ -2870,6 +2930,19 @@ portfolio
   
 }  
 
+
+.card-footer {
+  border: solid 1px #1c1c1c10;
+  border-radius: 16px;
+  padding: 32px;
+  flex:1;
+  min-width:0;
+  overflow: hidden;
+  width: 100%;
+  gap: 64px;
+
+  
+}  
 
 
 
@@ -3220,10 +3293,9 @@ images
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  border-radius: 0px 0px 48px 48px;
   justify-content: center;
   align-items: center;
-  min-height: 640px;
+  min-height: 580px;
   margin-bottom:48px;
 }
 .mil-image-frame-hero > img {
@@ -3783,6 +3855,7 @@ min-height: 280px;
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   border: solid 1px #1c1c1c10;
+  
 }
 
 

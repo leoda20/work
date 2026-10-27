@@ -511,9 +511,8 @@ button:focus-visible {
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    gap: 64px;
-    padding-top: clamp(24px, 5vh, 56px);
+    gap: 32px;
+    /*padding-top: clamp(24px, 5vh, 56px);*/
     padding-bottom: clamp(56px, 10vh, 112px);
 }
 
@@ -558,7 +557,7 @@ button:focus-visible {
     margin: 0;
     font-family: "Libre Caslon Condensed", "Times New Roman", serif;
     font-weight: 400;
-    font-size: clamp(2.75rem, 1.4rem + 6.4vw, 8rem);
+    font-size: clamp(1.6rem, 0.8rem + 6.4vw, 8rem);
     line-height: 1.02;
     letter-spacing: -0.015em;
     text-wrap: balance;
@@ -1069,8 +1068,22 @@ button:focus-visible {
 .fill-word.is-filled { opacity: 1; }
 
 
+.work-intro--sticky {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    align-self: start;
+}
 
 
+/* ---------- Sticky top header ----------
+   Works for the whole page, no matter how tall <body> is.
+   Until the header reaches the top it stays exactly where it loads;
+   after that JS pins it with position: fixed and a spacer keeps its place. */
+.top-header { position: sticky; z-index: var(--stick-z, 1000); }
+.top-header.is-stuck { position: fixed; top: var(--stick-top, 0px); margin: 0; }
+.top-header-spacer { display: none; }
+.top-header-spacer.is-active { display: block; }
 </style>
 
 
@@ -1090,12 +1103,49 @@ button:focus-visible {
    
 
 
-    <div class="top-header" >
-        <div class="header-container-lp flex-div" >
+    
 
-            <div style="width:56px; height:56px; ">
-                <img style="width:100%; height:100%;" src="img/ezgif.com-gif-maker.gif">
-            </div>
+    
+
+
+    
+
+    <section class=" hero justify-content-center"  id="hero">
+
+        
+
+        <div style="width:80px; height:80px; ">
+            <img style="width:120px; height:120px;" src="img/ezgif.com-gif-maker.gif">
+        </div>
+
+        
+        
+        
+
+        <h1 class="hero-title" style="color: #1c1c1c95;">Making complex products <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name">Leo</span></span></span></h1>
+        
+        
+
+        <div class="hero-paragraph align-items-center" style="">
+
+            <p style="color:#6b6b6b">I'm Leo Denega, a 5+ years strategic product designger with background in visual design & frontend development</p>
+
+            
+
+        </div>
+
+        
+
+        
+
+        
+    </section>
+    
+
+    <section class="top-header" >
+        <div class="header-container-lp flex-div justify-content-center" >
+
+            
 
             <div class="tab flex-div  gap-4" >
                 <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
@@ -1105,60 +1155,18 @@ button:focus-visible {
                 
             </div>
 
-
-            <a href="Docs/Leonardo Denega - 2026.pdf" class="mil-link-lg">🗎 View Resume</a>
         </div>
-    </div>
-
+    </section>
     
 
-
     
-
-    <div class=" hero " id="hero">
-
-        
-
-        
-        
-        
-        
-
-        <h1 class="hero-title" style="color: #1c1c1c95;">Making complex products <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name">Leo</span></span></span></h1>
-        
-        
-
-        <div class="hero-paragraph" style="">
-
-            <h5 style="color:#6b6b6b">I’m Leo Denega, a Product Designer working across product strategy, UX, and design systems. I turn complex workflows into clear, accessible products that work for both users and the business.</h5>
-
-            <div class="flex-div align-items-center gap-16">
-                <p class="blur-tag">5+ years in Product Design</p>
-                <p class="blur-tag">B2B SaaS & platforms</p>
-                <p class="blur-tag">Design systems & AI</p>
-            
-            </div>
-
-        </div>
-
-        
-
-        
-
-        
-    </div>
     
     
 
 
-    <div class="container-32" style="margin-bottom: 120px;" id="projects">
+    <section class="container-32" style="margin-bottom: 120px;" id="projects">
 
-        <div class="work-intro gap-32">
-            <h4>↓ Explore my work </h4>
 
-            
-
-        </div>
        
         <div class="grid-2">
 
@@ -1430,7 +1438,7 @@ button:focus-visible {
             </a>
 
         </div>
-    </div>
+    </section>
 
     <section class="container process mil-p-120-120" id="process" aria-labelledby="process-title">
 
@@ -1514,9 +1522,9 @@ button:focus-visible {
 
 
                     <div class="blur-container-lg">
-                        <p class="blur-tag">Accessibility</p>
+                        <p class="blur-tag-white">Accessibility</p>
                     
-                        <p class="blur-tag">WCAG</p>
+                        <p class="blur-tag-white">WCAG</p>
 
                     </div>
                 </div>
@@ -1536,9 +1544,9 @@ button:focus-visible {
                     <p>An AI-powered tool that turns designers’ notes and definitions into structured, reusable design documentation—making documentation faster, more consistent, and easier to maintain.</p>
 
                     <div class="blur-container-lg">
-                        <p class="blur-tag">Design Systems</p>
+                        <p class="blur-tag-white">Design Systems</p>
                     
-                        <p class="blur-tag">Documentation</p>
+                        <p class="blur-tag-white">Documentation</p>
 
                     </div>
                     
@@ -1647,7 +1655,7 @@ button:focus-visible {
     
 
 
-    <div  class=" container flex-div mil-p-120-120" id="aboutme">
+    <div  class=" container flex-div mil-p-120-120 justify-content-between" id="aboutme">
         <div class="col-lg-6">
             <div class="title-group ">
                 <h2>About me</h2>
@@ -1659,53 +1667,19 @@ button:focus-visible {
                 <p class="mil-mb-120"> Outside of work, you'll find me making coffee ☕️, cooking 🍳, planning my next trip ✈️, or drawing ✍️. </p>
 
             
-                
-                <h3 style="margin-top:80px">Relevant links</h3>
-
             </div>
-            <a href="Docs/Leonardo Denega - 2026.pdf" class="card-button align-items-center mil-mb-30 flex-div">
-
-                
-
-                <div style="width: 100%;">
-
-                    <h4>Download Resume</h4>
-
-                    <p >Just a few KBs・PDF file</p>
-
-
-                    
-                </div>
-
-                <div>
-                    <h2>📄</h2>
-                </div>
-
-            </a>
-            <a href="mailto:leonardo.denega@hotmail.com" class="card-button align-items-center  flex-div">
-
-                
-
-                <div style="width: 100%;">
-
-                    <h4>Contact me</h4>
-
-                    <p >Feel free to reach me at leonardo.denega@hotmail.com</p>
-
-
-                    
-                </div>
-
-                <div>
-                    <h2>✉️</h2>
-                </div>
-
-            </a>
+            
         </div>
 
+        
 
-        <div class="  magnetic col-lg-6">
-            <img class="img-hero" src="img/ezgif.com-gif-maker.gif">
+
+        <div class="title-group col-lg-5">
+            
+            <img src="img/figma-profile.png" class="img-card">
+            
+
+
         </div>
 
 
@@ -1718,22 +1692,46 @@ button:focus-visible {
     
 
     <!-- footer -->
-    <footer class=" footer-content ">
-        <p>@2026 Designed and Developed by Leonardo Denega</p>
-
-            <div class="flex-div gap-16" >
-
-                
-                <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link-lg"> 
-                    LinkedIn
-                </a>
-            
-                <a href="leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link-lg" > 
-                    E-mail
-                                
-                </a>
+    <footer style="border-top: #1c1c1c10 solid 1px;">
         
+        <div class="container footer-content" >
+
+            <div >
+                <h2 >Let's connect.</h2>
+
+                <div class="flex-div gap-16 links" >
+                    
+                    <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link-lg"> 
+                        LinkedIn
+                    </a>
+                
+                    <a href="mailto:leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link-lg" > 
+                        E-mail
+                                    
+                    </a>
+
+                    <a href="https://www.instagram.com/leodenega/" target="Instagram" aria-label="Instagram" class="mil-link-lg" > 
+                        Instagram
+                                    
+                    </a>
+
+                    <a href="Docs/Leonardo Denega - 2026.pdf" target="Resume" aria-label="Resume" class="mil-link-lg" > 
+                        Download Resume
+                                    
+                    </a>
+
+                    
+            
+                </div>
             </div>
+
+            <div class="flex-div gap-16" style="flex-direction: column; align-items: end;">
+                <div style="width:64px; height:64px; ">
+                    <img style="width:100%; height:100%;" src="img/ezgif.com-gif-maker.gif">
+                </div>
+                <p>@2026 Designed and Developed by Leonardo Denega</p>
+            </div>
+        </div>
     </footer>
     <!-- footer end -->
 
@@ -2280,6 +2278,69 @@ button:focus-visible {
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 
  
+
+    <!-- Sticky top header for the whole page -->
+    <script>
+    (function () {
+        const header = document.querySelector('.top-header');
+        if (!header) return;
+
+        // keep the "top" and z-index your stylesheet already gives the header
+        let top = 0;
+        function readStyles() {
+            header.style.removeProperty('--stick-top');
+            const cs = getComputedStyle(header);
+            top = parseFloat(cs.top) || 0;
+            header.style.setProperty('--stick-top', top + 'px');
+            if (cs.zIndex !== 'auto') header.style.setProperty('--stick-z', cs.zIndex);
+        }
+
+        // spacer holds the header's place in the page once it becomes fixed
+        const spacer = document.createElement('div');
+        spacer.className = 'top-header-spacer';
+        spacer.setAttribute('aria-hidden', 'true');
+        header.parentNode.insertBefore(spacer, header);
+
+        let start = 0;
+
+        function measure() {
+            const stuck = header.classList.contains('is-stuck');
+            if (stuck) unstick();                       // measure from the natural position
+            readStyles();
+            start = header.getBoundingClientRect().top + window.scrollY - top;
+            update();
+        }
+
+        function stick() {
+            const r = header.getBoundingClientRect();
+            spacer.style.height = header.offsetHeight + 'px';
+            spacer.classList.add('is-active');
+            header.style.left = r.left + 'px';
+            header.style.width = r.width + 'px';
+            header.classList.add('is-stuck');
+        }
+
+        function unstick() {
+            header.classList.remove('is-stuck');
+            spacer.classList.remove('is-active');
+            header.style.left = '';
+            header.style.width = '';
+        }
+
+        function update() {
+            const shouldStick = window.scrollY >= start;
+            const stuck = header.classList.contains('is-stuck');
+            if (shouldStick && !stuck) stick();
+            else if (!shouldStick && stuck) unstick();
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', measure);
+        window.addEventListener('load', measure);
+        if (document.fonts) document.fonts.ready.then(measure);
+        measure();
+    })();
+    </script>
 </body>
 
 
