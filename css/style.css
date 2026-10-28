@@ -1654,6 +1654,7 @@ blog
   columns: 2;
   column-gap: 16px;
   break-inside: avoid;
+  gap: 16px;
 }
 
 @media screen and (max-width: 768px) {
