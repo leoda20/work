@@ -3296,8 +3296,8 @@ images
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  min-height: 580px;
-  margin-bottom:48px;
+  min-height: 640px;
+  margin-bottom:80px;
 }
 .mil-image-frame-hero > img {
   position: absolute;
