@@ -1363,11 +1363,6 @@ body.scrolled {
   .hero {
   
   max-width: 100%;
-  height: 64dvh;
-  
-  
-  
-  
 }
 }
 
@@ -1404,13 +1399,11 @@ body.scrolled {
 }
 
 .hero-paragraph{
-  font-weight: 200;
-  font-size: 18px;
+  
   align-content: center;
   align-items: center;
   line-height:1.1;
   pointer-events: none;
-  margin-top: 16px;
   max-width: 320px;
   
 }
@@ -1425,13 +1418,7 @@ body.scrolled {
 
   
   }
-  .hero-paragraph{
-    width: 480px; 
-    margin-top: 16px;
-    
-  font-size: 16px;
-    
-  }
+  
 }
 
 @media screen and (max-width: 375px) {
@@ -1443,7 +1430,6 @@ body.scrolled {
  
 .hero-paragraph{
   width: 240px; 
-  margin-top: 16px;
 }
 }
 

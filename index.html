@@ -508,10 +508,23 @@ button:focus-visible {
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    gap: 32px;
     /*padding-top: clamp(24px, 5vh, 56px);*/
     padding-bottom: clamp(56px, 10vh, 112px);
+
+    img{
+        margin-bottom:16px
+    }
+    h1{
+        margin-bottom:32px;
+    }
+
+    p{
+        font-size: 18px;
+        font-weight: 300;
+    }
 }
+
+
 
 /* Dot-grid canvas, fading out toward the work below */
 #hero.hero::before {
@@ -553,7 +566,7 @@ button:focus-visible {
 #hero .hero-title {
     margin: 0;
     font-weight: 400;
-    font-size: clamp(1.2rem, 0.5rem + 6.4vw, 8rem);
+    font-size: clamp(1.7rem, 1.3rem + 6.4vw, 8rem);
     line-height: 1.02;
     letter-spacing: -0.1em;
     text-wrap: balance;
