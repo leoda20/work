@@ -204,55 +204,55 @@ h6 br,
 
 h1,
 .mil-h1 {
-  font-size: 56px;
+  font-size: 48px;
   margin-bottom: 8px;
 }
 @media screen and (max-width: 1400px) {
   h1,
 .mil-h1 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 @media screen and (max-width: 1200px) {
   h1,
 .mil-h1 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 @media screen and (max-width: 992px) {
   h1,
 .mil-h1 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 @media screen and (max-width: 768px) {
   h1,
 .mil-h1 {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 
 h2,
 .mil-h2 {
-  font-size: 48px;
+  font-size: 40px;
   line-height: 120%;
 }
 @media screen and (max-width: 1200px) {
   h2,
 .mil-h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 992px) {
   h2,
 .mil-h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 768px) {
   h2,
 .mil-h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 
@@ -2736,6 +2736,9 @@ portfolio
   div{
     padding: 16px;
   }
+  ul{
+    padding-left: 16px;
+  }
   
 }  
 
@@ -2804,7 +2807,7 @@ portfolio
 .card-themes-results {
   padding: 16px;
   border: solid 1px #1c1c1c10;
-  border-radius: 16px;
+  border-radius: 32px;
   margin-bottom: 16px;
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
@@ -3440,6 +3443,20 @@ images
 
 
 @media screen and (max-width: 768px) {
+
+
+  .mil-image-frame-hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    margin-bottom:80px;
+  }
+
+
   .img-hero{
   width: 480px;
   height: 480px;
