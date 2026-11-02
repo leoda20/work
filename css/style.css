@@ -1887,7 +1887,7 @@ blog
           -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 
-  background-color:  #2456F5;
+  background-color:  #2456F520;
   
 
 }
@@ -3850,7 +3850,7 @@ carousel
 z-index: -1;
 width: 100%;
 background-image: radial-gradient(circle, rgba(12, 14, 18, 0.14) 1px, transparent 1px);
-padding: 32px;
+
 border-radius: 32px;
 border: #1c1c1c10 solid 1px;
 background-color: #1c1c1c05;
@@ -3869,6 +3869,7 @@ overflow-x: visible;
 overscroll-behavior-y: contain;
 -webkit-overflow-scrolling: touch;
 min-height: 280px;
+padding: 32px;
 }
 
 .drag{
