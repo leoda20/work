@@ -2735,6 +2735,7 @@ portfolio
   }
   div{
     padding: 16px;
+    border-bottom: #1c1c1c10;
   }
   ul{
     padding-left: 16px;
@@ -2930,14 +2931,14 @@ portfolio
   padding: 16px;
   background-color: #ecfccb;
   
-  border: solid 2px #65a30d;
+  border: solid 2px #65a30d50;
   border-radius: 16px;
   flex: 1;
   min-width: 320px;
   height: fit-content;
   color: #365314;
 
-  h3{
+  h4{
     color: #365314;
   }
 
@@ -2949,10 +2950,10 @@ portfolio
 }  
 
 .card-destructive {
-  padding: 24px;
+  padding: 16px;
   background-color: #fee2e2;
   
-  border: solid 2px #dc2626;
+  border: solid 2px #dc262650;
   border-radius: 16px;
 
   flex: 1;
@@ -2960,8 +2961,12 @@ portfolio
 
   color: #7f1d1d;
 
-  h3 {
+  h4 {
     color: #7f1d1d;
+  }
+
+  ul{
+    margin-bottom: 0px;
   }
   
 }  
