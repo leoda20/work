@@ -2295,7 +2295,6 @@ portfolio
   top: 0;
   z-index: 50; 
   margin-bottom: 24px;
-  border-top: #1c1c1c20 solid 1px;
   
 }
 
@@ -2306,7 +2305,6 @@ portfolio
     top: 32x;
     z-index: 50; 
     margin-bottom: 24px;
-    border-top: #1c1c1c20 solid 1px;
     
   }
 }
