@@ -1667,6 +1667,21 @@ blog
 }
 }
 
+.grid-4{
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Two equal columns */
+  gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-4{
+  display: grid;
+  grid-template-columns: 1fr; /* Two equal columns */
+  gap: 16px;
+}
+}
+
 
 
 .mil-blog-card {
