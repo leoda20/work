@@ -3226,9 +3226,8 @@ images
     flex-wrap: wrap;
     
     justify-content: center;
-  height: 100%;
   width: 100%;
-  height: 480px;
+  height: 520px;
 }
 .mil-image-frame-vertical > img {
  
@@ -3345,8 +3344,7 @@ images
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  min-height: 480px;
-  border-radius: 32px;
+  min-height: 640px;
   margin-bottom: 80px;
 }
 .mil-image-frame-hero > img {
