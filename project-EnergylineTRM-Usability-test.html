@@ -53,9 +53,7 @@
         
     </div>
 
-    <div class="mil-image-frame-hero  ">
-        <img src="img/work/Energyline/Energylinetrm-test-cover.png" alt="image">
-    </div>
+    
 
     
 
@@ -64,8 +62,12 @@
     <!-- project -->
     <section class="container">
 
+        <div class="mil-image-frame-hero  ">
+            <img src="img/work/Energyline/Energylinetrm-test-cover.png" alt="image">
+        </div>
 
-            <div class="mil-mb-15 align-items-center gap-8 flex-div" style="margin-top: 120px;">
+
+            <div class="mil-mb-15 align-items-center gap-8 flex-div" >
                 <img src="img/work/emergn_logo.jpg" alt="" style="border-radius: 999px; border: solid 2px #1c1c1c10; width: 32px; height: 32px;">
                 <p>Emergn</p>
             </div>
@@ -112,9 +114,9 @@
             
                     <h2>Validate before building</h2>
                         
-                    <p>Energyline needed a better way for users to explore algorithms and compare benchmark measures.</p>
+                    <p>After working on such a complex workflow as benchmark measures, it was important to validate the design direction before moving into high-fidelity design and development.</p>
 
-                    <p>I created an initial wireframe exploring a multi-column comparison layout. Before moving into high-fidelity design, we needed to validate whether the proposed experience supported users' actual workflows.</p>
+                    <p>To understand the user needs better, I created an initial wireframe exploring a multi-column comparison layout. Before moving into high-fidelity design, we needed to validate whether the proposed experience supported users' actual workflows.</p>
 
                     <div class="drag">
 
@@ -131,16 +133,16 @@
                         <div class="card-themes-p0" style="min-width: 240px;">
                             <h5>Research question</h5>
                             <div>
-                                <p>Could users easily find, understand, and compare algorithms and measures within Energyline?</p>
+                                <p>Could users easily find, understand, and compare algorithms and measures within the benchmarking interface?</p>
                             </div>
                             
                         </div>
                         
 
-                        <img class="img-border" style="min-width: 720px;" src="img/work/Energyline/algorithm-comparison.png" alt="image">
+                        <img class="img-border" style="min-width: 860px;" src="img/work/Energyline/algorithm-comparison.png" alt="image">
 
 
-                        <img class="img-border" style="min-width: 720px;" src="img/work/Energyline/measure-comparison.png" alt="image">
+                        <img class="img-border" style="min-width: 860px;" src="img/work/Energyline/measure-comparison.png" alt="image">
                     </div>
 
                     
@@ -159,7 +161,9 @@
                     <h3 class="mil-accent">Preparing the research</h2>
                     <h2>Define what to test</h2>
 
-                    <p>We recruited 6 existing MVP users and prepared a structured testing script covering two activities.</p>
+                    <p>We recruited 6 existing MVP users from different backgrounds but with experience in using the algorithms and measures used in Energyline, and prepared a structured testing script covering two activities.</p>
+
+                    <p>The objective was to identify usability friction and understand whether the proposed workflow supported users' needs.</p>
 
                     <div class="drag">
 
@@ -171,7 +175,7 @@
                 <div class="carousel">
                     <div class="track">
 
-                        <div style="min-width: 320px;">
+                        <div style="min-width: 480px;">
                             <div class="card-themes-p0" >
                                 <h5>Activity 1 -> Explore TRM</h5>
                                 <div>
@@ -185,17 +189,12 @@
                                     <p>Evaluate how users compared measures, understood variables, and interacted with algorithms within the benchmarking workflow.</p>
 
 
-                                    <p>The objective was to identify usability friction and understand whether the proposed workflow supported users' needs.</p>
+                                    
                                 </div>
 
                             </div>
 
-                            
-                        </div>
-
-                        <img src="img/work/Energyline/test-board.png" style="min-width: 1200px;"  class="img-border">
-
-                        <div class=" title-group card-success">
+                            <div class=" title-group card-success">
                             
 
                             <h5>Measures and success criteria</h5>
@@ -213,6 +212,13 @@
 
                             
                         </div>
+
+                            
+                        </div>
+
+                        <img src="img/work/Energyline/test-board.png" style="min-width: 1200px;"  class="img-border">
+
+                        
                         
 
                         
@@ -261,15 +267,8 @@
                         
                     
                     <h3 class="mil-accent">Measuring usability</h2>
-
                     <h2>Compare the results</h2>
-                        
                     <p>I consolidated individual SUS responses into a spreadsheet to compare usability across both activities.</p>
-
-
-
-                    
-
                     <p>The average scores provided a quantitative baseline, while differences between participants highlighted the need to investigate specific usability issues.</p>
 
                     
@@ -296,18 +295,9 @@
             <div class=" mil-p-120-120">
 
                 <div class="col-lg-8 title-group mil-mb-30">
-                        
                     <h3 class="mil-accent">Finding underlying problems</h2>
-            
                     <h2>From observations to patterns</h2>
-                        
-                    <p>I organized user actions, feedback, and observations into a Rainbow Spreadsheet to identify recurring patterns.</p>
-
-                    <p>Three main problem areas emerged.</p>
-
-                    
-
-                    
+                    <p>I organized user actions, feedback, and observations into a Rainbow Spreadsheet to identify recurring patterns. Three main problem areas emerged:</p>
                 </div>
                 <img src="img/work/Energyline/rainbow-spreadsheet.png" class="img-border mil-mb-8">
 
@@ -323,7 +313,7 @@
                     <div class="card-themes-p0">
                         <h5>2. Information density and interaction</h5>
                         <div>
-                            <p>Algorithms occupied too much screen space. Users preferred previews with the option to expand, alongside more flexibility to copy, edit, or open algorithms separately.</p>
+                            <p>The information density was too high, making it difficult for users to focus on specific elements. Interaction patterns also revealed confusion around data visualization and filtering options.</p>
                         </div>
                     </div>
 
@@ -355,30 +345,32 @@
 
                 <div class="grid-3">
                     <div class="card-themes title-group">
-                        <h4>Hypothesis 1 — Improve algorithm discoverability</h4>
+                        <h4>Improve algorithm discoverability</h4>
                         <p>Users may struggle to find algorithms because information is spread across different areas of the product.</p>
-                        <p>Learning: Users searched for algorithms in the glossary and Measures table, indicating a need for clearer navigation and more structured discovery.</p>
-
-                        <p>Opportunity: Improve algorithm access and make relevant information easier to find.</p>
+                        <h6>Learning:</h6>
+                        <p>Users searched for algorithms in the glossary and Measures table, indicating a need for clearer navigation and more structured discovery.</p>
+                        <h6>Opportunity:</h6>
+                        <p>Improve algorithm access and make relevant information easier to find.</p>
 
                     </div>
 
                     <div class="card-themes title-group">
-                        <h4>Hypothesis 2 — Simplify algorithm comparison</h4>
+                        <h4>Simplify algorithm comparison</h4>
                         <p>Displaying complete algorithms may make Benchmark Measure difficult to use.</p>
-                        <p>Learning: Users preferred a preview-first approach, with expandable content. They also requested options to copy formulas, edit algorithms, and open them separately.</p>
-
-                        <p>Opportunity: Reduce visual density and give users more control over how they inspect and interact with algorithms.</p>
+                        <h6>Learning:</h6>
+                        <p>Users preferred a preview-first approach, with expandable content. They also requested options to copy formulas, edit algorithms, and open them separately.</p>
+                        <h6>Opportunity:</h6>
+                        <p>Reduce visual density and give users more control over how they inspect and interact with algorithms.</p>
 
                     </div>
 
                     <div class="card-themes title-group">
-                        <h4>Hypothesis 3 — Clarify measure configuration</h4>
+                        <h4>Clarify measure configuration</h4>
                         <p>Users may struggle to identify where to change the STD Measure and understand the relationship between measures and variables.</p>
-                        <p>Learning: Multiple participants searched for this functionality in different areas, while some needed additional guidance to understand the interface.</p>
-
-                        <p>Opportunity: Make measure configuration more intuitive and provide clearer guidance throughout the workflow.</p>
-
+                        <h6>Learning:</h6>
+                        <p>Multiple participants searched for this functionality in different areas, while some needed additional guidance to understand the interface.</p>
+                        <h6>Opportunity:</h6>
+                        <p>Make measure configuration more intuitive and provide clearer guidance throughout the workflow.</p>
                     </div>
                 </div>
 
@@ -432,11 +424,11 @@
                     <div class="track">
 
                         
-                        <div class="card-themes-p0" style="min-width: 720px;">
+                        <div class="card-themes-p0" style="min-width: 920px;">
                             <h5>Wireframe</h5>
                             <img src="img/work/Energyline/highlited-wireframe.png"  >
                         </div>
-                        <div class="card-themes-p0" style="min-width: 720px;">
+                        <div class="card-themes-p0" style="min-width: 920px;">
                             <h5>New prototype</h5>
                             <img src="img/work/Energyline/highlited-new.png"   >
                         </div>
@@ -504,10 +496,49 @@
                     </div>
                 </div>
 
-                <h5 class="col-lg-8"><strong>My takeaway:</strong> Better design decisions start with understanding how people actually use a product.</h5>
+                
+                
+            </div>
 
-                
-                
+            <div class="mil-p-120-120 ">     
+
+
+
+                <div class="title-group col-lg-8">
+                    <h3>Relevant Links</h3>
+                    <p>Other projects related to this work:</p>
+                    
+                </div>
+
+                <div class="col-lg-8">
+                    <a href="ai-contrast-tokens.html" class="card-button flex-div playing-card">
+                        <div >
+                            
+                            <h4>Contrast Tokens</h4>
+                            <p>An AI-powered tool that analyzes UI screenshots, identifies contrast issues, compares them against the design system, and proposes accessible design tokens to fix them.</p>
+                        </div>
+                    </a>
+
+                    <a href="project-AEG-colors-and-tokens-rework.html" class="card-button flex-div playing-card">
+                        <div>
+                            
+                            <h4>Energyline Token Refactory</h4>
+                            <p>Renewing the tokens to improve consistency, accessibility and usability.</p>
+                        </div>
+                    </a>
+
+                    <a href="project-Energyline-concept.html" class="card-button flex-div playing-card">
+                        <div>
+                            <h4>Energyline Dashboard</h4>
+                            <p>A dashboard concept for energy teams to review customer application, undestand progress, and act on what needs attention.</p>
+                        </div>
+                    </a>
+
+                    
+
+
+                </div>
+
             </div>
 
             
