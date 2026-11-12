@@ -746,77 +746,16 @@ button:focus-visible {
 }
 
 
-/* ---------- Cards: selection frame on hover / focus ---------- */
-
-.grid-2 > .mil-blog-card,
-#ai .card-button,
-#aboutme .card-button {
-    position: relative;
-    outline: 1.5px solid transparent;
-    outline-offset: 6px;
-    transition: outline-color 0.2s ease;
-    
-}
 
 
 
-.grid-2 > .mil-blog-card:hover,
-.grid-2 > .mil-blog-card:focus-visible,
-#ai .card-button:hover,
-#ai .card-button:focus-visible,
-#aboutme .card-button:hover,
-#aboutme .card-button:focus-visible {
-    outline-color: var(--select);
-    
-}
 
 
 
-/* Gentle push-in on the cover, never hiding the work */
-.grid-2 > .mil-blog-card .mil-cover-frame {
-    overflow: hidden;
-}
 
-.grid-2 > .mil-blog-card .mil-cover-frame > img,
-.grid-2 > .mil-blog-card .mil-cover-frame > video {
-    display: block;
-    transition: transform 0.8s var(--ease-out);
-}
 
-.grid-2 > .mil-blog-card:hover .mil-cover-frame > img,
-.grid-2 > .mil-blog-card:hover .mil-cover-frame > video,
-.grid-2 > .mil-blog-card:focus-visible .mil-cover-frame > img,
-.grid-2 > .mil-blog-card:focus-visible .mil-cover-frame > video {
-    transform: scale(1.025);
-}
 
-@media (prefers-reduced-motion: reduce) {
-    .grid-2 > .mil-blog-card .mil-cover-frame > img,
-    .grid-2 > .mil-blog-card .mil-cover-frame > video,
-    .grid-2 > .mil-blog-card::after,
-    #ai .card-button::after,
-    #aboutme .card-button::after {
-        transition: none;
-    }
-    .grid-2 > .mil-blog-card:hover .mil-cover-frame > img,
-    .grid-2 > .mil-blog-card:hover .mil-cover-frame > video {
-        transform: none;
-    }
-}
 
-/* ---------- Footer links ---------- */
-
-.footer-content .mil-link-lg {
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease;
-}
-
-.footer-content .mil-link-lg:hover,
-.footer-content .mil-link-lg:focus-visible {
-    text-decoration-color: currentColor;
-}
 
 
 /* ---------- Process: frames joined by prototype connectors ---------- */
@@ -1125,19 +1064,25 @@ button:focus-visible {
     </section>
     
 
-    <section class="top-header " >
-        <div class="header-container-lp container flex-div justify-content-between" >
+    <div class="top-header-page">
+        <div class="header-container container justify-content-between" >
+            
 
-            <h4 class="text-inverse">Leo Denega</h4>
-            <div class="flex-div tab gap-4" >
-                <a href="index.html" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
-                <a href="ai-sandbox.html" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
-                <a href="about.html" class="tablinks" onclick="openCity(event, 'about')">About</a>
+            <h6 class="muted-text">Leo Denega</h6>
+            <div class="tab flex-div align-items-center gap-4" >
+
+                
+                <a href="index.html" class="tablinks" >Home</a>
+                <a href="ai-sandbox.html" class="tablinks">AI Sandbox</a>
+                <a href="about.html" class="tablinks">About</a>
+                
             </div>
 
-            
+        
         </div>
-    </section>
+
+        
+    </div>
     
 
     
@@ -1180,7 +1125,7 @@ button:focus-visible {
             </div>
         </div>
        
-        <div class="mil-mb-120 grid-2">
+        <div class=" grid-2 mil-mb-15">
             <a href="project-EnergylineTRM-Usability-test.html" class="mil-blog-card ">
                 <div class="mil-cover-frame">
                     <img src="img/work/Energyline/Energylinetrm-test-cover.png" alt="cover">
@@ -1200,26 +1145,6 @@ button:focus-visible {
                     
                 </div>
             </a>
-
-            <a href="project-Energyline-concept.html" class="mil-blog-card  ">
-                <div class="mil-cover-frame">
-                    <img src="img/work/Energyline/Energyline-cover.png" alt="cover">
-                    
-
-                    <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Dashboard Redesign</h4>
-                        </div>
-
-                        
-                        <div >
-                            <p class="blur-tag-white">Product Design</p>
-                            <p class="blur-tag-white">UI</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
             <a href="project-aeg-colors-and-tokens-rework.html" class="mil-blog-card " >
                 <div class="mil-cover-frame">
                     <img style="width: 100%;" src="img/work/aeg/token-change-cover.png" alt="cover"></img>
@@ -1242,11 +1167,46 @@ button:focus-visible {
                     
                 </div>
             </a>
+        </div>
+        <div class="grid-3 mil-mb-120">
+            <a href="project-Energyline-concept.html" class="mil-blog-card  ">
+                <div class="mil-cover-frame">
+                    <img src="img/work/Energyline/Energyline-cover.png" alt="cover">
+                    
 
-            
+                    <div class="blur-container">
+                        <div class="flex-div gap-8" >
+                            <h4>Dashboard Redesign</h4>
+                        </div>
 
-            
-                
+                        
+                        <div >
+                            <p class="blur-tag-white">Product Design</p>
+                            <p class="blur-tag-white">UI</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="project-slt-assist.html" class="mil-blog-card  ">
+                <div class="mil-cover-frame">
+                    <img  src="img/work/Energyline/EnergylineTRM-cover.png" alt="cover" ></img>
+
+                    
+
+
+                    <div class="blur-container">
+                        <div class="flex-div gap-8" >
+                            <h4>EnergylineTRM MVP</h4>
+                        </div>
+
+                        
+                        <div >
+                            <p class="blur-tag-white">UI</p>
+                         <p class="blur-tag-white">Strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
             <a href="project-slt-assist.html" class="mil-blog-card  ">
                 <div class="mil-cover-frame">
                     <video style="width: 100%;" src="img/work/SLT Assist/energyline-ai-assist-cover.mp4" alt="cover" autoplay muted loop></video>
@@ -1267,10 +1227,6 @@ button:focus-visible {
                     </div>
                 </div>
             </a>
-
-            
-
-
         </div>
 
 
@@ -1341,7 +1297,7 @@ button:focus-visible {
 
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>Service Blueprint</h4>
+                            <h4>Accountability Blueprint</h4>
                         </div>
 
                         
@@ -1431,7 +1387,7 @@ button:focus-visible {
 
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>E-mail Marketing tool</h4>
+                            <h4>E-mail Marketing Tool</h4>
                         </div>
 
                         
@@ -1482,7 +1438,7 @@ button:focus-visible {
         </div>
 
        
-        <div class="grid-2 mil-mb-120">
+        <div class="grid-2 mil-mb-15">
 
 
             
@@ -1494,7 +1450,7 @@ button:focus-visible {
 
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>Finbooks website</h4>
+                            <h4>Finbooks Website</h4>
                         </div>
 
                         
@@ -1519,7 +1475,7 @@ button:focus-visible {
 
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>Medtime</h4>
+                            <h4>Medtime Mobile App</h4>
                         </div>
 
                         
@@ -1531,6 +1487,11 @@ button:focus-visible {
                 </div>
             </a>
 
+        </div>
+
+       
+        <div class="grid-2 mil-mb-120">
+
             <a href="project-dronelivery.html" class="mil-blog-card   " id="dronelivery">
                 <div class="mil-cover-frame " >
                     <img src="img/work/dronelivery/dronelivery-cover.png" alt="cover">
@@ -1538,7 +1499,7 @@ button:focus-visible {
 
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>Dronelivery</h4>
+                            <h4>Dronelivery Mobile App</h4>
                         </div>
 
                         
@@ -1556,7 +1517,7 @@ button:focus-visible {
                     
                     <div class="blur-container">
                         <div class="flex-div gap-8" >
-                            <h4>Cadastrapet</h4>
+                            <h4>Cadastrapet App</h4>
                         </div>
 
                         
