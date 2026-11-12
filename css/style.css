@@ -302,7 +302,7 @@ h4,
 @media screen and (max-width: 768px) {
   h4,
 .mil-h4 {
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 
@@ -457,8 +457,8 @@ a {
 
 .text-inverse {
 
-  mix-blend-mode: difference;
-  color: #fff;
+  mix-blend-mode:difference;
+  color: #1c1c1c;
 }
 .mil-gradient {
   background: var(--bg-gradient), var(--bg-overlay-color);
@@ -2328,7 +2328,7 @@ portfolio
 
 
 .top-header {
-  position: sticky; 
+  position:fixed; 
   width: 100%; 
   top: 0;
   z-index: 50; 
@@ -2358,7 +2358,6 @@ portfolio
   height: 88px; 
   align-items: center; 
   display: flex;
-  justify-content: center;
   width: 100%;
   padding: 0px 32px;
   gap: 16px;

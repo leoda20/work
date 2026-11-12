@@ -1085,11 +1085,11 @@ button:focus-visible {
 /* ---------- Sticky top header ----------
    Works for the whole page, no matter how tall <body> is.
    Until the header reaches the top it stays exactly where it loads;
-   after that JS pins it with position: fixed and a spacer keeps its place. */
+   after that JS pins it with position: fixed and a spacer keeps its place. 
 .top-header { position: sticky; z-index: var(--stick-z, 1000); }
 .top-header.is-stuck { position: fixed; top: var(--stick-top, 0px); margin: 0; }
 .top-header-spacer { display: none; }
-.top-header-spacer.is-active { display: block; }
+.top-header-spacer.is-active { display: block; }*/
 </style>
 
 
@@ -1125,14 +1125,17 @@ button:focus-visible {
     </section>
     
 
-    <section class="top-header" >
-        <div class="header-container-lp flex-div justify-content-center" >
-            <div class="tab flex-div  gap-4" >
-                <a href="#projects" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
-                <a href="#ai" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
-                <a href="#process" class="tablinks">Process</a>
-                <a href="#aboutme" class="tablinks" onclick="openCity(event, 'about')">About</a>
+    <section class="top-header " >
+        <div class="header-container-lp container flex-div justify-content-between" >
+
+            <h4 class="text-inverse">Leo Denega</h4>
+            <div class="flex-div tab gap-4" >
+                <a href="index.html" class="tablinks" onclick="openCity(event, 'work')" id="defaultOpen">Work</a>
+                <a href="ai-sandbox.html" class="tablinks" onclick="openCity(event, 'ai')">AI Sandbox</a>
+                <a href="about.html" class="tablinks" onclick="openCity(event, 'about')">About</a>
             </div>
+
+            
         </div>
     </section>
     
@@ -1144,7 +1147,7 @@ button:focus-visible {
 
     <section class="container" style="margin-bottom: 120px;" id="projects">
 
-        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 60px; border-top: solid 1px #1c1c1c20;">
+        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; border-top: solid 1px #1c1c1c20;">
             
             <div class=" justify-content-between col-lg-4 text-experience">
                 <div >
@@ -1177,7 +1180,7 @@ button:focus-visible {
             </div>
         </div>
        
-        <div class="mil-mb-60 grid-2">
+        <div class="mil-mb-120 grid-2">
             <a href="project-EnergylineTRM-Usability-test.html" class="mil-blog-card ">
                 <div class="mil-cover-frame">
                     <img src="img/work/Energyline/Energylinetrm-test-cover.png" alt="cover">
@@ -1271,7 +1274,7 @@ button:focus-visible {
         </div>
 
 
-        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 60px; border-top: solid 1px #1c1c1c20;">
+        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px;  border-top: solid 1px #1c1c1c20;">
             
             <div class=" justify-content-between col-lg-4 text-experience" >
                 <div >
@@ -1304,7 +1307,7 @@ button:focus-visible {
 
         
        
-        <div class="grid-2 mil-mb-60">
+        <div class="grid-2 mil-mb-120">
 
 
             <a href="project-TR-messages.html" class="mil-blog-card   " id="user-communication">
@@ -1355,16 +1358,13 @@ button:focus-visible {
         </div>
 
 
-        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 60px; border-top: solid 1px #1c1c1c20;">
+        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; border-top: solid 1px #1c1c1c20;">
 
             
             
             <div class=" justify-content-between text-experience col-lg-4" >
                 
                 <div >
-
-                    
-                    
                     <h2>Umbler</h2>
                 </div>
                 <div class="col-lg-6">
@@ -1399,7 +1399,7 @@ button:focus-visible {
 
         
        
-        <div class="grid-2 mil-mb-60">
+        <div class="grid-2 mil-mb-120">
 
             <a href="project-email-onboarding.html" class="mil-blog-card  scroll-animation" id="email-app-onboarding">
                 <div class="mil-cover-frame">
@@ -1449,7 +1449,7 @@ button:focus-visible {
         </div>
 
 
-        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 60px; border-top: solid 1px #1c1c1c20;">
+        <div class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; border-top: solid 1px #1c1c1c20;">
 
             
             
@@ -1482,7 +1482,7 @@ button:focus-visible {
         </div>
 
        
-        <div class="grid-2 mil-mb-60">
+        <div class="grid-2 mil-mb-120">
 
 
             
@@ -1584,7 +1584,7 @@ button:focus-visible {
 
     
 
-    <div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center align-items-center flex-div" style="overflow: visible;">
+    <!--<div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center align-items-center flex-div" style="overflow: visible;">
 
 
         <h1 class=" manifesto__text col-lg-7" data-scroll-fill>
@@ -1612,7 +1612,7 @@ button:focus-visible {
     </div>
 
 
-    <!--<div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center align-content-center" style="overflow: visible;">
+    <div class="word-scroll fluid image-playground mil-p-120-120 justify-content-center align-content-center" style="overflow: visible;">
 
 
        
@@ -1649,7 +1649,7 @@ button:focus-visible {
         
 
         
-    </div>-->
+    </div>
 
     <div class=" justify-content-center align-items-center container mil-p-120-120 " id="ai">
         
@@ -1832,7 +1832,7 @@ button:focus-visible {
 
 
 
-    </div>
+    </div>-->
 
     
 
