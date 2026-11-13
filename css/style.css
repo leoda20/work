@@ -629,11 +629,15 @@ link
           align-items: center;
   letter-spacing: 1px;
   font-weight: 500;
-  text-decoration: underline;
   text-decoration-color: #1c1c1c;
+  color: #1c1c1c;
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  padding: 0 8px;
+  border: solid 1px #1c1c1c20;
+  border-radius:4px;
+  background: #ffffff;
   
 }
 
@@ -642,6 +646,7 @@ link
   text-decoration: none;
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  border: solid 1px #2456F5;
 
 }
 
@@ -655,41 +660,50 @@ button
 
 
 .btn-blur {
-  
-  bottom: 24px;
-  right: 24px;
+  background-color: inherit;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+  pointer-events: auto;
   border: none;
-  width: 60px;
-  height: 60px;
-  align-items: center;
+  align-content: center;
   justify-content: center;
   cursor: pointer;
   animation: 4s linear infinite pulse;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
+  font-family: "inter", sans-serif;
+  width: fit-content;
+  line-break:loose;
 
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);
-  --card-glass-color: rgba(255, 255, 255, 0.92);
+  --card-glass-color: rgba(14, 13, 13, 0.92);
   --card-glass-blur: 18px;
   --card-glass-saturation: 1.35;
   --card-glass-highlight: rgba(255, 255, 255, 0.42);
   --card-glass-inner-shadow: rgba(255, 255, 255, 0.08);
   --card-glass-drop-shadow: rgba(0, 0, 0, 0.08);
   --card-glass-text-shadow: rgba(0, 0, 0, 0.16);
-  min-height: 44px;
-  padding: 6px 18px;
+  background: var(--card-glass-bg);
+  box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
+  text-shadow: 0 1px 8px var(--card-glass-text-shadow);
+  backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
+  min-height: 38px;
+  padding: 2px 14px;
   border-radius: 999px;
-  border: 1px solid #fff;
+  
+  border: solid 1px #1c1c1c20;
   
   color: #1c1c1c;
   background: var(--card-glass-bg);
-  
-  box-shadow: inset 0 1px 1px var(--card-glass-highlight), inset 0 -12px 28px var(--card-glass-inner-shadow), 0 10px 24px var(--card-glass-drop-shadow);
 
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
-
 }
+
+
 
 
 .btn-blur:hover {
@@ -860,6 +874,10 @@ button
 .btn-secondary:hover {
   background-color:  #2456F5;
   color: #1c1c1c;
+}
+
+.btn-ghost{
+  font-weight: 500;
 }
 
 
@@ -2063,7 +2081,9 @@ footer
     font-size: 14px;
   }
   
-
+  div{
+    gap:4px;
+  }
 }
 
 
@@ -2293,15 +2313,26 @@ portfolio
   width: 100%; 
   top: 0;
   z-index: 50; 
+  overflow: hidden;
+  width: 100%;
+  
+  
+}
+
+.top-header-page.visible {
+  
 }
 
 .header-container {
-  height: 88px; 
+  height: 64px; 
   align-items: center; 
   display: flex;
   width: 100%;
-  padding: 0px 32px;
   gap: 16px;
+
+  div{
+    gap:4px;
+  }
 
   
 }
@@ -3907,7 +3938,7 @@ padding: 32px;
 /* Style the tab */
 .tab {
   overflow: hidden;
-  width: fit-content;
+  width: 100%;
   border-radius: 99px;
   padding: 8px;
   background-color: #1c1c1c;
@@ -3927,6 +3958,9 @@ padding: 32px;
   backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   -webkit-backdrop-filter: blur(var(--card-glass-blur)) saturate(var(--card-glass-saturation));
   border: solid 1px #1c1c1c20;
+  h6{
+    width: 100%;
+  }
   
 }
 
@@ -3963,6 +3997,8 @@ padding: 32px;
   animation: 4s linear infinite pulse;
   -webkit-transition: 0.2s cubic-bezier(0, 0, 0.3642, 1);
   font-family: "inter", sans-serif;
+  width: fit-content;
+  line-break:loose;
 
   --card-glass-bg: rgba(255, 255, 255, 0.16);
   --card-glass-border: rgba(255, 255, 255, 0.42);

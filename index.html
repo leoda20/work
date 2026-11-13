@@ -481,7 +481,7 @@
     --ink: #1c1c1c;
     --ink-muted: #6b6b6b;
     --select: #2456F5;          /* 5.6:1 with white */
-    --canvas-dot: rgba(28, 28, 28, 0.13);
+    --canvas-dot: rgba(28, 28, 28, 0.3);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --ui-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -1048,14 +1048,14 @@ button:focus-visible {
    <div class="top-header-page">
         <div class="header-container container justify-content-between" >
             
-
             <h6 class="text-inverse">Leo Denega</h6>
-            <div class="tab flex-div align-items-center gap-4" >
-
+            
+            <div class="flex-div align-items-center gap-16" >
+               
                 
-                <a href="index.html" class="tablinks" >Home</a>
-                <a href="ai-sandbox.html" class="tablinks">AI Sandbox</a>
-                <a href="about.html" class="tablinks">About</a>
+                <a href="index.html" class="mil-link-lg" >Home</a>
+                <a href="ai-sandbox.html" class="mil-link-lg">AI Sandbox</a>
+                <a href="about.html" class="mil-link-lg">About</a>
                 
             </div>
 
@@ -1875,6 +1875,15 @@ button:focus-visible {
 
 
 <!--magnetic image hero-->
+    <script>
+        window.addEventListener("scroll", () => {
+        document.querySelector(".top-header-page").classList.toggle(
+            "visible",
+            window.scrollY > 50
+        );
+        });
+    </script>
+    
     <script>
         <!--magnetic imgae hero-->
         const magnetic = document.querySelector('.magnetic');
