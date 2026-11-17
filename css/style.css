@@ -627,17 +627,21 @@ link
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  letter-spacing: 1px;
+  letter-spacing: -0.4px;
   font-weight: 500;
   text-decoration-color: #1c1c1c;
   color: #1c1c1c;
 
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  padding: 0 8px;
+  
   border: solid 1px #1c1c1c20;
-  border-radius:4px;
+  border-radius:12px;
   background: #ffffff;
+  height:  fit-content;
+  padding: 4px 8px;
+  gap:4px;
+  width: fit-content;
   
 }
 
@@ -647,6 +651,36 @@ link
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   border: solid 1px #2456F5;
+  background-color: #dce3f8;
+
+}
+
+.mil-link-lg-active {
+
+
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-decoration-color: #1c1c1c;
+  color: #1c1c1c;
+
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  height:  fit-content;
+  padding: 4px 14px;
+  border-radius:8px;
+  color:  #2456F5;
+  text-decoration: none;
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  border: solid 1px #2456F5;
+  background-color: #dce3f8;
 
 }
 
@@ -1385,13 +1419,13 @@ body.scrolled {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 80px 32px 120px 32px;
+  padding: 64px 32px 0px 32px;
   justify-content: center;
   align-content: left;
   align-items: left;
   text-align: left;
 
-  h6{
+  h5{
     margin-bottom:80px;
     max-width: 180px;
   }
@@ -1450,7 +1484,7 @@ body.scrolled {
   align-items: left;
   line-height:1.1;
   pointer-events: none;
-  max-width: 320px;
+  max-width: 640px;
   
 }
 
@@ -1475,7 +1509,7 @@ body.scrolled {
 }
  
 .hero-paragraph{
-  width: 240px; 
+  width: 480px; 
 }
 }
 
@@ -1909,6 +1943,7 @@ blog
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   border-radius: 32px;
+  
 
   margin-bottom: 8px;
 
@@ -1958,11 +1993,18 @@ blog
   padding: 8px;
   border: solid 1px #2456F5;
   background-color: #1c1c1c10;
+  
 
   
 
 
 }
+
+
+
+
+
+
 
 .mil-blog-card:hover .mil-cover-frame video {
   
@@ -2312,7 +2354,7 @@ portfolio
   position: fixed; 
   width: 100%; 
   top: 0;
-  z-index: 50; 
+  z-index: 990; 
   overflow: hidden;
   width: 100%;
   
@@ -2324,15 +2366,13 @@ portfolio
 }
 
 .header-container {
-  height: 64px; 
+  height: 56px; 
   align-items: center; 
   display: flex;
   width: 100%;
   gap: 16px;
 
-  div{
-    gap:4px;
-  }
+  
 
   
 }
@@ -3356,7 +3396,7 @@ images
   justify-content: center;
   align-items: center;
   min-height: 640px;
-  margin-top: 80px;
+  margin-top: 56px;
   margin-bottom: 64px;
   border-radius:32px;
 }
