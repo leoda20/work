@@ -1420,14 +1420,14 @@ body.scrolled {
   flex-direction: column;
   width: 100%;
   padding: 64px 32px 0px 32px;
-  justify-content: center;
+  justify-content:space-between;
   align-content: left;
   align-items: left;
   text-align: left;
+  height: 80dvh;
 
   h5{
-    margin-bottom:80px;
-    max-width: 180px;
+    max-width: 240px;
   }
   
 }
