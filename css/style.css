@@ -2805,8 +2805,6 @@ portfolio
   height: 80px;
   z-index: 999;
   min-width: 0;
-  position:sticky;
-  top: 0px;
   background-color: #ffffff;
   padding: 16px 0px;
   width: 100%;
