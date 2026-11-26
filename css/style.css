@@ -699,7 +699,35 @@ link
   background-color: #dce3f8;
 
 }
+@media screen and (max-width: 768px) {
+  .mil-link-lg {
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    letter-spacing: -0.4px;
+    font-weight: 500;
+    text-decoration-color: #1c1c1c;
+    color: #1c1c1c;
 
+    -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+    transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+    
+    border: solid 1px #1c1c1c20;
+    border-radius:12px;
+    background: #ffffff;
+    height:  fit-content;
+    min-height: 32px;
+    padding: 4px 8px;
+    gap:4px;
+    width: fit-content;
+    font-size: 12px;
+    
+  }
+}
 
 
 /* -------------------------------------------
@@ -1391,19 +1419,7 @@ body.scrolled {
 
 
 
-.mil-banner .container {
-  
-  /*
-  FIX DOWN *****
-  
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-          */
-}
+
 
 .mil-banner-end {
   
@@ -1440,7 +1456,7 @@ body.scrolled {
   align-items: left;
   text-align: left;
   justify-content: end;
-
+  overflow: hidden;
   h5{
     max-width: 240px;
   }
@@ -1857,6 +1873,18 @@ blog
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   div{
     height: fit-content;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blur-container {
+    
+    div{
+      height: fit-content;
+      overflow: hidden;
+    }
+
+    
   }
 }
 
@@ -2395,7 +2423,7 @@ portfolio
   top: 0;
   z-index: 990; 
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #ffffff00;
   
 
   
@@ -2403,11 +2431,11 @@ portfolio
 }
 
 .top-header-page.visible {
-  
+    background-color: #ffffff;
 }
 
 .header-container {
-  height: 56px; 
+  height: 48px; 
   align-items: center; 
   display: flex;
   width: 100%;
