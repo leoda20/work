@@ -555,7 +555,7 @@ button:focus-visible {
 #hero .hero-title {
     margin: 0;
     font-weight: 400;
-    font-size: clamp(1.8rem, 2rem + 4vw, 8rem);
+    font-size: clamp(1rem, 2rem + 4vw, 4rem);
     line-height: 1.02;
     letter-spacing: -0.1em;
     text-wrap: balance;
@@ -1006,18 +1006,24 @@ dialog {
   padding: 40px;
   margin: 0;
   box-sizing: border-box;
-
+  align-items: center;
+    
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  background: #ffffff90;
+  background: #1c1c1c90;
   backdrop-filter: blur(2000);
 
   h2{
     margin-bottom: 16px;
+    color: #ffffff;
   }
   h6{
     margin-bottom: 16px;
+    color: #ffffff;
+  }
+  h4, p, h3{
+    color: #ffffff;
   }
 }
 
@@ -1033,7 +1039,7 @@ dialog::backdrop {
 }
 
 dialog[open]::backdrop {
-  background: #ffffff90;
+  background: #1c1c1c90;
   backdrop-filter: blur(8px);
 }
 
@@ -1046,6 +1052,7 @@ dialog[open]::backdrop {
   border: none;
   background: none;
   cursor: pointer;
+  color: #ffffff;
 }
 
 @starting-style {
@@ -1094,7 +1101,7 @@ dialog {
 
 
    <div class="top-header-page ">
-        <div class="header-container container align-content-center justify-content-between"  >
+        <div class="header-container  align-content-center justify-content-between"  >
             
             <div href="index.html" class=" align-items-center gap-8" style="display: inline-flex; cursor: pointer;">
                 <img style="width:28px; height:28px; border-radius: 50%;" src="img/Profile.png">
@@ -1103,13 +1110,9 @@ dialog {
             
             
             
-            <div class="flex-div gap-4">
-                <button onclick="openModal('modal1')" class="mil-link-lg">About me</button>
-                <button onclick="openModal('modal3')" class="mil-link-lg">How I work</button>
-                
-                
-                
-                
+            <div class=" gap-4" style="display: inline-flex;">
+                <button onclick="openModal('modal1')" class="mil-link-lg">About</button>
+                <button onclick="openModal('modal3')" class="mil-link-lg">Approach</button>
             </div>
 
         
@@ -1119,7 +1122,7 @@ dialog {
     </div>
 
 
-    <dialog id="modal1">
+    <dialog  id="modal1">
         <button class="close" onclick="closeModal('modal1')">&times;</button>
         <div class=" justify-content-center gap-16 col-lg-6" >
 
@@ -1200,13 +1203,13 @@ dialog {
         <div class=" col-lg-6" id="how-i-work">
 
 
-            <h2>How I work</h2>
+            <h2>Approach</h2>
             
-            <h6 >When turning complex problems into clear, thoughtful experiences, most projects move through four stages, and each one shapes the next. Good product design isn't just how it looks. It's how you think, what you solve, and what you make possible.</h6>
+            <h6 class="mil-mb-60" >When turning complex problems into clear, thoughtful experiences, most projects move through four stages, and each one shapes the next. Good product design isn't just how it looks. It's how you think, what you solve, and what you make possible.</h6>
+        
 
-
-            <div class="card-themes">
-                <div class="flex-div gap-16" style="padding-bottom: 24px; border-bottom: solid 1px #1c1c1c10 ;">
+            <div class="">
+                <div class="flex-div gap-16 card-themes" >
 
                     <div class="col-lg-4">
                         <h2 class="mil-accent">1. Strategy</h2>
@@ -1217,9 +1220,9 @@ dialog {
                         
 
                 </div>
+            
 
-
-                <div class="flex-div gap-16" style="padding: 24px 0px; border-bottom: solid 1px #1c1c1c10 ;">
+                <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
                         <h2 class="mil-accent">2. UX</h2>
@@ -1230,9 +1233,9 @@ dialog {
                         
 
                 </div>
+            
 
-
-                <div class="flex-div gap-16" style="padding: 24px 0px; border-bottom: solid 1px #1c1c1c10 ;">
+                <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
                         <h2 class="mil-accent">3. UI</h2>
@@ -1243,8 +1246,8 @@ dialog {
                         
 
                 </div>
-
-                <div class="flex-div gap-16" style="padding-top: 24px">
+            
+                <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
                         <h2 class="mil-accent">4. Systems</h2>
@@ -1260,21 +1263,93 @@ dialog {
         </div>
     </dialog>
 
+    <dialog id="modalEmergn">
+        <button class="close" onclick="closeModal('modalEmergn')">&times;</button>
+        <div class=" justify-content-center  flex-div gap-16 col-lg-6" style="height: 100%; flex-direction: column;" >
 
-    
+            <h2>Emergn</h2>
 
-    
-
-
-    
-
-    <section class=" hero justify-content-between container" style="padding-bottom: 120px;"  id="hero">
-        <div class="hero-paragraph">
-            <h5 style="color:#6b6b6b ">5+ years strategic product designer based in Lisbon.</h5>
+                <p class="mil-mb-30">At Emergn, I design across Energyline’s energy-management products, improving complex workflows, usability, and information architecture. My work spans user research, dashboard redesigns, AI-assisted insights, and design systems, delivering clearer and more accessible experiences.</p>
+            
+                
+                <div class="grid-3">
+                    <div class="card-themes-mb0">
+                        <h3>100%</h3>
+                        <p>Fewer contrast issues in all pages</p>
+                    </div>
+                    <div class="card-themes-mb0">
+                        <h3>3 </h3>
+                        <p>products supported by shared design system</p>
+                    </div>
+                    <div class="card-themes-mb0">
+                        <h3>12 </h3>
+                        <p>usability sessions informing product improvements</p>
+                    </div>
+                </div>
         </div>
-        
-        <h1 class="hero-title" style="color: #1c1c1c95;">Making complex products <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name flex-div align-items-center gap-8">Leo</span></span></span></h1>
+    </dialog>
 
+
+    <dialog id="modalTR">
+        <button class="close" onclick="closeModal('modalTR')">&times;</button>
+        <div class=" justify-content-center  flex-div gap-16 col-lg-6" style="height: 100%; flex-direction: column;" >
+
+            <h2>Thomson Reuters</h2>
+
+            <p>At Thomson Reuters, I designed complex tax research workflows, improving Onvio usability, data configuration, compilation, and verification.</p>
+            <p class="mil-mb-30">I led end-to-end design initiatives, translating complex tax and accounting requirements into intuitive experiences that improved efficiency for both administrators and end users.</p>
+                
+            <div class="grid-2">
+                <div class="card-themes-mb0">
+                        <h3>86%</h3>
+                        <p>fewer messages sent to the end user</p>
+                    </div>
+                    <div class="card-themes-mb0">
+                        <h3>349</h3>
+                        <p>emails/month saved across 299 companies</p>
+                    </div>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="modalUmbler">
+        <button class="close" onclick="closeModal('modalUmbler')">&times;</button>
+        <div class=" justify-content-center  flex-div gap-16 col-lg-6" style="height: 100%; flex-direction: column;" >
+
+            <h2>Umbler</h2>
+
+            <p class="mil-mb-30">At Umbler, I designed customer-facing SaaS experiences focused on simplifying email setup, onboarding, and marketing workflows. Through user research, journey mapping, and interaction design, I translated customer needs into clearer flows and more intuitive interfaces, supporting activation and usability across products.</p>
+        
+            
+            
+                
+            <div class="grid-2">
+                <div class="card-themes-mb0">
+                    <h3>25%</h3>
+                    <p>onboarding improvement</p>
+                </div>
+                <div class="card-themes-mb0">
+                    <h3>6</h3>
+                    <p>scenarios mapped → more relevant onboarding journeys</p>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    
+
+    
+
+
+    
+
+    <section class=" hero justify-content-between "  id="hero">
+        
+        
+        <h1 class="hero-title col-lg-8" style="color: #1c1c1c95;">5+ years strategic senior product designer, making complex products <br><span class="hero-select"><span class="hero-rotating-phrase" style="color: #1c1c1c;" aria-live="polite">feel effortless.</span><span class="hero-select__handle hero-select__handle--tl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--tr" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--bl" aria-hidden="true"></span><span class="hero-select__handle hero-select__handle--br" aria-hidden="true"></span><span class="hero-select__size" aria-hidden="true"></span><span class="hero-cursor" aria-hidden="true"><svg viewBox="0 0 16 20" width="20" height="25"><path d="M1 1 L1 16 L5.2 12.2 L8 18.6 L10.8 17.4 L8.1 11.2 L13.8 11.2 Z" /></svg><span class="hero-cursor__name flex-div align-items-center gap-8">Leo</span></span></span></h1>
+
+        
         
     </section>
     
@@ -1287,21 +1362,33 @@ dialog {
     
 
 
-    <section class="container" style="margin-bottom: 120px; overflow: visible;" id="projects">
+    <section class="container-32" style="margin-bottom: 120px; overflow: visible;" id="projects">
         
 
         
 
-        <div id="emergn" class="mil-mb-15 justify-content-between gap-16 flex-div" style=" position: sticky; top:64px; background-color: #ffffff; z-index:999; ">
+        <div id="emergn" class="gap-8 card-lp  align-items-center " style="display:inline-flex;">
             
-            <div class="col-lg-6 " >
-                <div >
-                    <h2>Emergn / Energyline</h2>
-                </div>
-                
+            <img src="img/work/emergn_logo.jpg">
+            <div>
+                <h4>Emergn</h4>
+                <button onclick="openModal('modalEmergn')" class="mil-link">Senior Product Designer</button>
             </div>
 
-            
+            <div class="grid-3">
+                <div class="card-stats">
+                    <h6>100%</h3>
+                    <p>Fewer contrast issues in all pages</p>
+                </div>
+                <div class="card-stats">
+                    <h6>3 </h6>
+                    <p>products supported by shared design system</p>
+                </div>
+                <div class="card-stats">
+                    <h6>12 </h3>
+                    <p>usability sessions informing product improvements</p>
+                </div>
+            </div>
         </div>
        
         <div class=" grid-2 mil-mb-15">
@@ -1309,12 +1396,13 @@ dialog {
             
             <a href="project-EnergylineTRM-Usability-test.html" class="mil-blog-card ">
                 <div class="mil-cover-frame">
-                    <img src="img/work/Energyline/Energylinetrm-test-cover.png" alt="cover">
+                    <img src="img/work/Energyline/Energyline-usability-test-mockup-cover.png" alt="cover">
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Benchmark Tool Usability Test</h4>
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Benchmark Tool Usability Test</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         <div >
@@ -1332,9 +1420,10 @@ dialog {
 
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            
-                            <h4>Token Refactor</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Token Refactor</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1352,12 +1441,14 @@ dialog {
         <div class="grid-3 mil-mb-120">
             <a href="project-Energyline-concept.html" class="mil-blog-card  ">
                 <div class="mil-cover-frame">
-                    <img src="img/work/Energyline/Energyline-cover.png" alt="cover">
+                    <img src="img/work/Energyline/Energyline-dashboard-mockup-cover.png" alt="cover">
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Dashboard Redesign</h4>
+
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Dashboard Redesign</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1370,14 +1461,16 @@ dialog {
             </a>
             <a href="project-EnergylineTRM.html" class="mil-blog-card  ">
                 <div class="mil-cover-frame">
-                    <img  src="img/work/Energyline/EnergylineTRM-cover.png" alt="cover" ></img>
+                    <img  src="img/work/Energyline/energyline-mockup-cover.png" alt="cover" ></img>
 
                     
 
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>EnergylineTRM MVP</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>EnergylineTRM MVP</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1396,8 +1489,10 @@ dialog {
 
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>AI Assistant</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>AI Assistant</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1411,33 +1506,26 @@ dialog {
         </div>
 
 
-        <div id="TR" class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; ">
-            
-            <div class=" justify-content-between col-lg-4 text-experience" >
-                <div >
-                    <h2>Thomson Reuters</h2>
-                </div>
-                <div class="col-lg-8">
-                    <p class="body-sm">Product Design, UX Strategy, UX Research, UI Design, Service Design, Information Architecture</p>
-                </div>
+        
+
+
+        <div id="emergn" class="gap-8 card-lp  align-items-center " style="display:inline-flex;">
+            <img src="img/work/tr_logo.png" >
+            <div>
+                <h4>Thomson Reuters</h4>
+                <button onclick="openModal('modalTR')" class="mil-link">UI/UX and Service
+Designer</button>
             </div>
 
-            <div class="col-lg-8">
-                <h6>At Thomson Reuters, I designed complex tax research workflows, improving Onvio usability, data configuration, compilation, and verification.</h6>
-                <h6>I led end-to-end design initiatives, translating complex tax and accounting requirements into intuitive experiences that improved efficiency for both administrators and end users.</h6>
-
-                <div style="margin-top: 16px;" class="flex-div gap-16">
-                    <div class="card-stats">
-                        <h4>86%</h4>
+            <div class="grid-2">
+                <div class="card-stats">
+                        <h6>86%</h3>
                         <p>fewer messages sent to the end user</p>
                     </div>
                     <div class="card-stats">
-                        <h4>349</h4>
+                        <h6>349</h3>
                         <p>emails/month saved across 299 companies</p>
                     </div>
-
-                    
-                </div>
             </div>
         </div>
 
@@ -1454,8 +1542,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>User Communication</h4>
+                       
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>User Communication</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1477,8 +1567,10 @@ dialog {
 
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Accountability Blueprint</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Accountability Blueprint</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1495,40 +1587,22 @@ dialog {
         </div>
 
 
-        <div id="umbler" class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; ">
+        
 
-            
-            
-            <div class=" justify-content-between text-experience col-lg-4" >
-                
-                <div >
-                    <h2>Umbler</h2>
-                </div>
-                <div class="col-lg-6">
-                    <p class="body-sm">UI Design, UX Research, Product Discovery, Wireframing, Usability Testing, Design Systems</p>
-                </div>
+        <div id="emergn" class="gap-8 card-lp align-items-center " style="display:inline-flex;">
+            <img src="img/work/umbler_logo.jpg">
+            <div>
+                <h4>Umbler</h4>
+                <button onclick="openModal('modalUmbler')" class="mil-link">UI Designer</button>
             </div>
-
-            <div class="col-lg-8">
-                <h6>At Umbler, I designed customer-facing SaaS experiences focused on simplifying email setup, onboarding, and marketing workflows. </h6>
-                <h6>Through user research, journey mapping, and interaction design, I translated customer needs into clearer flows and more intuitive interfaces, supporting activation and usability across products.</h6>
-
-                <div style="margin-top: 16px;" class="flex-div gap-16">
-                    <div class="card-stats">
-                        <h4>25%</h4>
-                        <p>onboarding improvement</p>
-                    </div>
-                    <div class="card-stats">
-                        <h4>30</h4>
-                        <p>users researched to inform onboarding</p>
-                    </div>
-
-                    <div class="card-stats">
-                        <h4>6</h4>
-                        <p>scenarios mapped → more relevant onboarding journeys</p>
-                    </div>
-
-                    
+            <div class="grid-2">
+                <div class="card-stats">
+                    <h6>25%</h3>
+                    <p>onboarding improvement</p>
+                </div>
+                <div class="card-stats">
+                    <h6>6</h3>
+                    <p>scenarios mapped → more relevant onboarding journeys</p>
                 </div>
             </div>
         </div>
@@ -1545,8 +1619,10 @@ dialog {
 
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>E-mail App Onboarding</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>E-mail App Onboarding</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1567,8 +1643,10 @@ dialog {
                    
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>E-mail Marketing Tool</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>E-mail Marketing Tool</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1586,36 +1664,9 @@ dialog {
         </div>
 
 
-        <div id="freelancing" class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; ">
-
-            
-            
-            <div class=" justify-content-between text-experience col-lg-4" >
-                 
-                <div >
-                    <h2>Other projects</h2>
-                </div>
-                <div class="col-lg-8">
-                    <p class="body-sm">Product Design, Product Discovery, Concept Design, Prototyping, Visual Design, Design Thinking</p>
-                </div>
-            </div>
-
-            <div class="col-lg-8">
-                <h6>Explored diverse product challenges through freelance projects and independent case studies, designing digital experiences from concept to high-fidelity prototypes. </h6>
-                <h6>Applied research, product thinking, and interaction design to validate ideas, simplify workflows, and build user-centered solutions across different industries.</h6>
-                <div style="margin-top: 16px;" class="flex-div gap-16">
-                    <div class="card-stats">
-                        <h4>3rd place </h4>
-                        <p>Startup Weekend CadastraPet</p>
-                    </div>
-                    <div class="card-stats">
-                        <h4>6 </h4>
-                        <p>usability scenarios explored across independent product work</p>
-                    </div>
-
-                    
-                </div>
-            </div>
+        <div id="emergn" class=" gap-4 card-lp align-items-center " style="display:inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hammer preview-icon"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>
+            <h4>Other Projects</h4>
         </div>
         
 
@@ -1631,8 +1682,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Finbooks Website</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Finbooks Website</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1656,8 +1709,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Medtime Mobile App</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Medtime Mobile App</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1680,8 +1735,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Dronelivery Mobile App</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Dronelivery Mobile App</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1698,8 +1755,10 @@ dialog {
                     <img src="img/work/cadastrapet/cadastrapet-hero.png" alt="cover">
                     
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Cadastrapet App</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Cadastrapet App</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1719,21 +1778,9 @@ dialog {
 
     
         </div>
-        <div id="ai" class="mil-mb-60 justify-content-between gap-16 flex-div" style="padding-top: 120px; ">
-
-            
-            
-            <div class=" justify-content-between text-experience-sm col-lg-6" >
-                
-                <div >
-                    <h2>AI Skills</h2>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <h6>Exploring how AI, accessibility, and design systems can improve digital products. Through independent experiments and prototypes, I investigate new interactions, simplify complex workflows, and turn emerging ideas into practical design solutions.</h6>
-                
-            </div>
+        <div id="emergn" class=" gap-4 card-lp align-items-center " style="display:inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles preview-icon"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+            <h4>AI Lab</h4>
         </div>
 
         
@@ -1754,8 +1801,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>AccessibilityGPT</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>AccessibilityGPT</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1776,8 +1825,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Design Documentation</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Design Documentation</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -1801,8 +1852,10 @@ dialog {
                     
 
                     <div class="blur-container">
-                        <div class="flex-div gap-8" >
-                            <h4>Contrast Tokens</h4>
+                        
+                        <div class="flex-div gap-8 align-content-center justify-content-between" >
+                            <h5>Contrast Tokens</h5>
+                            <h5>↗︎</h5>
                         </div>
 
                         
@@ -2084,28 +2137,28 @@ dialog {
     <!-- footer -->
     <footer style="border-top: #1c1c1c10 solid 1px;">
         
-        <div class="container footer-content" >
+        <div class=" footer-content" >
 
             <div >
                 <h2 >Let's connect.</h2>
 
-                <div class="flex-div gap-16 links" >
+                <div class="flex-div links" >
                     
-                    <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link-lg"> 
+                    <a href="https://www.linkedin.com/in/leonardodenega/" target="https://www.linkedin.com/in/leonardodenega/" aria-label="LinkedIn" class="mil-link"> 
                         LinkedIn
                     </a>
                 
-                    <a href="mailto:leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link-lg" > 
+                    <a href="mailto:leonardo.denega@hotmail.com" target="E-mail" aria-label="E-mail" class="mil-link" > 
                         E-mail
                                     
                     </a>
 
-                    <a href="https://www.instagram.com/leodenega/" target="Instagram" aria-label="Instagram" class="mil-link-lg" > 
+                    <a href="https://www.instagram.com/leodenega/" target="Instagram" aria-label="Instagram" class="mil-link" > 
                         Instagram
                                     
                     </a>
 
-                    <a href="Docs/Leonardo Denega - 2026.pdf" target="Resume" aria-label="Resume" class="mil-link-lg" > 
+                    <a href="Docs/Leonardo Denega - 2026.pdf" target="Resume" aria-label="Resume" class="mil-link" > 
                         Download Resume
                                     
                     </a>
