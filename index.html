@@ -1049,10 +1049,17 @@ dialog[open]::backdrop {
   float: right;
   z-index: 10;
   font-size: 28px;
+  line-height: 24px;
   border: none;
   background: none;
   cursor: pointer;
   color: #ffffff;
+  background-color: #1c1c1c30;
+  padding: 6px 12px 12px 12px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 8px;
 }
 
 @starting-style {
@@ -1212,7 +1219,7 @@ dialog {
                 <div class="flex-div gap-16 card-themes" >
 
                     <div class="col-lg-4">
-                        <h2 class="mil-accent">1. Strategy</h2>
+                        <h2 class="mil-accent-dark">1. Strategy</h2>
                         <h4>Solve the right problem.</h4>
                     </div>
                     
@@ -1225,7 +1232,7 @@ dialog {
                 <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
-                        <h2 class="mil-accent">2. UX</h2>
+                        <h2 class="mil-accent-dark">2. UX</h2>
                         <h4>Turn complexity<br> into clarity.</h4>
                     </div>
                     
@@ -1238,7 +1245,7 @@ dialog {
                 <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
-                        <h2 class="mil-accent">3. UI</h2>
+                        <h2 class="mil-accent-dark">3. UI</h2>
                         <h4>Make the details matter.</h4>
                     </div>
                     
@@ -1250,7 +1257,7 @@ dialog {
                 <div class="flex-div gap-16 card-themes">
 
                     <div class="col-lg-4">
-                        <h2 class="mil-accent">4. Systems</h2>
+                        <h2 class="mil-accent-dark">4. Systems</h2>
                         <h4>Design for what comes next.</h4>
                     </div>
                     
@@ -1367,13 +1374,13 @@ dialog {
 
         
 
-        <div id="emergn" class="gap-8 card-lp  align-items-center " style="display:inline-flex;">
+        <div id="emergn" class="gap-8 card-lp  " style="display:inline-flex;">
             
             <img src="img/work/emergn_logo.jpg">
-            <div>
-                <h4>Emergn</h4>
-                <button onclick="openModal('modalEmergn')" class="mil-link">Senior Product Designer</button>
-            </div>
+                <div>
+                    <h4>Emergn</h4>
+                    <button onclick="openModal('modalEmergn')" class="mil-link">Senior Product Designer</button>
+                </div>
 
             <div class="grid-3">
                 <div class="card-stats">
@@ -1509,12 +1516,11 @@ dialog {
         
 
 
-        <div id="emergn" class="gap-8 card-lp  align-items-center " style="display:inline-flex;">
+        <div id="emergn" class="gap-8 card-lp  " style="display:inline-flex;">
             <img src="img/work/tr_logo.png" >
             <div>
                 <h4>Thomson Reuters</h4>
-                <button onclick="openModal('modalTR')" class="mil-link">UI/UX and Service
-Designer</button>
+                <button onclick="openModal('modalTR')" class="mil-link">UI/UX and Service Designer</button>
             </div>
 
             <div class="grid-2">
@@ -1589,7 +1595,7 @@ Designer</button>
 
         
 
-        <div id="emergn" class="gap-8 card-lp align-items-center " style="display:inline-flex;">
+        <div id="emergn" class="gap-8 card-lp " style="display:inline-flex;">
             <img src="img/work/umbler_logo.jpg">
             <div>
                 <h4>Umbler</h4>
@@ -1664,7 +1670,7 @@ Designer</button>
         </div>
 
 
-        <div id="emergn" class=" gap-4 card-lp align-items-center " style="display:inline-flex;">
+        <div id="emergn" class=" gap-4 card-lp " style="display:inline-flex;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hammer preview-icon"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg>
             <h4>Other Projects</h4>
         </div>
@@ -1778,7 +1784,7 @@ Designer</button>
 
     
         </div>
-        <div id="emergn" class=" gap-4 card-lp align-items-center " style="display:inline-flex;">
+        <div id="emergn" class=" gap-4 card-lp " style="display:inline-flex;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles preview-icon"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
             <h4>AI Lab</h4>
         </div>
@@ -2140,7 +2146,7 @@ Designer</button>
         <div class=" footer-content" >
 
             <div >
-                <h2 >Let's connect.</h2>
+                <h5>Let's connect.</h5>
 
                 <div class="flex-div links" >
                     
@@ -2168,12 +2174,7 @@ Designer</button>
                 </div>
             </div>
 
-            <div class="flex-div gap-16" style="flex-direction: column; align-items: end;">
-                <div style="width:64px; height:64px; ">
-                    <img style="width:100%; height:100%;" src="img/ezgif.com-gif-maker.gif">
-                </div>
-                <p>@2026 Designed and Developed by Leonardo Denega</p>
-            </div>
+            <p>@2026 Designed and Developed by Leonardo Denega</p>
         </div>
     </footer>
     <!-- footer end -->

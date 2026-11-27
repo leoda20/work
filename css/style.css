@@ -456,7 +456,17 @@ a {
 }
 
 .mil-accent {
-  color: #2456F5;
+  color: #7293ff;
+  font-size: 16px;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 300;
+
+}
+
+.mil-accent-dark {
+  color: #9badea;
   font-size: 16px;
   margin-bottom: 8px;
   letter-spacing: 2px;
@@ -1839,7 +1849,6 @@ blog
 
 
 .blur-container {
-  isolation: isolate;
   gap: 8px;
   position:absolute;
   bottom: 0px;
@@ -1865,17 +1874,24 @@ blog
   
 }
 
+.blur-container:hover {
+  
+  div{
+    height: fit-content;
+   overflow: visible;
+  }
+
+  
+}
+
 
 
 
 @media screen and (max-width: 768px) {
   .blur-container {
     
-    div{
-      height: fit-content;
-      overflow: hidden;
-    }
-
+   height: fit-content;
+   overflow: visible;
     
   }
 }
@@ -2167,13 +2183,15 @@ footer
   
   display: flex;
   height: fit-content;
-  padding: 32px;
+  padding: 8px 32px;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
 
   h2{
     margin-bottom: 8px;
+    width: max-content;
+    margin-right:32px;
   }
 
   p{
@@ -2182,6 +2200,8 @@ footer
   
   div{
     gap:16px;
+    display: flex;
+    align-items: center;
   }
   
 }
@@ -2191,16 +2211,24 @@ footer
 @media screen and (max-width: 768px) {
   .footer-content{
     flex-direction: column;
-    column-gap: 24px;
+    padding: 32px;
+    
 
     h2{
       height: fit-content;
+      width: 100%;
     }
 
     a{
       width: 100%;
-      height: 32px;
+      height: 24px;
       margin-bottom: 4px;
+    }
+    div{
+      flex-direction: column;
+      width: 100%;
+      justify-content: start;
+      align-items: start;
     }
     
   }
@@ -2862,15 +2890,16 @@ portfolio
     overflow: visible;
   }
   img{
-    width: 64px; 
-    height: 64px; 
+    width: 48px; 
+    height: 48px; 
     border: solid 1px #1c1c1c20;
     border-radius: 40px;
   }
   div{
-    
+    align-items: center;
     width: 100%;
   }
+  
 }  
 
 
@@ -2911,6 +2940,8 @@ portfolio
   justify-content: space-between;
   width: 100%;
   height: fit-content;
+
+  
   p{
     font-size:14px;
     line-height:14px;
@@ -2924,8 +2955,26 @@ portfolio
 
 @media screen and (max-width: 768px) {
   .card-stats{
-    margin-bottom: 16px;
+    padding-left:12px;
+    margin-left:12px;
 
+  }
+  .card-lp{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    
+    img{
+      width: 32px;
+      height:32px
+    }
+
+    div{
+      justify-content: start;
+    }
+    button{
+      margin-bottom: 12px;
+    }
   }
 }
 .card-flow {
